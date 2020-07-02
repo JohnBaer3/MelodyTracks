@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF1FDD3624AD220E0029F2DE /* AddSongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3524AD220E0029F2DE /* AddSongButton.swift */; };
+		DF1FDD3824AD29F70029F2DE /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3724AD29F70029F2DE /* PlayPauseButton.swift */; };
+		DF1FDD3A24AD2B120029F2DE /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3924AD2B120029F2DE /* PauseButton.swift */; };
+		DF1FDD3C24AD3B570029F2DE /* FowardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3B24AD3B570029F2DE /* FowardButton.swift */; };
+		DF1FDD3E24AD3B8A0029F2DE /* BackwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3D24AD3B8A0029F2DE /* BackwardButton.swift */; };
+		DF1FDD4024AD44F20029F2DE /* LoopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3F24AD44F20029F2DE /* LoopButton.swift */; };
+		DF1FDD4224AD44FB0029F2DE /* ShuffleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD4124AD44FB0029F2DE /* ShuffleButton.swift */; };
 		DF31FD6A24AAE5F50036C7BC /* Pace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31FD6924AAE5F50036C7BC /* Pace.swift */; };
 		DFA1779624A918C300FDFD18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA1779524A918C300FDFD18 /* AppDelegate.swift */; };
 		DFA1779824A918C300FDFD18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA1779724A918C300FDFD18 /* SceneDelegate.swift */; };
@@ -40,6 +47,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF1FDD3524AD220E0029F2DE /* AddSongButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongButton.swift; sourceTree = "<group>"; };
+		DF1FDD3724AD29F70029F2DE /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
+		DF1FDD3924AD2B120029F2DE /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
+		DF1FDD3B24AD3B570029F2DE /* FowardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FowardButton.swift; sourceTree = "<group>"; };
+		DF1FDD3D24AD3B8A0029F2DE /* BackwardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackwardButton.swift; sourceTree = "<group>"; };
+		DF1FDD3F24AD44F20029F2DE /* LoopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopButton.swift; sourceTree = "<group>"; };
+		DF1FDD4124AD44FB0029F2DE /* ShuffleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleButton.swift; sourceTree = "<group>"; };
 		DF31FD6924AAE5F50036C7BC /* Pace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pace.swift; sourceTree = "<group>"; };
 		DFA1779224A918C300FDFD18 /* MelodyTracks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MelodyTracks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFA1779524A918C300FDFD18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -144,7 +158,14 @@
 			isa = PBXGroup;
 			children = (
 				DFA177C624A9602500FDFD18 /* StartButton.swift */,
+				DF1FDD3F24AD44F20029F2DE /* LoopButton.swift */,
+				DF1FDD4124AD44FB0029F2DE /* ShuffleButton.swift */,
 				DFE4F19024ABD74500837BFD /* StopButton.swift */,
+				DF1FDD3924AD2B120029F2DE /* PauseButton.swift */,
+				DF1FDD3524AD220E0029F2DE /* AddSongButton.swift */,
+				DF1FDD3B24AD3B570029F2DE /* FowardButton.swift */,
+				DF1FDD3D24AD3B8A0029F2DE /* BackwardButton.swift */,
+				DF1FDD3724AD29F70029F2DE /* PlayPauseButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -290,13 +311,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF1FDD3C24AD3B570029F2DE /* FowardButton.swift in Sources */,
+				DF1FDD3A24AD2B120029F2DE /* PauseButton.swift in Sources */,
 				DFA1779A24A918C300FDFD18 /* ViewController.swift in Sources */,
+				DF1FDD4224AD44FB0029F2DE /* ShuffleButton.swift in Sources */,
+				DF1FDD3624AD220E0029F2DE /* AddSongButton.swift in Sources */,
 				DF31FD6A24AAE5F50036C7BC /* Pace.swift in Sources */,
 				DFA177CF24A9685900FDFD18 /* Jogging.swift in Sources */,
+				DF1FDD3E24AD3B8A0029F2DE /* BackwardButton.swift in Sources */,
 				DFA177CB24A965CE00FDFD18 /* HomeScreen.swift in Sources */,
 				DFA1779624A918C300FDFD18 /* AppDelegate.swift in Sources */,
 				DFA177C724A9602500FDFD18 /* StartButton.swift in Sources */,
 				DFA1779824A918C300FDFD18 /* SceneDelegate.swift in Sources */,
+				DF1FDD4024AD44F20029F2DE /* LoopButton.swift in Sources */,
+				DF1FDD3824AD29F70029F2DE /* PlayPauseButton.swift in Sources */,
 				DFE4F19124ABD74500837BFD /* StopButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,43 +32,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FY-jJ-Cck" customClass="StartButton" customModule="MelodyTracks" customModuleProvider="target">
-                                <rect key="frame" x="97" y="574" width="221" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FY-jJ-Cck" customClass="StartButton" customModule="MelodyTracks" customModuleProvider="target">
+                                <rect key="frame" x="97" y="531.33333333333337" width="220" height="60"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="D14-jY-LPz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Start">
                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </state>
                                 <connections>
                                     <action selector="StartJogTapped:" destination="PPF-I7-tlZ" eventType="touchUpInside" id="7R9-j0-jC1"/>
+                                    <segue destination="kWk-Go-bc6" kind="popoverPresentation" popoverAnchorView="9FY-jJ-Cck" id="YZ1-zE-F4N">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BPM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMq-hG-aVB">
-                                <rect key="frame" x="127" y="175" width="160" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7a-Xv-rde">
-                                <rect key="frame" x="186" y="252" width="0.0" height="0.0"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4f-4G-jL8">
+                                <rect key="frame" x="161" y="252.00000000000003" width="92" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4f-4G-jL8">
-                                <rect key="frame" x="162" y="252" width="91" height="61"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIf-U4-KUx" customClass="StopButton" customModule="MelodyTracks" customModuleProvider="target">
-                                <rect key="frame" x="97" y="638" width="221" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PIf-U4-KUx" customClass="StopButton" customModule="MelodyTracks" customModuleProvider="target">
+                                <rect key="frame" x="97" y="599.33333333333337" width="220" height="60"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="XvW-5Z-T6o"/>
+                                </constraints>
                                 <state key="normal" title="Stop">
                                     <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </state>
@@ -76,19 +68,33 @@
                                     <action selector="StopTapped:" destination="PPF-I7-tlZ" eventType="touchUpInside" id="nch-bb-w9n"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dw7-dn-raP">
-                                <rect key="frame" x="97" y="702" width="221" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Set Pace">
-                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                </state>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="PfS-O3-UmV">
+                                <rect key="frame" x="80" y="691.33333333333337" width="254" height="71.666666666666629"/>
                                 <connections>
-                                    <action selector="SetPaceTapped:" destination="PPF-I7-tlZ" eventType="touchUpInside" id="2CK-tz-cqF"/>
+                                    <action selector="slider:" destination="PPF-I7-tlZ" eventType="valueChanged" id="AAZ-Ut-zUQ"/>
+                                    <action selector="slider:" destination="BJp-d9-oLE" eventType="valueChanged" id="pJ6-ep-wdI"/>
                                 </connections>
-                            </button>
+                            </slider>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="u4f-4G-jL8" firstAttribute="leading" secondItem="ZDq-8c-gsc" secondAttribute="leading" constant="161" id="2Zo-Yk-7oM"/>
+                            <constraint firstItem="9FY-jJ-Cck" firstAttribute="leading" secondItem="PIf-U4-KUx" secondAttribute="leading" id="8Ep-9E-pAV"/>
+                            <constraint firstItem="ZDq-8c-gsc" firstAttribute="trailing" secondItem="PfS-O3-UmV" secondAttribute="trailing" constant="82" id="Ayo-tM-w0S"/>
+                            <constraint firstItem="PfS-O3-UmV" firstAttribute="leading" secondItem="ZDq-8c-gsc" secondAttribute="leading" constant="82" id="DGN-3u-F3k"/>
+                            <constraint firstItem="ZDq-8c-gsc" firstAttribute="trailing" secondItem="PIf-U4-KUx" secondAttribute="trailing" constant="97" id="H9E-Jg-HoK"/>
+                            <constraint firstItem="9FY-jJ-Cck" firstAttribute="centerX" secondItem="VL9-Vk-Q0i" secondAttribute="centerX" id="HZh-Kz-juj"/>
+                            <constraint firstItem="PfS-O3-UmV" firstAttribute="top" secondItem="PIf-U4-KUx" secondAttribute="bottom" constant="32" id="JLl-6c-iNS"/>
+                            <constraint firstItem="9FY-jJ-Cck" firstAttribute="trailing" secondItem="PIf-U4-KUx" secondAttribute="trailing" id="NnJ-f3-2qC"/>
+                            <constraint firstItem="ZDq-8c-gsc" firstAttribute="trailing" secondItem="u4f-4G-jL8" secondAttribute="trailing" constant="161" id="SCc-mC-RSP"/>
+                            <constraint firstItem="PIf-U4-KUx" firstAttribute="leading" secondItem="ZDq-8c-gsc" secondAttribute="leading" constant="97" id="SFD-qt-flW"/>
+                            <constraint firstItem="ZDq-8c-gsc" firstAttribute="trailing" secondItem="9FY-jJ-Cck" secondAttribute="trailing" constant="97" id="TMa-hX-XmG"/>
+                            <constraint firstItem="ZDq-8c-gsc" firstAttribute="bottom" secondItem="PfS-O3-UmV" secondAttribute="bottom" constant="100" id="hWv-bp-oTr"/>
+                            <constraint firstItem="PIf-U4-KUx" firstAttribute="top" secondItem="9FY-jJ-Cck" secondAttribute="bottom" constant="8" id="lKo-qE-aaY"/>
+                            <constraint firstItem="9FY-jJ-Cck" firstAttribute="leading" secondItem="ZDq-8c-gsc" secondAttribute="leading" constant="97" id="uWU-AX-QnI"/>
+                            <constraint firstItem="9FY-jJ-Cck" firstAttribute="top" secondItem="u4f-4G-jL8" secondAttribute="bottom" constant="259" id="vPi-Ql-Nev"/>
+                            <constraint firstItem="u4f-4G-jL8" firstAttribute="top" secondItem="ZDq-8c-gsc" secondAttribute="top" constant="164" id="x6r-cp-aEJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZDq-8c-gsc"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="kFW-jO-xBm">
@@ -104,8 +110,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="BPM" destination="u4f-4G-jL8" id="f3g-hO-DF5"/>
+                        <outlet property="BPM" destination="u4f-4G-jL8" id="fQY-19-FVb"/>
                         <outlet property="Start" destination="9FY-jJ-Cck" id="rVh-Iw-gxJ"/>
+                        <outlet property="slider" destination="PfS-O3-UmV" id="SMk-eS-mjF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fmJ-ya-0YO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -132,52 +139,100 @@
         <scene sceneID="jWo-dC-dHb">
             <objects>
                 <viewController storyboardIdentifier="Jogging" id="kWk-Go-bc6" customClass="Jogging" customModule="MelodyTracks" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="D0W-nQ-ffz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="D0W-nQ-ffz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zPK-Ov-qT7">
-                                <rect key="frame" x="97" y="719" width="221" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Pause">
-                                    <color key="titleColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="PauseTapped:" destination="kWk-Go-bc6" eventType="touchUpInside" id="QeU-WT-7tt"/>
-                                    <segue destination="urC-Xb-4mE" kind="unwind" unwindAction="unwindToHome:" id="dP2-QV-rL6"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-Qd-eBM">
-                                <rect key="frame" x="177" y="433" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pick A Song"/>
-                                <connections>
-                                    <action selector="PickSongTapped:" destination="kWk-Go-bc6" eventType="touchUpInside" id="vmF-yy-6Zg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eb4-QB-dhT">
-                                <rect key="frame" x="173" y="547" width="68" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eb4-QB-dhT" customClass="PlayPauseButton" customModule="MelodyTracks" customModuleProvider="target">
+                                <rect key="frame" x="185" y="699" width="40" height="47.333333333333371"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="fqv-HN-dlA"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Button" image="play.fill" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
+                                <state key="normal" image="play.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="default" weight="ultraLight"/>
                                 </state>
                                 <connections>
                                     <action selector="PlayButton:" destination="kWk-Go-bc6" eventType="touchUpInside" id="IwG-8r-X4L"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOr-VD-dY4" customClass="FowardButton" customModule="MelodyTracks" customModuleProvider="target">
+                                <rect key="frame" x="255" y="711" width="23" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="DXq-DN-4Sd"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="forward.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="FastForwardTapped:" destination="kWk-Go-bc6" eventType="touchUpInside" id="sKx-N9-A42"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vs-yc-seY" customClass="LoopButton" customModule="MelodyTracks" customModuleProvider="target">
+                                <rect key="frame" x="308" y="711" width="23" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="auJ-zM-kJr"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="repeat" catalog="system"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5z-OI-awM" customClass="ShuffleButton" customModule="MelodyTracks" customModuleProvider="target">
+                                <rect key="frame" x="79" y="711" width="23" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="FBp-F9-hRP"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="shuffle" catalog="system"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3E2-KT-cMx" customClass="BackwardButton" customModule="MelodyTracks" customModuleProvider="target">
+                                <rect key="frame" x="132" y="711" width="23" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="23" id="6DC-ro-CXO"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="backward.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="BackwardTapped:" destination="kWk-Go-bc6" eventType="touchUpInside" id="lXD-rU-K4F"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="unB-96-yby">
+                                <rect key="frame" x="20" y="70" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="VkP-83-wGO"/>
+                                    <constraint firstAttribute="height" constant="180" id="oFm-2D-O4i"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yyy-Xv-QsY">
+                                <rect key="frame" x="374" y="20" width="20" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="plus.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="PickSongTapped:" destination="kWk-Go-bc6" eventType="touchUpInside" id="mqF-96-LKO"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0vs-yc-seY" firstAttribute="leading" secondItem="eOr-VD-dY4" secondAttribute="trailing" constant="30" id="4gy-X2-QEu"/>
+                            <constraint firstItem="eb4-QB-dhT" firstAttribute="leading" secondItem="D0W-nQ-ffz" secondAttribute="leadingMargin" constant="165" id="6lE-fY-DPY"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="eb4-QB-dhT" secondAttribute="bottom" constant="61.666666666666629" id="7VI-pG-y8I"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="3E2-KT-cMx" secondAttribute="bottom" constant="75" id="C01-zr-cYo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eb4-QB-dhT" secondAttribute="trailing" constant="165" id="G54-C5-OuR"/>
+                            <constraint firstItem="unB-96-yby" firstAttribute="top" secondItem="D0W-nQ-ffz" secondAttribute="topMargin" constant="70" id="Jb4-Um-Mkp"/>
+                            <constraint firstItem="3E2-KT-cMx" firstAttribute="leading" secondItem="u5z-OI-awM" secondAttribute="trailing" constant="30" id="Naj-zQ-eKf"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="u5z-OI-awM" secondAttribute="bottom" constant="75" id="ON2-Sz-1hr"/>
+                            <constraint firstItem="eb4-QB-dhT" firstAttribute="leading" secondItem="3E2-KT-cMx" secondAttribute="trailing" constant="30" id="RYJ-B0-OFn"/>
+                            <constraint firstItem="unB-96-yby" firstAttribute="leading" secondItem="3vH-hI-0mo" secondAttribute="leading" constant="20" id="S1n-bF-3Uh"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="eOr-VD-dY4" secondAttribute="bottom" constant="75" id="S3M-LJ-f8v"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="0vs-yc-seY" secondAttribute="bottom" constant="75" id="oKq-O9-cYX"/>
+                            <constraint firstItem="eOr-VD-dY4" firstAttribute="leading" secondItem="eb4-QB-dhT" secondAttribute="trailing" constant="30" id="tUM-nr-KqO"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="eb4-QB-dhT" secondAttribute="bottom" constant="61.670000000000002" id="wYv-d1-fzV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3vH-hI-0mo"/>
                     </view>
                     <navigationItem key="navigationItem" id="sXk-7m-Ffe"/>
                     <connections>
+                        <outlet property="AlbumCover" destination="unB-96-yby" id="rAg-K4-3AI"/>
                         <outlet property="PlayPauseButton" destination="eb4-QB-dhT" id="KNv-HX-tyR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A1T-k5-eQR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="urC-Xb-4mE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-717.39130434782612" y="697.76785714285711"/>
         </scene>
@@ -196,13 +251,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="hG5-TU-LLr">
-                                <rect key="frame" x="79" y="527" width="254" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="slider:" destination="BJp-d9-oLE" eventType="valueChanged" id="ncD-Cg-uGp"/>
-                                </connections>
-                            </slider>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOb-5z-h6g" customClass="StartButton" customModule="MelodyTracks" customModuleProvider="target">
                                 <rect key="frame" x="99" y="677" width="221" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -222,7 +270,6 @@
                     <navigationItem key="navigationItem" id="W35-i2-Zsq"/>
                     <connections>
                         <outlet property="Label" destination="UcF-OU-74Y" id="ozJ-ds-Z9S"/>
-                        <outlet property="Slider" destination="hG5-TU-LLr" id="fgO-hT-dNR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7f-8z-2ep" sceneMemberID="firstResponder"/>
@@ -231,6 +278,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backward.fill" catalog="system" width="128" height="79"/>
+        <image name="forward.fill" catalog="system" width="128" height="79"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <image name="repeat" catalog="system" width="128" height="99"/>
+        <image name="shuffle" catalog="system" width="128" height="93"/>
     </resources>
 </document>

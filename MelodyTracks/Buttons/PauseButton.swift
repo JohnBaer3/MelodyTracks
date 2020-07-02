@@ -6,4 +6,22 @@
 //  Copyright © 2020 Daniel Loi. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class PauseButton: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupButton()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupButton()
+    }
+    
+    func setupButton() {
+        layer.cornerRadius = 20
+        
+    }
+    
+}
