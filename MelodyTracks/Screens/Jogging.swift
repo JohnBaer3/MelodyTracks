@@ -8,6 +8,8 @@
 
 import UIKit
 import MediaPlayer
+import aubio
+
 
 protocol JoggingDelegate: AnyObject{
     func didFinishTask(color: UIColor, value: String)
@@ -23,10 +25,7 @@ class Jogging: UIViewController, MPMediaPickerControllerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*JoggingBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        JoggingBar.shadowImage = UIImage()
-        JoggingBar.isTranslucent = true
-        JoggingBar.backgroundColor = UIColor.clear*/
+        
         audioPlayer.beginGeneratingPlaybackNotifications()
         NotificationCenter.default.addObserver(self, selector: #selector(systemSongDidChange(_:)), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: self.audioPlayer)
     }
@@ -70,6 +69,12 @@ class Jogging: UIViewController, MPMediaPickerControllerDelegate{
         audioPlayer.skipToPreviousItem()
     }
     
+    @IBAction func shuffleTapped(_ sender: Any) {
+    }
+    
+    @IBAction func loopTapped(_ sender: Any) {
+    }
+    
     
     func mediaPicker(_ mediaPicker: MPMediaPickerController,
         didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
@@ -81,6 +86,24 @@ class Jogging: UIViewController, MPMediaPickerControllerDelegate{
         }
         audioPlayer.setQueue(with: mediaItemCollection)
         let currentSong: MPMediaItem = mediaItemCollection.items[0]
+        let url = currentSong.assetURL
+        /*if (path != nil) {
+            let hop_size : uint_t = 512
+            let a = new_fvec(hop_size)
+            let b = new_aubio_source(path, 0, hop_size)
+            var read: uint_t = 0
+            var total_frames : uint_t = 0
+            while (true) {
+                aubio_source_do(b, a, &read)
+                total_frames += read
+                if (read < hop_size) { break }
+            }
+            print("read", total_frames, "frames at", aubio_source_get_samplerate(b), "Hz")
+            del_aubio_source(b)
+            del_fvec(a)
+        } else {
+            print("could not find file")
+        }*/
         print(currentSong.albumTitle!)
         audioPlayer.play()
         self.dismiss(animated: false, completion:nil)
