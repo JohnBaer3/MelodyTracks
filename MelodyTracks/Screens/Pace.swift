@@ -19,10 +19,7 @@ class Pace: UIViewController{
     var bpm: String!
     var selectionDelegate: SetPaceDelegate!
     
-    @IBAction func slider(_ sender: UISlider) {
-        Label.text = String(Int(sender.value))
-        UserDefaults.standard.set(Label.text, forKey:"Pace")
-    }
+    
 
     @IBAction func SavePace(_ sender: UIButton) {
         print("exiting pace set")

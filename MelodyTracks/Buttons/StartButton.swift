@@ -21,6 +21,7 @@ class StartButton: UIButton {
     
     func setupButton() {
         layer.cornerRadius = 20
+        
     }
     
 }
