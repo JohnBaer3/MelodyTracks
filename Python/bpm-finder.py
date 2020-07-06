@@ -11,13 +11,8 @@
 
 from aubio import source, tempo
 from numpy import median, diff
-import ffmpeg
-from ffprobe import FFProbe
 import os
 from pydub import AudioSegment
-import subprocess
-
-
 
 # converts beats array to the song's BPM
 
@@ -33,9 +28,8 @@ def beats_to_bpm(beats, path):
         return 0
 
 if __name__ == '__main__':
-
-	#samplerate, win_s, hop_s = 44100, 1024, 512 
 	samplerate, win_s, hop_s = 0, 256, 256
+
 	# User-supplied music file path
 	# uses relative path from working directory
 	dirname = os.path.abspath(os.path.dirname(__file__))
@@ -52,10 +46,12 @@ if __name__ == '__main__':
 	s = source('file.wav', samplerate, hop_s)
 
 	samplerate = s.samplerate
-	#o = tempo("specdiff", win_s, hop_s, samplerate)
+
 	o = tempo("specdiff", win_s, hop_s, samplerate)
+
 	# List of beats, in samples
 	beats = []
+	
 	# Total number of frames read
 	total_frames = 0
 
