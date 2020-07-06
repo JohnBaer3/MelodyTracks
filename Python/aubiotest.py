@@ -1,5 +1,18 @@
+#############
+# Michael Thompson
+# Input: music file 
+# Output: the music's bpm
+# Uses aubio, numpy libraries and ffmpeg
+# Adapted from aubio example library
+#
+# Song path must be defined before using
+##############
+
+
 from aubio import source, tempo
 from numpy import median, diff
+
+# converts beats array to the song's BPM
 
 def beats_to_bpm(beats, path):
     # if enough beats are found, convert to periods then to bpm
