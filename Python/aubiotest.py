@@ -2,7 +2,7 @@
 # Michael Thompson
 # Input: music file 
 # Output: the music's bpm
-# Uses aubio, numpy libraries and ffmpeg
+# Uses aubio, numpy, os libraries and ffmpeg
 # Adapted from aubio example library
 #
 # Song path must be defined before using
@@ -11,6 +11,13 @@
 
 from aubio import source, tempo
 from numpy import median, diff
+import ffmpeg
+from ffprobe import FFProbe
+import os
+from pydub import AudioSegment
+import subprocess
+
+
 
 # converts beats array to the song's BPM
 
@@ -27,16 +34,25 @@ def beats_to_bpm(beats, path):
 
 if __name__ == '__main__':
 
-	samplerate, win_s, hop_s = 44100, 1024, 512
-	#samplerate, win_s, hop_s = 8000, 512, 128
-
+	#samplerate, win_s, hop_s = 44100, 1024, 512 
+	samplerate, win_s, hop_s = 0, 256, 256
 	# User-supplied music file path
-	# Must be .wav for now
-	path = 
+	# uses relative path from working directory
+	dirname = os.path.abspath(os.path.dirname(__file__))
+	path = os.path.join(dirname, 'testfiles/thriller.mp3')
 
-	s = source(path, samplerate, hop_s)
+	# Converts input audio file to .wav format for processing with aubio
+	# TODO do ffprobe to bypass conversion if input is already .wav
+	file = AudioSegment.from_file(path)
+	file.export ('file.wav', format='wav')
+
+
+	# Imports file created from audiosegment
+	#s = source('file.wav', samplerate, hop_s)
+	s = source('file.wav', samplerate, hop_s)
 
 	samplerate = s.samplerate
+	#o = tempo("specdiff", win_s, hop_s, samplerate)
 	o = tempo("specdiff", win_s, hop_s, samplerate)
 	# List of beats, in samples
 	beats = []
