@@ -8,7 +8,6 @@
 # Song path must be defined before using
 ##############
 
-
 from aubio import source, tempo
 from numpy import median, diff
 import os
@@ -40,9 +39,7 @@ if __name__ == '__main__':
 	file = AudioSegment.from_file(path)
 	file.export ('file.wav', format='wav')
 
-
 	# Imports file created from audiosegment
-	#s = source('file.wav', samplerate, hop_s)
 	s = source('file.wav', samplerate, hop_s)
 
 	samplerate = s.samplerate
