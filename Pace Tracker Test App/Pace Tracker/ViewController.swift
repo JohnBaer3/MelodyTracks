@@ -91,7 +91,7 @@ extension ViewController {
         }
     }
     
-    // checck if the phone is allowed to access motion events as requested in the plist file
+    // check if the phone is allowed to access motion events as requested in the plist file
     private func checkAuthStatus() {
         switch CMMotionActivityManager.authorizationStatus() {
         case CMAuthorizationStatus.denied:
@@ -121,8 +121,7 @@ extension ViewController {
         pedometer.queryPedometerData(from: startDate, to: Date()) {
             [weak self] pedometerData, error in
             // if there's an error, report the error
-            // else get the pedometer data and put it  in the main queue for UI updates of motion of events
-            // using an asynchronous queue so that the main thread isn't blocking
+            // else pull from the queue and update the step and pace labels
             if let error = error {
                 self?.error(error: error)
             } else if let pedometerData = pedometerData {
@@ -158,6 +157,7 @@ extension ViewController {
 
     // put motion events onto the queue
     // convert to string values so they can easily update the labels
+    // using an asynchronous queue so that the main thread isn't blocking
     private func startCountingSteps() {
         pedometer.startUpdates(from: Date()) {
             [weak self] pedometerData, error in
