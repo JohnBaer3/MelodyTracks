@@ -36,10 +36,12 @@ if __name__ == '__main__':
 
 	# Converts input audio file to .wav format for processing with aubio
 	# TODO do ffprobe to bypass conversion if input is already .wav
+	print('Converting song to wav...')
 	file = AudioSegment.from_file(path)
 	file.export ('file.wav', format='wav')
 
 	# Imports file created from audiosegment
+	print('Finding BPM...')
 	s = source('file.wav', samplerate, hop_s)
 
 	samplerate = s.samplerate
