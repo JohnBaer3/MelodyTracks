@@ -1,0 +1,16 @@
+PODS:
+  - SweetCurtain (0.1.3)
+
+DEPENDENCIES:
+  - SweetCurtain
+
+SPEC REPOS:
+  trunk:
+    - SweetCurtain
+
+SPEC CHECKSUMS:
+  SweetCurtain: 348e8c8429495bb51a016cc4b1dba08abb3aa353
+
+PODFILE CHECKSUM: 4ce11708225692cc04d29a7eb8227302c0e39954
+
+COCOAPODS: 1.9.3
