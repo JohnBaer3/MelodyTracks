@@ -1,0 +1,1024 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18299A9A1A25BB6A58AAA05E8FFE3085 /* CurtainDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75DDAB2F976EE11D6D69C690327984A /* CurtainDelegate.swift */; };
+		2124D055F05B1382845C92B47EF432A1 /* CurtainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292390BE13E093CBAA7357CA421B111C /* CurtainController.swift */; };
+		2C9900A97A6CA558251A944705FA92AC /* Pods-MelodyTracksTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED336A7154FDD5FEFF68EC1560AE5A6C /* Pods-MelodyTracksTests-dummy.m */; };
+		41F5B63B61A6F52EC0F3A2D45E5AD8FF /* SweetCurtain-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE73E9F3F1D72DC39A00B253FD11F31 /* SweetCurtain-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49A84E18CC8CABEF9DC3AA9D88F0BA8A /* Curtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D777899F2A8AFE2B87338F511DC047F /* Curtain.swift */; };
+		4A0D6A5AF7F1976C6C68FD43DDFB57C3 /* CurtainHeightProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3E851997B011EA22538CD6CF6B224 /* CurtainHeightProvider.swift */; };
+		4C31C73FD48DAF178AB63083A5B63A99 /* Pods-MelodyTracksTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 701620669C7370804840255F07D2ADE5 /* Pods-MelodyTracksTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5671EAA35F3619DBFD395CE10EAE4744 /* UIView+findScrollSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B9FC2139A8A2B2DC3F0AB235328818 /* UIView+findScrollSubview.swift */; };
+		642A07F73407B43C627A7BF508F38DCB /* CC+AddControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA3F200EC78A5DF2C594A22E4E894A /* CC+AddControllers.swift */; };
+		771F48EF55BA5AC12A2DD579E3F7AEB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		785682732C3F32469344C0F1EC26CA4C /* Pods-MelodyTracks-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41CE25ADB553A920E614FE18AE86FE25 /* Pods-MelodyTracks-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		81D892DF61986D41FCFAE0EDA33DDEAE /* SweetCurtain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5C9AC4998A85C8D453E3BFCCEE47EC /* SweetCurtain-dummy.m */; };
+		8BD03EE6EBE26507FF410D94F9E140E1 /* SweetCurtain.h in Headers */ = {isa = PBXBuildFile; fileRef = 386E271F4DDA8445DC24994EAA978DB6 /* SweetCurtain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BFDBE3830681FE911E6D4730AE3D471 /* CurtainUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F13B434C65CE845F06C4739FA76024D /* CurtainUpdateModel.swift */; };
+		9C28E9DC55CFD45B3CDD512D8A0DEEC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		A2CAD51DBFD896B2C5E205FAAF44991C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		BB3F75D6A4A8CAFC1A69ECF988E976F1 /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 364F85C196E14A6162C9E4277D4E38EC /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m */; };
+		CE68E54183DDB0AF7680FF256E5A01A1 /* Pods-MelodyTracks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D003963872C6F4ACBBAC68093C81AA /* Pods-MelodyTracks-dummy.m */; };
+		D39E1966B740242F1CB85E790E4FFCFC /* CC+PanGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804EF5E65C3B373C3BE198001A34D9D1 /* CC+PanGestureDelegate.swift */; };
+		D4D834F6B2DBA331E6B6248DFBDE308E /* CurtainConnectionSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051987A7AD040968829550BB88E14E6B /* CurtainConnectionSegue.swift */; };
+		EA4F5B8EB3989513FEEEAF0D70523625 /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3656DD76A2162F0B7A5E0E7351C975BA /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EB7F53D7CE0D3C3DB224F7CFB6328201 /* CGFloatArray+findClosest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C52937E9104B49AE8A173836962BD /* CGFloatArray+findClosest.swift */; };
+		EBE89369412ED3DA74A6E7AEFF9C0CC8 /* CurtainSwipeResistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53929140A6AFCD7862DEA1E9BBBD83F1 /* CurtainSwipeResistance.swift */; };
+		F92CFB54F854D1C46B3E28D453F5986D /* CurtainPushDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB03B60BA96D7DEACD5956EB9123259 /* CurtainPushDirection.swift */; };
+		FBA401D4262AB63CADD62BF75B6342A7 /* CurtainHeightState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6584140A1E66DF57ECFB8EAE5096E2 /* CurtainHeightState.swift */; };
+		FC4F7675B1613442EF60273BBF418684 /* UIViewController+CurtainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6ADEBE1D9F6C833B887009A101F4B /* UIViewController+CurtainController.swift */; };
+		FD5A62FE8949B0B214B4AACCC6D7EFEA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1DF32EF7D9E80AC0F9AF8C02691189BF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B60BD08D514FF8EA4BFC1002A16DD92C;
+			remoteInfo = SweetCurtain;
+		};
+		8B5F2F64153D51022DB1F2506D363A7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC81843D4E4C727569B17EC5A5DB55AD;
+			remoteInfo = "Pods-MelodyTracks";
+		};
+		D9ED0414CFD7A72358D2FE9E198C58D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B60BD08D514FF8EA4BFC1002A16DD92C;
+			remoteInfo = SweetCurtain;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		051987A7AD040968829550BB88E14E6B /* CurtainConnectionSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainConnectionSegue.swift; path = SweetCurtain/Segues/CurtainConnectionSegue.swift; sourceTree = "<group>"; };
+		08D003963872C6F4ACBBAC68093C81AA /* Pods-MelodyTracks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MelodyTracks-dummy.m"; sourceTree = "<group>"; };
+		0CEE9F0DCB07866DF40499D30FC88AEE /* Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig"; sourceTree = "<group>"; };
+		13B61055E0FDF1AF178A98906C24DB96 /* Pods-MelodyTracksTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracksTests-Info.plist"; sourceTree = "<group>"; };
+		155FEE0ACC3EB75A86F9358137A73FC9 /* Pods-MelodyTracks-MelodyTracksUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MelodyTracks-MelodyTracksUITests.modulemap"; sourceTree = "<group>"; };
+		188D541800ACA4BB931C7F9D1962FA79 /* SweetCurtain-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SweetCurtain-Info.plist"; sourceTree = "<group>"; };
+		1D777899F2A8AFE2B87338F511DC047F /* Curtain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Curtain.swift; path = SweetCurtain/Protocols/Curtain.swift; sourceTree = "<group>"; };
+		292390BE13E093CBAA7357CA421B111C /* CurtainController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainController.swift; path = SweetCurtain/Controllers/CurtainController.swift; sourceTree = "<group>"; };
+		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		33441E724C4B0D19A3B80DA7B6FE7AB7 /* SweetCurtain-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweetCurtain-prefix.pch"; sourceTree = "<group>"; };
+		364F85C196E14A6162C9E4277D4E38EC /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MelodyTracks-MelodyTracksUITests-dummy.m"; sourceTree = "<group>"; };
+		3656DD76A2162F0B7A5E0E7351C975BA /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MelodyTracks-MelodyTracksUITests-umbrella.h"; sourceTree = "<group>"; };
+		386E271F4DDA8445DC24994EAA978DB6 /* SweetCurtain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SweetCurtain.h; path = SweetCurtain/SweetCurtain.h; sourceTree = "<group>"; };
+		41CE25ADB553A920E614FE18AE86FE25 /* Pods-MelodyTracks-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MelodyTracks-umbrella.h"; sourceTree = "<group>"; };
+		427A58630B09D091CD1217DCF7433B91 /* Pods-MelodyTracks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracks.release.xcconfig"; sourceTree = "<group>"; };
+		44A2D80C69922EFD95E1C7EB8D4C07EC /* Pods-MelodyTracks-MelodyTracksUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MelodyTracks-MelodyTracksUITests-frameworks.sh"; sourceTree = "<group>"; };
+		48C4AC87EC896F57D896E3A90E70EFD2 /* Pods-MelodyTracks.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MelodyTracks.modulemap"; sourceTree = "<group>"; };
+		4C1C52937E9104B49AE8A173836962BD /* CGFloatArray+findClosest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGFloatArray+findClosest.swift"; path = "SweetCurtain/Extensions/CGFloatArray+findClosest.swift"; sourceTree = "<group>"; };
+		4F4617FF29F8392C81B0081400391615 /* Pods-MelodyTracks-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracks-acknowledgements.plist"; sourceTree = "<group>"; };
+		53929140A6AFCD7862DEA1E9BBBD83F1 /* CurtainSwipeResistance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainSwipeResistance.swift; path = SweetCurtain/Enums/CurtainSwipeResistance.swift; sourceTree = "<group>"; };
+		5C25D8C16797504B285AB8769B061B30 /* Pods-MelodyTracksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracksTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C63B9718E25F71583320787E0571E43 /* SweetCurtain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SweetCurtain.framework; path = SweetCurtain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6871693A6C62BE0EABD06CE2E570358D /* Pods-MelodyTracks-MelodyTracksUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MelodyTracks-MelodyTracksUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		68CA3F200EC78A5DF2C594A22E4E894A /* CC+AddControllers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CC+AddControllers.swift"; path = "SweetCurtain/Controllers/Curtain Controller Extensions/CC+AddControllers.swift"; sourceTree = "<group>"; };
+		69AE3BFC2F508FD3C035D1A93C63440F /* Pods-MelodyTracksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracksTests.release.xcconfig"; sourceTree = "<group>"; };
+		6C690976AA57594B50946E07349C0D17 /* Pods-MelodyTracksTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracksTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		6D5C9AC4998A85C8D453E3BFCCEE47EC /* SweetCurtain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SweetCurtain-dummy.m"; sourceTree = "<group>"; };
+		6D88A025939113404DED1AC8EB00144E /* Pods_MelodyTracks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MelodyTracks.framework; path = "Pods-MelodyTracks.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		701620669C7370804840255F07D2ADE5 /* Pods-MelodyTracksTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MelodyTracksTests-umbrella.h"; sourceTree = "<group>"; };
+		74B50C6FCB674FB7CE7D83A11DE9DDF5 /* Pods-MelodyTracks-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MelodyTracks-frameworks.sh"; sourceTree = "<group>"; };
+		7A65B5DD4F84574DA39CEDCFFA56CCDB /* Pods-MelodyTracks-MelodyTracksUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracks-MelodyTracksUITests-Info.plist"; sourceTree = "<group>"; };
+		7C2DEBD72005E8ABCB7E063A1428C925 /* SweetCurtain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SweetCurtain.modulemap; sourceTree = "<group>"; };
+		7DE127A30D5DF9560DDCB323F0E2DDE5 /* Pods_MelodyTracks_MelodyTracksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MelodyTracks_MelodyTracksUITests.framework; path = "Pods-MelodyTracks-MelodyTracksUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		804EF5E65C3B373C3BE198001A34D9D1 /* CC+PanGestureDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CC+PanGestureDelegate.swift"; path = "SweetCurtain/Controllers/Curtain Controller Extensions/CC+PanGestureDelegate.swift"; sourceTree = "<group>"; };
+		810E5812002C2A881BBB61FD141B3AB1 /* Pods-MelodyTracks-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MelodyTracks-acknowledgements.markdown"; sourceTree = "<group>"; };
+		82B9FC2139A8A2B2DC3F0AB235328818 /* UIView+findScrollSubview.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+findScrollSubview.swift"; path = "SweetCurtain/Extensions/UIView+findScrollSubview.swift"; sourceTree = "<group>"; };
+		84B3E84421F89DA91AF438B4C295B53A /* Pods-MelodyTracksTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MelodyTracksTests.modulemap"; sourceTree = "<group>"; };
+		88F9D85C5856C4249ADDA806162400CE /* Pods-MelodyTracks-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracks-Info.plist"; sourceTree = "<group>"; };
+		93D3E851997B011EA22538CD6CF6B224 /* CurtainHeightProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainHeightProvider.swift; path = SweetCurtain/Services/CurtainHeightProvider.swift; sourceTree = "<group>"; };
+		9BB03B60BA96D7DEACD5956EB9123259 /* CurtainPushDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainPushDirection.swift; path = SweetCurtain/Enums/CurtainPushDirection.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F13B434C65CE845F06C4739FA76024D /* CurtainUpdateModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainUpdateModel.swift; path = "SweetCurtain/Value objects/CurtainUpdateModel.swift"; sourceTree = "<group>"; };
+		AAE73E9F3F1D72DC39A00B253FD11F31 /* SweetCurtain-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweetCurtain-umbrella.h"; sourceTree = "<group>"; };
+		ABB6ADEBE1D9F6C833B887009A101F4B /* UIViewController+CurtainController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+CurtainController.swift"; path = "SweetCurtain/Extensions/UIViewController+CurtainController.swift"; sourceTree = "<group>"; };
+		B5CB7BB3A1921772EC2D86BCA9B15EA7 /* Pods_MelodyTracksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MelodyTracksTests.framework; path = "Pods-MelodyTracksTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB1525639F7433BA4F4B2B508EF94655 /* Pods-MelodyTracksTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MelodyTracksTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		CBFF8FFDEC0760227CB2A1D17E2F91C5 /* Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DC273A8B56FAB27827CFDCBFEA089922 /* SweetCurtain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SweetCurtain.debug.xcconfig; sourceTree = "<group>"; };
+		E75DDAB2F976EE11D6D69C690327984A /* CurtainDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainDelegate.swift; path = SweetCurtain/Protocols/CurtainDelegate.swift; sourceTree = "<group>"; };
+		E8D3FDDAFC12E3A93C99E7DD26EFB648 /* Pods-MelodyTracks-MelodyTracksUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracks-MelodyTracksUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		ED336A7154FDD5FEFF68EC1560AE5A6C /* Pods-MelodyTracksTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MelodyTracksTests-dummy.m"; sourceTree = "<group>"; };
+		F47096DD681BA518F7061A46354D39FE /* Pods-MelodyTracks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracks.debug.xcconfig"; sourceTree = "<group>"; };
+		F8749831E41392B06C9A5C0E2D1BE94B /* SweetCurtain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SweetCurtain.release.xcconfig; sourceTree = "<group>"; };
+		FB6584140A1E66DF57ECFB8EAE5096E2 /* CurtainHeightState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainHeightState.swift; path = SweetCurtain/Enums/CurtainHeightState.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0037B6E0384ADFAF959992F338036692 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A2CAD51DBFD896B2C5E205FAAF44991C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		779DB9239A67BB7D4B52F2B2A13D002B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				771F48EF55BA5AC12A2DD579E3F7AEB5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD0E4D99A20ADA7DFFA96649A7A7860A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD5A62FE8949B0B214B4AACCC6D7EFEA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF0D8FBC567DE658F10CB36A14F66269 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C28E9DC55CFD45B3CDD512D8A0DEEC3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D953F9CEB69F6BB9C20CF7D0698785B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6D88A025939113404DED1AC8EB00144E /* Pods_MelodyTracks.framework */,
+				7DE127A30D5DF9560DDCB323F0E2DDE5 /* Pods_MelodyTracks_MelodyTracksUITests.framework */,
+				B5CB7BB3A1921772EC2D86BCA9B15EA7 /* Pods_MelodyTracksTests.framework */,
+				5C63B9718E25F71583320787E0571E43 /* SweetCurtain.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		38487744C25BC6EA0547907E13333045 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A8E6747AA73035A6D21E3BB598F289A /* Pods-MelodyTracks */,
+				72993E7254A86A81249C2AB72C4DDFFD /* Pods-MelodyTracks-MelodyTracksUITests */,
+				7758FBCD755107F39CDA9882D354B0A2 /* Pods-MelodyTracksTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		403B450D7D61B15BBAE4C1F3FDAEB0BF /* SweetCurtain */ = {
+			isa = PBXGroup;
+			children = (
+				68CA3F200EC78A5DF2C594A22E4E894A /* CC+AddControllers.swift */,
+				804EF5E65C3B373C3BE198001A34D9D1 /* CC+PanGestureDelegate.swift */,
+				4C1C52937E9104B49AE8A173836962BD /* CGFloatArray+findClosest.swift */,
+				1D777899F2A8AFE2B87338F511DC047F /* Curtain.swift */,
+				051987A7AD040968829550BB88E14E6B /* CurtainConnectionSegue.swift */,
+				292390BE13E093CBAA7357CA421B111C /* CurtainController.swift */,
+				E75DDAB2F976EE11D6D69C690327984A /* CurtainDelegate.swift */,
+				93D3E851997B011EA22538CD6CF6B224 /* CurtainHeightProvider.swift */,
+				FB6584140A1E66DF57ECFB8EAE5096E2 /* CurtainHeightState.swift */,
+				9BB03B60BA96D7DEACD5956EB9123259 /* CurtainPushDirection.swift */,
+				53929140A6AFCD7862DEA1E9BBBD83F1 /* CurtainSwipeResistance.swift */,
+				9F13B434C65CE845F06C4739FA76024D /* CurtainUpdateModel.swift */,
+				386E271F4DDA8445DC24994EAA978DB6 /* SweetCurtain.h */,
+				82B9FC2139A8A2B2DC3F0AB235328818 /* UIView+findScrollSubview.swift */,
+				ABB6ADEBE1D9F6C833B887009A101F4B /* UIViewController+CurtainController.swift */,
+				9595411CEDC30B92E0944630962492A8 /* Support Files */,
+			);
+			name = SweetCurtain;
+			path = SweetCurtain;
+			sourceTree = "<group>";
+		};
+		72993E7254A86A81249C2AB72C4DDFFD /* Pods-MelodyTracks-MelodyTracksUITests */ = {
+			isa = PBXGroup;
+			children = (
+				155FEE0ACC3EB75A86F9358137A73FC9 /* Pods-MelodyTracks-MelodyTracksUITests.modulemap */,
+				6871693A6C62BE0EABD06CE2E570358D /* Pods-MelodyTracks-MelodyTracksUITests-acknowledgements.markdown */,
+				E8D3FDDAFC12E3A93C99E7DD26EFB648 /* Pods-MelodyTracks-MelodyTracksUITests-acknowledgements.plist */,
+				364F85C196E14A6162C9E4277D4E38EC /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m */,
+				44A2D80C69922EFD95E1C7EB8D4C07EC /* Pods-MelodyTracks-MelodyTracksUITests-frameworks.sh */,
+				7A65B5DD4F84574DA39CEDCFFA56CCDB /* Pods-MelodyTracks-MelodyTracksUITests-Info.plist */,
+				3656DD76A2162F0B7A5E0E7351C975BA /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h */,
+				CBFF8FFDEC0760227CB2A1D17E2F91C5 /* Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig */,
+				0CEE9F0DCB07866DF40499D30FC88AEE /* Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig */,
+			);
+			name = "Pods-MelodyTracks-MelodyTracksUITests";
+			path = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests";
+			sourceTree = "<group>";
+		};
+		7758FBCD755107F39CDA9882D354B0A2 /* Pods-MelodyTracksTests */ = {
+			isa = PBXGroup;
+			children = (
+				84B3E84421F89DA91AF438B4C295B53A /* Pods-MelodyTracksTests.modulemap */,
+				BB1525639F7433BA4F4B2B508EF94655 /* Pods-MelodyTracksTests-acknowledgements.markdown */,
+				6C690976AA57594B50946E07349C0D17 /* Pods-MelodyTracksTests-acknowledgements.plist */,
+				ED336A7154FDD5FEFF68EC1560AE5A6C /* Pods-MelodyTracksTests-dummy.m */,
+				13B61055E0FDF1AF178A98906C24DB96 /* Pods-MelodyTracksTests-Info.plist */,
+				701620669C7370804840255F07D2ADE5 /* Pods-MelodyTracksTests-umbrella.h */,
+				5C25D8C16797504B285AB8769B061B30 /* Pods-MelodyTracksTests.debug.xcconfig */,
+				69AE3BFC2F508FD3C035D1A93C63440F /* Pods-MelodyTracksTests.release.xcconfig */,
+			);
+			name = "Pods-MelodyTracksTests";
+			path = "Target Support Files/Pods-MelodyTracksTests";
+			sourceTree = "<group>";
+		};
+		858EB9A0A8D80814F21DE4F05EBD8CBD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				403B450D7D61B15BBAE4C1F3FDAEB0BF /* SweetCurtain */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8A8E6747AA73035A6D21E3BB598F289A /* Pods-MelodyTracks */ = {
+			isa = PBXGroup;
+			children = (
+				48C4AC87EC896F57D896E3A90E70EFD2 /* Pods-MelodyTracks.modulemap */,
+				810E5812002C2A881BBB61FD141B3AB1 /* Pods-MelodyTracks-acknowledgements.markdown */,
+				4F4617FF29F8392C81B0081400391615 /* Pods-MelodyTracks-acknowledgements.plist */,
+				08D003963872C6F4ACBBAC68093C81AA /* Pods-MelodyTracks-dummy.m */,
+				74B50C6FCB674FB7CE7D83A11DE9DDF5 /* Pods-MelodyTracks-frameworks.sh */,
+				88F9D85C5856C4249ADDA806162400CE /* Pods-MelodyTracks-Info.plist */,
+				41CE25ADB553A920E614FE18AE86FE25 /* Pods-MelodyTracks-umbrella.h */,
+				F47096DD681BA518F7061A46354D39FE /* Pods-MelodyTracks.debug.xcconfig */,
+				427A58630B09D091CD1217DCF7433B91 /* Pods-MelodyTracks.release.xcconfig */,
+			);
+			name = "Pods-MelodyTracks";
+			path = "Target Support Files/Pods-MelodyTracks";
+			sourceTree = "<group>";
+		};
+		9595411CEDC30B92E0944630962492A8 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7C2DEBD72005E8ABCB7E063A1428C925 /* SweetCurtain.modulemap */,
+				6D5C9AC4998A85C8D453E3BFCCEE47EC /* SweetCurtain-dummy.m */,
+				188D541800ACA4BB931C7F9D1962FA79 /* SweetCurtain-Info.plist */,
+				33441E724C4B0D19A3B80DA7B6FE7AB7 /* SweetCurtain-prefix.pch */,
+				AAE73E9F3F1D72DC39A00B253FD11F31 /* SweetCurtain-umbrella.h */,
+				DC273A8B56FAB27827CFDCBFEA089922 /* SweetCurtain.debug.xcconfig */,
+				F8749831E41392B06C9A5C0E2D1BE94B /* SweetCurtain.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SweetCurtain";
+			sourceTree = "<group>";
+		};
+		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				858EB9A0A8D80814F21DE4F05EBD8CBD /* Pods */,
+				2D953F9CEB69F6BB9C20CF7D0698785B /* Products */,
+				38487744C25BC6EA0547907E13333045 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		23FE7D94462E9734437435F27D83BEE4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C31C73FD48DAF178AB63083A5B63A99 /* Pods-MelodyTracksTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90FC89A015A52D87C405C8E0E9C8A8A4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA4F5B8EB3989513FEEEAF0D70523625 /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0A42DC41B27ADD9E93BB89AAC73A402 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				785682732C3F32469344C0F1EC26CA4C /* Pods-MelodyTracks-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD10F1EF085AAAA2972BCEE29A69C606 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				41F5B63B61A6F52EC0F3A2D45E5AD8FF /* SweetCurtain-umbrella.h in Headers */,
+				8BD03EE6EBE26507FF410D94F9E140E1 /* SweetCurtain.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		9014458A6CCD67AA9C84D2AA816C7E71 /* Pods-MelodyTracks-MelodyTracksUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3E6E9C63933B739D915055539EB6CE9 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks-MelodyTracksUITests" */;
+			buildPhases = (
+				90FC89A015A52D87C405C8E0E9C8A8A4 /* Headers */,
+				F1EC9343BB844BD515B1417DB26BBC6C /* Sources */,
+				779DB9239A67BB7D4B52F2B2A13D002B /* Frameworks */,
+				7AD84003F47BFE3633526E153BC5F512 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB55E5C560D0936C4B759BA9825A8BD8 /* PBXTargetDependency */,
+			);
+			name = "Pods-MelodyTracks-MelodyTracksUITests";
+			productName = "Pods-MelodyTracks-MelodyTracksUITests";
+			productReference = 7DE127A30D5DF9560DDCB323F0E2DDE5 /* Pods_MelodyTracks_MelodyTracksUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B60BD08D514FF8EA4BFC1002A16DD92C /* SweetCurtain */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5AD8AD609CB33B343D47B4FB387C7F31 /* Build configuration list for PBXNativeTarget "SweetCurtain" */;
+			buildPhases = (
+				FD10F1EF085AAAA2972BCEE29A69C606 /* Headers */,
+				A13C4ABFC5A64DF9EFF26DE2116CC8EC /* Sources */,
+				DD0E4D99A20ADA7DFFA96649A7A7860A /* Frameworks */,
+				62756FA42D9C218FAB2B692C2369A604 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SweetCurtain;
+			productName = SweetCurtain;
+			productReference = 5C63B9718E25F71583320787E0571E43 /* SweetCurtain.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DC81843D4E4C727569B17EC5A5DB55AD /* Pods-MelodyTracks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D65C83CE1709FFC025C4535A9418809 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks" */;
+			buildPhases = (
+				C0A42DC41B27ADD9E93BB89AAC73A402 /* Headers */,
+				CF32902BB3C48DA830B2C2E38125F3DA /* Sources */,
+				FF0D8FBC567DE658F10CB36A14F66269 /* Frameworks */,
+				0666735F2EAB3C0023772EA3C90E629B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E61167CA95B27F94C5A287852061A860 /* PBXTargetDependency */,
+			);
+			name = "Pods-MelodyTracks";
+			productName = "Pods-MelodyTracks";
+			productReference = 6D88A025939113404DED1AC8EB00144E /* Pods_MelodyTracks.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DE304ED3EA70394B0A8A530ECE8E000B /* Pods-MelodyTracksTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D106E660209433D8B798B39AC6A650C2 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracksTests" */;
+			buildPhases = (
+				23FE7D94462E9734437435F27D83BEE4 /* Headers */,
+				DA764A8CC70D9A6B877A00067B9B5D39 /* Sources */,
+				0037B6E0384ADFAF959992F338036692 /* Frameworks */,
+				607D0F2EB1B9A3C5945732FC9319F8FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AD0C087BABF136F174202C7802C690A4 /* PBXTargetDependency */,
+			);
+			name = "Pods-MelodyTracksTests";
+			productName = "Pods-MelodyTracksTests";
+			productReference = B5CB7BB3A1921772EC2D86BCA9B15EA7 /* Pods_MelodyTracksTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 2D953F9CEB69F6BB9C20CF7D0698785B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC81843D4E4C727569B17EC5A5DB55AD /* Pods-MelodyTracks */,
+				9014458A6CCD67AA9C84D2AA816C7E71 /* Pods-MelodyTracks-MelodyTracksUITests */,
+				DE304ED3EA70394B0A8A530ECE8E000B /* Pods-MelodyTracksTests */,
+				B60BD08D514FF8EA4BFC1002A16DD92C /* SweetCurtain */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0666735F2EAB3C0023772EA3C90E629B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		607D0F2EB1B9A3C5945732FC9319F8FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		62756FA42D9C218FAB2B692C2369A604 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AD84003F47BFE3633526E153BC5F512 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A13C4ABFC5A64DF9EFF26DE2116CC8EC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				642A07F73407B43C627A7BF508F38DCB /* CC+AddControllers.swift in Sources */,
+				D39E1966B740242F1CB85E790E4FFCFC /* CC+PanGestureDelegate.swift in Sources */,
+				EB7F53D7CE0D3C3DB224F7CFB6328201 /* CGFloatArray+findClosest.swift in Sources */,
+				49A84E18CC8CABEF9DC3AA9D88F0BA8A /* Curtain.swift in Sources */,
+				D4D834F6B2DBA331E6B6248DFBDE308E /* CurtainConnectionSegue.swift in Sources */,
+				2124D055F05B1382845C92B47EF432A1 /* CurtainController.swift in Sources */,
+				18299A9A1A25BB6A58AAA05E8FFE3085 /* CurtainDelegate.swift in Sources */,
+				4A0D6A5AF7F1976C6C68FD43DDFB57C3 /* CurtainHeightProvider.swift in Sources */,
+				FBA401D4262AB63CADD62BF75B6342A7 /* CurtainHeightState.swift in Sources */,
+				F92CFB54F854D1C46B3E28D453F5986D /* CurtainPushDirection.swift in Sources */,
+				EBE89369412ED3DA74A6E7AEFF9C0CC8 /* CurtainSwipeResistance.swift in Sources */,
+				8BFDBE3830681FE911E6D4730AE3D471 /* CurtainUpdateModel.swift in Sources */,
+				81D892DF61986D41FCFAE0EDA33DDEAE /* SweetCurtain-dummy.m in Sources */,
+				5671EAA35F3619DBFD395CE10EAE4744 /* UIView+findScrollSubview.swift in Sources */,
+				FC4F7675B1613442EF60273BBF418684 /* UIViewController+CurtainController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF32902BB3C48DA830B2C2E38125F3DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE68E54183DDB0AF7680FF256E5A01A1 /* Pods-MelodyTracks-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA764A8CC70D9A6B877A00067B9B5D39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C9900A97A6CA558251A944705FA92AC /* Pods-MelodyTracksTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1EC9343BB844BD515B1417DB26BBC6C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB3F75D6A4A8CAFC1A69ECF988E976F1 /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AD0C087BABF136F174202C7802C690A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-MelodyTracks";
+			target = DC81843D4E4C727569B17EC5A5DB55AD /* Pods-MelodyTracks */;
+			targetProxy = 8B5F2F64153D51022DB1F2506D363A7C /* PBXContainerItemProxy */;
+		};
+		E61167CA95B27F94C5A287852061A860 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SweetCurtain;
+			target = B60BD08D514FF8EA4BFC1002A16DD92C /* SweetCurtain */;
+			targetProxy = D9ED0414CFD7A72358D2FE9E198C58D4 /* PBXContainerItemProxy */;
+		};
+		EB55E5C560D0936C4B759BA9825A8BD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SweetCurtain;
+			target = B60BD08D514FF8EA4BFC1002A16DD92C /* SweetCurtain */;
+			targetProxy = 1DF32EF7D9E80AC0F9AF8C02691189BF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		13506878240AD9786FA6041010FDA4A9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69AE3BFC2F508FD3C035D1A93C63440F /* Pods-MelodyTracksTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracksTests/Pods-MelodyTracksTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracksTests/Pods-MelodyTracksTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		1422B121EAEAEA11307496903FA623C6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		358E8FAE8F836E22FE3D7333BB504634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8749831E41392B06C9A5C0E2D1BE94B /* SweetCurtain.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SweetCurtain/SweetCurtain-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SweetCurtain/SweetCurtain-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SweetCurtain/SweetCurtain.modulemap";
+				PRODUCT_MODULE_NAME = SweetCurtain;
+				PRODUCT_NAME = SweetCurtain;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		39C89847AF59659FFDD04D2C8ADDD87D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0CEE9F0DCB07866DF40499D30FC88AEE /* Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4931FE378F09DC6EEF1EF023A797D1C7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F47096DD681BA518F7061A46354D39FE /* Pods-MelodyTracks.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		70FD17398AE1FD07FC6C7FBDC093D32F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C25D8C16797504B285AB8769B061B30 /* Pods-MelodyTracksTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracksTests/Pods-MelodyTracksTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracksTests/Pods-MelodyTracksTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		73B25143461EB143E4F8579788B86AEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 427A58630B09D091CD1217DCF7433B91 /* Pods-MelodyTracks.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A0003A9635D5DEDB4E15EB1A5349ECC5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC273A8B56FAB27827CFDCBFEA089922 /* SweetCurtain.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SweetCurtain/SweetCurtain-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SweetCurtain/SweetCurtain-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SweetCurtain/SweetCurtain.modulemap";
+				PRODUCT_MODULE_NAME = SweetCurtain;
+				PRODUCT_NAME = SweetCurtain;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EB8E3BEEF08A10090585436089C86213 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBFF8FFDEC0760227CB2A1D17E2F91C5 /* Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		ED7888FA6713EABBF66D26A8003AD1CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D65C83CE1709FFC025C4535A9418809 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4931FE378F09DC6EEF1EF023A797D1C7 /* Debug */,
+				73B25143461EB143E4F8579788B86AEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED7888FA6713EABBF66D26A8003AD1CA /* Debug */,
+				1422B121EAEAEA11307496903FA623C6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5AD8AD609CB33B343D47B4FB387C7F31 /* Build configuration list for PBXNativeTarget "SweetCurtain" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A0003A9635D5DEDB4E15EB1A5349ECC5 /* Debug */,
+				358E8FAE8F836E22FE3D7333BB504634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D106E660209433D8B798B39AC6A650C2 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracksTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70FD17398AE1FD07FC6C7FBDC093D32F /* Debug */,
+				13506878240AD9786FA6041010FDA4A9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3E6E9C63933B739D915055539EB6CE9 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks-MelodyTracksUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB8E3BEEF08A10090585436089C86213 /* Debug */,
+				39C89847AF59659FFDD04D2C8ADDD87D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

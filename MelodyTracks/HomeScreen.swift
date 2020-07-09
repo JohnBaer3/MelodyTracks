@@ -1,195 +1,98 @@
-//
+//  Daniel Loi
 //  HomeScreen.swift
 //  MelodyTracks
 //
-//  Created by Daniel Loi on 6/28/20.
-//  Copyright © 2020 Daniel Loi. All rights reserved.
+//
 //
 
 import UIKit
 
 class HomeScreen: UIViewController{
+    @IBOutlet weak var homeBarItem: UINavigationItem!
+    @IBOutlet weak var finishButton: finishButton!
+    @IBOutlet weak var timerNum: UILabel!
     
-    enum CardState{
-        case expanded
-        case collapsed
+    static let showFinishNotification = Notification.Name("showFinishNotification") // set notification name
+    static let TimerNotification = Notification.Name("TimerNotification")
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        .lightContent
     }
     
-    @IBOutlet weak var Start: UIButton!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var BPM: UILabel!
-    @IBOutlet weak var homeBar: UINavigationItem!
-    var bpm:String = ""
-    
-    var cardViewController:CardViewController!
-    var visualEffectView:UIVisualEffectView!
-    var cardVisible = false
-    var nextState:CardState{
-        return cardVisible ? .collapsed : .expanded
-    }
-    var runningAnimations = [UIViewPropertyAnimator]()
-    var animationProgressWhenInterrupted:CGFloat = 0
-    
-    let cardHeight:CGFloat = 600
-    let cardHandleAreaHeight:CGFloat = 265
+    var timer = Timer()
+    var counter = 0  //holds value of timer
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserDefaults.standard.object(forKey: "Pace") != nil{
-            BPM.text = UserDefaults.standard.object(forKey: "Pace") as? String
-        }else{
-            BPM.text = String(60)
-        }
-        slider.value = Float(Int(BPM.text!)!)
-        Start.setTitle("Start", for: [])
-        print(BPM.text!)
-        
-        setupCard()
-        print(nextState)
-        
+        //used to set corner buttons
+        finishButton.setInitialDetails()
+        finishButton.isHidden = true
+        self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow") //used to remove tiny bar between navigation bar and view
+        //add observer for adding songs from Selection view
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: HomeScreen.showFinishNotification, object: nil)
+        //add observer for Start button from Curtain view
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: HomeScreen.TimerNotification, object: nil)
     }
-    
-    func setupCard() {
-        visualEffectView = UIVisualEffectView()
-        visualEffectView.frame = self.view.frame
-        //self.view.addSubview(visualEffectView)
-        
-        cardViewController = CardViewController(nibName:"CardViewController", bundle:nil)
-        self.addChild(cardViewController)
-        self.view.addSubview(cardViewController.view)
-        
-        cardViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaHeight, width: self.view.bounds.width, height: cardHeight)
-        
-        cardViewController.view.clipsToBounds = true
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(HomeScreen.handleCardTap(recognzier:)))
-        let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(HomeScreen.handleCardPan(recognizer:)))
-        
-        cardViewController.handleArea.addGestureRecognizer(tapGestureRecognizer)
-        cardViewController.handleArea.addGestureRecognizer(panGestureRecognizer)
+    /**
+     * Method name: timeString
+     * Description: Formats timer
+     * Parameters: N/A
+     */
+    func timeString(time:TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
     }
-    @objc
-    func handleCardTap(recognzier:UITapGestureRecognizer) {
-        switch recognzier.state {
-        case .ended:
-            animateTransitionIfNeeded(state: nextState, duration: 0.9)
-        default:
-            break
-        }
+    /**
+     * Method name: runTimer
+     * Description: Runs timer
+     * Parameters: N/A
+     */
+    @objc func runTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
-    @objc
-    func handleCardPan (recognizer:UIPanGestureRecognizer) {
-        switch recognizer.state {
-        case .began:
-            startInteractiveTransition(state: nextState, duration: 0.9)
-        case .changed:
-            let translation = recognizer.translation(in: self.cardViewController.handleArea)
-            var fractionComplete = translation.y / cardHeight
-            fractionComplete = cardVisible ? fractionComplete : -fractionComplete
-            updateInteractiveTransition(fractionCompleted: fractionComplete)
-        case .ended:
-            continueInteractiveTransition()
-        default:
-            break
-        }
-    }
-    func animateTransitionIfNeeded (state:CardState, duration:TimeInterval) {
-        if runningAnimations.isEmpty {
-            let frameAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
-                switch state {
-                case .expanded:
-                    self.cardViewController.view.frame.origin.y = self.view.frame.height - self.cardHeight
-                case .collapsed:
-                    self.cardViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaHeight
-                }
+    /**
+     * Method name: onNotification
+     * Description: used to receive song data from Selection view
+     * Parameters: notification object
+     */
+    @objc func onNotification(notification:Notification)
+    {
+        if notification.name.rawValue == "showFinishNotification"{
+            finishButton.isHidden = false
+        }else if notification.name.rawValue == "TimerNotification"{
+            if (notification.userInfo?["play"])! as! Bool {
+                print("timer started")
+                runTimer()
+            }else{
+                timer.invalidate()
             }
-            
-            frameAnimator.addCompletion { _ in
-                self.cardVisible = !self.cardVisible
-                self.runningAnimations.removeAll()
-            }
-            
-            frameAnimator.startAnimation()
-            runningAnimations.append(frameAnimator)
-            
-            
-            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
-                switch state {
-                case .expanded:
-                    self.cardViewController.view.layer.cornerRadius = 12
-                case .collapsed:
-                    self.cardViewController.view.layer.cornerRadius = 0
-                }
-            }
-            
-            cornerRadiusAnimator.startAnimation()
-            runningAnimations.append(cornerRadiusAnimator)
-            
-            /*let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
-                switch state {
-                case .expanded:
-                    self.visualEffectView.effect = UIBlurEffect(style: .dark)
-                case .collapsed:
-                    self.visualEffectView.effect = nil
-                }
-            }
-            
-            blurAnimator.startAnimation()
-            runningAnimations.append(blurAnimator)*/
-            
         }
     }
-    func startInteractiveTransition(state:CardState, duration:TimeInterval) {
-        if runningAnimations.isEmpty {
-            animateTransitionIfNeeded(state: state, duration: duration)
-        }
-        for animator in runningAnimations {
-            animator.pauseAnimation()
-            animationProgressWhenInterrupted = animator.fractionComplete
-        }
+    /**
+     * Method name: timerAction
+     * Description: increments timer and sets label text
+     * Parameters: N/A
+     */
+    @objc func timerAction() {
+        counter += 1
+        timerNum.text = timeString(time: TimeInterval(counter))
     }
-    
-    func updateInteractiveTransition(fractionCompleted:CGFloat) {
-        for animator in runningAnimations {
-            animator.fractionComplete = fractionCompleted + animationProgressWhenInterrupted
-        }
-    }
-    
-    func continueInteractiveTransition (){
-        for animator in runningAnimations {
-            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
-        }
-    }
-    
-    @IBAction func StartJogTapped(_ sender: UIButton) {
-        //let selectionVC = storyboard?.instantiateViewController(withIdentifier: "Jogging") as! Jogging
-        //selectionVC.JoggingDelegate = self
-        //selectionVC.modalPresentationStyle = .popover
-        //present(selectionVC, animated:true, completion: nil)
-    }
-
+    /**
+    * Method name: FinishTapped
+    * Description: Listener for the Stop Button on the top left corner
+    * Parameters: button mapped to this function
+    */
     @IBAction func FinishTapped(_ sender: Any) {
-        Start.setTitle("Start", for: [])
+        NotificationCenter.default.post(name: CustomCurtainViewController.homeScreenFinishNotification, object: nil, userInfo:["finishTapped":true])
+        finishButton.isHidden = true
+        //reset timer
+        timer.invalidate()
+        timerNum.text = "00:00:00"
+        counter = 0
     }
-
-    @IBAction func slider(_ sender: UISlider) {
-        BPM.text = String(Int(sender.value))
-        print(BPM.text!)
-        UserDefaults.standard.set(BPM.text, forKey:"Pace")
-    }
-    
-    
-}
-
-
-extension HomeScreen: SetPaceDelegate{
-    func didFinishTask(bpm: String) {
-        print(bpm)
-        BPM.text = bpm
-    }
-}
-extension HomeScreen: JoggingDelegate{
-    func didFinishTask(color: UIColor, value: String) {
-        Start.setTitle(value, for: [])
+    deinit{
+        //stop listening to notifications
+        NotificationCenter.default.removeObserver(self, name: HomeScreen.showFinishNotification, object: nil)
     }
 }
