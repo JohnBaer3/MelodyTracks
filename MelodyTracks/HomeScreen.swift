@@ -8,7 +8,6 @@
 import UIKit
 
 class HomeScreen: UIViewController{
-    @IBOutlet weak var homeBarItem: UINavigationItem!
     @IBOutlet weak var finishButton: finishButton!
     @IBOutlet weak var timerNum: UILabel!
     
@@ -26,6 +25,7 @@ class HomeScreen: UIViewController{
         //used to set corner buttons
         finishButton.setInitialDetails()
         finishButton.isHidden = true
+        timerNum.isHidden = true
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow") //used to remove tiny bar between navigation bar and view
         //add observer for adding songs from Selection view
         NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: HomeScreen.showFinishNotification, object: nil)
@@ -63,6 +63,7 @@ class HomeScreen: UIViewController{
         }else if notification.name.rawValue == "TimerNotification"{
             if (notification.userInfo?["play"])! as! Bool {
                 print("timer started")
+                timerNum.isHidden = false
                 runTimer()
             }else{
                 timer.invalidate()
@@ -86,6 +87,7 @@ class HomeScreen: UIViewController{
     @IBAction func FinishTapped(_ sender: Any) {
         NotificationCenter.default.post(name: CustomCurtainViewController.homeScreenFinishNotification, object: nil, userInfo:["finishTapped":true])
         finishButton.isHidden = true
+        timerNum.isHidden = true
         //reset timer
         timer.invalidate()
         timerNum.text = "00:00:00"
