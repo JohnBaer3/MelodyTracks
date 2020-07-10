@@ -14,7 +14,7 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
     @IBOutlet weak var literalBPM: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var save: UIButton!
-    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var saveButton: selectSongButton!
     
     var audioPlayer = MPMusicPlayerController.systemMusicPlayer
     var hideFinishButton: Bool!
@@ -23,15 +23,22 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        saveButton.layer.cornerRadius = 10
-        //set the BPM to a saved value
+        saveButton.setInitialDetails()
+        setSliderBPM()
+    }
+    /**
+     * Method name: setSliderBPM
+     * Description: sets the slider and BPM to the saved value
+     * Parameters: N/A
+     */
+    @objc
+    func setSliderBPM(){
         if UserDefaults.standard.object(forKey: "Pace") != nil{
             BPM.text = UserDefaults.standard.object(forKey: "Pace") as? String
         }else{
-            BPM.text = String(60)
+            BPM.text = String(90)
         }
         slider.value = Float(Int(BPM.text!)!)
-        
     }
     /**
     * Method name: slider
@@ -74,7 +81,7 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
             picker.allowsPickingMultipleItems = true
             picker.showsCloudItems = true
             picker.delegate = self
-            saveButton.setTitle("Save", for: [])
+            saveButton.setSaveIcon()
             self.present(picker, animated:false, completion:nil)
         }else{  //send data to Curtain View because Save has been tapped
             NotificationCenter.default.post(name: CustomCurtainViewController.selectionViewNotification, object: nil, userInfo:["player": audioPlayer, "fixedOrAuto": fixedOrAuto ?? true, "BPM": BPM.text!])
@@ -96,6 +103,7 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
                 print("Picked item: \(itemName)")
             }
         }
+        print(mediaItemCollection.items)
         audioPlayer.setQueue(with: mediaItemCollection)
         self.dismiss(animated: false, completion:nil)
     }
