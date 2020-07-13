@@ -23,8 +23,7 @@ class finishButton: UIButton {
      * Parameters: N/A
      */
     func setInitialDetails(){
-        self.layer.cornerRadius = 6
-        self.layer.borderWidth = 2
+        self.layer.cornerRadius = 10
         self.setFinish()
     }
     /**
@@ -34,8 +33,9 @@ class finishButton: UIButton {
     */
     func setFinish(){
         self.setTitle("Finish", for: [])
-        self.layer.backgroundColor = #colorLiteral(red: 0.7615019679, green: 0.1136659905, blue: 0.1256904304, alpha: 1)
-        self.layer.borderColor = #colorLiteral(red: 0.7615019679, green: 0.1136659905, blue: 0.1256904304, alpha: 1)
+        
+        //self.layer.backgroundColor = #colorLiteral(red: 0.7615019679, green: 0.1136659905, blue: 0.1256904304, alpha: 1)
+        self.layer.backgroundColor = UIColor.systemRed.cgColor
     }
 
 }
