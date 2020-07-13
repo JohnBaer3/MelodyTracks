@@ -2,10 +2,10 @@
 //  HomeScreen.swift
 //  MelodyTracks
 //
-//
+//  DEPRECATED: HOMESCREEN IS NOW SelectionViewController.swift
 //
 
-import UIKit
+/*import UIKit
 
 class HomeScreen: UIViewController{
     @IBOutlet weak var finishButton: finishButton!
@@ -32,9 +32,9 @@ class HomeScreen: UIViewController{
         
         self.navigationController?.navigationBar.setValue(true, forKey: "hidesShadow") //used to remove tiny bar between navigation bar and view
         //add observer for adding songs from Selection view
-        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: HomeScreen.showFinishNotification, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: HomeScreen.showFinishNotification, object: nil)
         //add observer for Start button from Curtain view
-        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: HomeScreen.TimerNotification, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: HomeScreen.TimerNotification, object: nil)
         startButton.setInitialDetails()
         
     }
@@ -137,4 +137,4 @@ class HomeScreen: UIViewController{
         NotificationCenter.default.removeObserver(self, name: HomeScreen.TimerNotification, object: nil)
     }
     
-}
+}*/

@@ -29,7 +29,6 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     @IBOutlet weak var albumCover: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
-    @IBOutlet weak var startButton: startButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var forwardButton: UIButton!
     
@@ -41,19 +40,19 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
         
         //set corner of bottom controller
         view.layer.cornerRadius = 10
-        albumCover.layer.cornerRadius = 10 
+        albumCover.layer.cornerRadius = 10
         
         //used to set heights of bottom controller
-        self.curtainController?.curtain.minHeightCoefficient = 0
-        self.curtainController?.curtain.midHeightCoefficient = 0.109
+        self.curtainController?.curtain.minHeightCoefficient = 0 //0
+        self.curtainController?.curtain.midHeightCoefficient = 0.33 //0.109
         self.curtainController?.curtain.maxHeightCoefficient = 0.33
-        self.curtainController?.moveCurtain(to: CurtainHeightState.min, animated: false)
+        self.curtainController?.curtain.swipeResistance = CurtainSwipeResistance.high
+        self.curtainController?.moveCurtain(to: CurtainHeightState.hide, animated: false)
         
         pauseButton.isHidden = true
         setControlStatus(status: false)
         
         setSliderBPM()
-        startButton.setInitialDetails()
         
         //setting up audio player
         audioPlayer.beginGeneratingPlaybackNotifications()
@@ -110,21 +109,19 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
             //Play song after clicked save in selection view
             print("Play song after clicked save in selection view")
             audioPlayer = notification.userInfo?["player"] as! MPMusicPlayerController as! MPMusicPlayerController & MPSystemMusicPlayerController
-            startButton.setPauseIcon()
             playPlayer()
             setSliderBPM()
             setControlStatus(status: true)
             BPM.isEnabled = (notification.userInfo?["fixedOrAuto"])! as! Bool
             slider.isEnabled = (notification.userInfo?["fixedOrAuto"])! as! Bool
-            NotificationCenter.default.post(name: HomeScreen.TimerNotification, object: nil, userInfo:["play": true])
+            NotificationCenter.default.post(name: SelectionViewController.TimerNotification, object: nil, userInfo:["play": true])
             //show curtain view
-            self.curtainController?.moveCurtain(to: CurtainHeightState.max, animated: false)
+            self.curtainController?.moveCurtain(to: CurtainHeightState.mid, animated: false)
         }else if notification.name.rawValue == "homeScreenFinishNotification"{
             //Stop everything because finished is tapped
-            startButton.setStartIcon()
             pausePlayer()
             //get rid of curtain view
-            self.curtainController?.moveCurtain(to: CurtainHeightState.min, animated: true)
+            self.curtainController?.moveCurtain(to: CurtainHeightState.hide, animated: true)
             setControlStatus(status: false)
         }else if notification.name.rawValue == "showBPMNotification"{
             self.curtainController?.moveCurtain(to: CurtainHeightState.mid, animated: true)
@@ -152,23 +149,6 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
         albumCover.image = item?.artwork?.image(at: albumCover.intrinsicContentSize)
         artist.text = item?.albumArtist
         song.text = item?.title
-    }
-    /**
-     * Method name: pauseResumeTapped
-     * Description: Listener for the resume and pause button
-     * Parameters: button mapped to this function
-     */
-    @IBAction func pauseResumeTapped(_ sender: Any) {
-        if (startButton.currentTitle == "Pause"){ // Pause Tapped
-            NotificationCenter.default.post(name: HomeScreen.TimerNotification, object: nil, userInfo:["play": false])
-            pausePlayer()
-            startButton.setResumeIcon()
-        }else{ // Resume Tapped
-            NotificationCenter.default.post(name: HomeScreen.TimerNotification, object: nil, userInfo:["play": true])
-            playPlayer()
-            startButton.setPauseIcon()
-        }
-        
     }
     /**
     * Method name: slider
@@ -204,13 +184,10 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     @IBAction func playPauseButtonTapped(_ sender: UIButton) {
         if pauseButton.isHidden == false{
             pausePlayer()
-            startButton.setResumeIcon()
-            NotificationCenter.default.post(name: HomeScreen.TimerNotification, object: nil, userInfo:["play": false])
-            
+            NotificationCenter.default.post(name: SelectionViewController.TimerNotification, object: nil, userInfo:["play": false])
         }else{
             playPlayer()
-            startButton.setPauseIcon()
-            NotificationCenter.default.post(name: HomeScreen.TimerNotification, object: nil, userInfo:["play": true])
+            NotificationCenter.default.post(name: SelectionViewController.TimerNotification, object: nil, userInfo:["play": true])
         }
     }
     /**

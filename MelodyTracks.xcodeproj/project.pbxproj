@@ -28,7 +28,6 @@
 		DFA177A224A918C400FDFD18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFA177A024A918C400FDFD18 /* LaunchScreen.storyboard */; };
 		DFA177AD24A918C400FDFD18 /* MelodyTracksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177AC24A918C400FDFD18 /* MelodyTracksTests.swift */; };
 		DFA177B824A918C400FDFD18 /* MelodyTracksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177B724A918C400FDFD18 /* MelodyTracksUITests.swift */; };
-		DFA177CB24A965CE00FDFD18 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177CA24A965CE00FDFD18 /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -463,7 +462,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF90C93424B8D7A800D7670C /* finishButton.swift in Sources */,
-				DFA177CB24A965CE00FDFD18 /* HomeScreen.swift in Sources */,
 				DF063D4524B42FAC0070F834 /* CustomCurtainViewController.swift in Sources */,
 				DFA1779624A918C300FDFD18 /* AppDelegate.swift in Sources */,
 				DF90C93624B8FE2200D7670C /* selectSongButton.swift in Sources */,

@@ -35,4 +35,12 @@ class selectSongButton: UIButton {
     func setSaveIcon(){
         self.setTitle("Save", for: [])
     }
+    /**
+    * Method name: setBPMIcon
+    * Description: sets the start button to show BPM button
+    * Parameters: N/A
+    */
+    func setBPMIcon(){
+        self.setTitle("Show BPM", for: [])
+    }
 }

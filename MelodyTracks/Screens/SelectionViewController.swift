@@ -13,18 +13,48 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
     @IBOutlet weak var BPM: UILabel!
     @IBOutlet weak var literalBPM: UILabel!
     @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var save: UIButton!
+    @IBOutlet weak var save: startButton!
     @IBOutlet weak var saveButton: selectSongButton!
+    @IBOutlet weak var finishButton: finishButton!
+    @IBOutlet weak var timerNum: UILabel!
+    @IBOutlet weak var selector: UISegmentedControl!
+    // set notification name
+    static let showFinishNotification = Notification.Name("showFinishNotification")
+    static let TimerNotification = Notification.Name("TimerNotification")
     
     var audioPlayer = MPMusicPlayerController.systemMusicPlayer
     var hideFinishButton: Bool!
     var fixedOrAuto: Bool!
-    
+    var timer = Timer()
+    var counter = 0  //holds value of timer
     
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButton.setInitialDetails()
         setSliderBPM()
+        finishButton.setInitialDetails()
+        finishButton.isHidden = true
+        timerNum.isHidden = true
+        //add observer for Start button from Curtain view
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: SelectionViewController.TimerNotification, object: nil)
+    }
+    /**
+     * Method name: onNotification
+     * Description: used to receive song data from Selection view
+     * Parameters: notification object
+     */
+    @objc func onNotification(notification:Notification)
+    {
+        print("NOTIFICATION IS WORKING")
+        if notification.name.rawValue == "TimerNotification"{
+            // used to control timer when paused or resumed
+            if (notification.userInfo?["play"])! as! Bool {
+                print("timer started")
+                runTimer()
+            }else{
+                timer.invalidate()
+            }
+        }
     }
     /**
      * Method name: setSliderBPM
@@ -49,6 +79,75 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
         BPM.text = String(Int(sender.value))
         print(BPM.text!)
         UserDefaults.standard.set(BPM.text, forKey:"Pace")
+    }
+    /**
+     * Method name: timeString
+     * Description: Formats timer
+     * Parameters: N/A
+     */
+    func timeString(time:TimeInterval) -> String {
+        let hours = Int(time) / 3600
+        let minutes = Int(time) / 60 % 60
+        let seconds = Int(time) % 60
+        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
+    }
+    /**
+     * Method name: runTimer
+     * Description: Runs timer
+     * Parameters: N/A
+     */
+    @objc func runTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
+    }
+    /**
+     * Method name: timerAction
+     * Description: increments timer and sets label text
+     * Parameters: N/A
+     */
+    @objc func timerAction() {
+        counter += 1
+        timerNum.text = timeString(time: TimeInterval(counter))
+    }
+    /**
+    * Method name: runningUI
+    * Description: Show running UI
+    * Parameters: N/A
+    */
+    @objc func runningUI(){
+        finishButton.isHidden = false
+        timerNum.isHidden = false
+        save.setTitle("Show BPM", for: [])
+        BPM.isHidden = true
+        slider.isHidden = true
+        literalBPM.isHidden = true
+        selector.isHidden = true
+    }
+    /**
+    * Method name: resetUI
+    * Description: Resets UI elements to original positions
+    * Parameters: N/A
+    */
+    @objc func resetUI(){
+        finishButton.isHidden = true
+        timerNum.isHidden = true
+        save.setTitle("Select Song", for: [])
+        BPM.isHidden = false
+        slider.isHidden = false
+        literalBPM.isHidden = false
+        selector.isHidden = false
+        //reset timer
+        timer.invalidate()
+        timerNum.text = "00:00:00"
+        counter = 0
+    }
+    /**
+    * Method name: FinishTapped
+    * Description: Listener for the Stop Button
+    * Parameters: button mapped to this function
+    */
+    @IBAction func finishTapped(_ sender: Any) {
+        NotificationCenter.default.post(name: CustomCurtainViewController.homeScreenFinishNotification, object: nil, userInfo:["finishTapped":true])
+        resetUI()
     }
     /**
      * Method name: fixedAutoSelector
@@ -83,10 +182,11 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
             picker.delegate = self
             saveButton.setSaveIcon()
             self.present(picker, animated:false, completion:nil)
-        }else{  //send data to Curtain View because Save has been tapped
+        }else if saveButton.title(for: .normal) == "Save"{  //send data to Curtain View because Save has been tapped
             NotificationCenter.default.post(name: CustomCurtainViewController.selectionViewNotification, object: nil, userInfo:["player": audioPlayer, "fixedOrAuto": fixedOrAuto ?? true, "BPM": BPM.text!])
-            NotificationCenter.default.post(name: HomeScreen.showFinishNotification, object: nil, userInfo:["hideFinishButton": false])
-            dismiss(animated: true, completion: nil)
+            runningUI()
+        }else{
+            NotificationCenter.default.post(name: CustomCurtainViewController.showBPMNotification, object: nil, userInfo:["showBPMTapped": true])
         }
     }
     /**
@@ -116,5 +216,9 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
         self.dismiss(animated: false, completion:nil)
     }
     
+    deinit{
+        //stop listening to notifications
+        NotificationCenter.default.removeObserver(self, name: SelectionViewController.TimerNotification, object: nil)
+    }
 }
 
