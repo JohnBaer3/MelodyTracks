@@ -3,38 +3,31 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DF1FDD3624AD220E0029F2DE /* AddSongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3524AD220E0029F2DE /* AddSongButton.swift */; };
-		DF1FDD3824AD29F70029F2DE /* PlayPauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3724AD29F70029F2DE /* PlayPauseButton.swift */; };
-		DF1FDD3A24AD2B120029F2DE /* PauseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3924AD2B120029F2DE /* PauseButton.swift */; };
-		DF1FDD3C24AD3B570029F2DE /* FowardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3B24AD3B570029F2DE /* FowardButton.swift */; };
-		DF1FDD3E24AD3B8A0029F2DE /* BackwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3D24AD3B8A0029F2DE /* BackwardButton.swift */; };
-		DF1FDD4024AD44F20029F2DE /* LoopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD3F24AD44F20029F2DE /* LoopButton.swift */; };
-		DF1FDD4224AD44FB0029F2DE /* ShuffleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1FDD4124AD44FB0029F2DE /* ShuffleButton.swift */; };
-		DF31FD6A24AAE5F50036C7BC /* Pace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF31FD6924AAE5F50036C7BC /* Pace.swift */; };
+		2B7C01BDEBAB8CAD6DBDEAC8 /* Pods_MelodyTracks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E4A07D1A8BDF7FF1811CEE3 /* Pods_MelodyTracks.framework */; };
+		42EE94BD76E4BD3D3132EC77 /* Pods_MelodyTracks_MelodyTracksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB2814FD00315C7EA0362AD /* Pods_MelodyTracks_MelodyTracksUITests.framework */; };
+		A14A984270017934AA2AFA7A /* Pods_MelodyTracksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 500D5147E0274640C57DB32B /* Pods_MelodyTracksTests.framework */; };
+		DF063D4124B3C41A0070F834 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF063D4024B3C41A0070F834 /* SelectionViewController.swift */; };
+		DF063D4524B42FAC0070F834 /* CustomCurtainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF063D4424B42FAC0070F834 /* CustomCurtainViewController.swift */; };
 		DF47071524AEB7BB00F6E929 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF47071424AEB7BB00F6E929 /* Accelerate.framework */; };
 		DF47071724AEB7D800F6E929 /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF47071624AEB7D800F6E929 /* aubio.framework */; };
 		DF73C95024AEB2EC0031B8FB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C94F24AEB2EC0031B8FB /* AudioToolbox.framework */; };
 		DF73C95224AEB2F50031B8FB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95124AEB2F50031B8FB /* CoreMedia.framework */; };
 		DF73C95424AEB2FD0031B8FB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95324AEB2FD0031B8FB /* AVFoundation.framework */; };
 		DF73C95624AEB3320031B8FB /* libSuperpoweredAudioIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95524AEB3320031B8FB /* libSuperpoweredAudioIOS.a */; };
+		DF90C93324B8D7A800D7670C /* startButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90C93124B8D7A800D7670C /* startButton.swift */; };
+		DF90C93424B8D7A800D7670C /* finishButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90C93224B8D7A800D7670C /* finishButton.swift */; };
+		DF90C93624B8FE2200D7670C /* selectSongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90C93524B8FE2200D7670C /* selectSongButton.swift */; };
 		DFA1779624A918C300FDFD18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA1779524A918C300FDFD18 /* AppDelegate.swift */; };
 		DFA1779824A918C300FDFD18 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA1779724A918C300FDFD18 /* SceneDelegate.swift */; };
-		DFA1779A24A918C300FDFD18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA1779924A918C300FDFD18 /* ViewController.swift */; };
 		DFA1779D24A918C300FDFD18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFA1779B24A918C300FDFD18 /* Main.storyboard */; };
 		DFA1779F24A918C400FDFD18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFA1779E24A918C400FDFD18 /* Assets.xcassets */; };
 		DFA177A224A918C400FDFD18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFA177A024A918C400FDFD18 /* LaunchScreen.storyboard */; };
 		DFA177AD24A918C400FDFD18 /* MelodyTracksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177AC24A918C400FDFD18 /* MelodyTracksTests.swift */; };
 		DFA177B824A918C400FDFD18 /* MelodyTracksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177B724A918C400FDFD18 /* MelodyTracksUITests.swift */; };
-		DFA177C724A9602500FDFD18 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177C624A9602500FDFD18 /* StartButton.swift */; };
-		DFA177CB24A965CE00FDFD18 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177CA24A965CE00FDFD18 /* HomeScreen.swift */; };
-		DFA177CF24A9685900FDFD18 /* Jogging.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177CE24A9685900FDFD18 /* Jogging.swift */; };
-		DFC4302824AFAAB300FB419E /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC4302624AFAAB200FB419E /* CardViewController.swift */; };
-		DFC4302924AFAAB300FB419E /* CardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DFC4302724AFAAB300FB419E /* CardViewController.xib */; };
-		DFE4F19124ABD74500837BFD /* StopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE4F19024ABD74500837BFD /* StopButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,24 +48,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DF1FDD3524AD220E0029F2DE /* AddSongButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSongButton.swift; sourceTree = "<group>"; };
-		DF1FDD3724AD29F70029F2DE /* PlayPauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayPauseButton.swift; sourceTree = "<group>"; };
-		DF1FDD3924AD2B120029F2DE /* PauseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseButton.swift; sourceTree = "<group>"; };
-		DF1FDD3B24AD3B570029F2DE /* FowardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FowardButton.swift; sourceTree = "<group>"; };
-		DF1FDD3D24AD3B8A0029F2DE /* BackwardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackwardButton.swift; sourceTree = "<group>"; };
-		DF1FDD3F24AD44F20029F2DE /* LoopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoopButton.swift; sourceTree = "<group>"; };
-		DF1FDD4124AD44FB0029F2DE /* ShuffleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShuffleButton.swift; sourceTree = "<group>"; };
-		DF31FD6924AAE5F50036C7BC /* Pace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pace.swift; sourceTree = "<group>"; };
+		500D5147E0274640C57DB32B /* Pods_MelodyTracksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MelodyTracksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66568E1A4833C3B71D73FFFD /* Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig"; path = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E4A07D1A8BDF7FF1811CEE3 /* Pods_MelodyTracks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MelodyTracks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		797DAF989AB7CB357642BF48 /* Pods-MelodyTracks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelodyTracks.release.xcconfig"; path = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks.release.xcconfig"; sourceTree = "<group>"; };
+		7A155DE04E4C21ABFB94FB41 /* Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig"; path = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8269699A8166232F1486BFF2 /* Pods-MelodyTracks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelodyTracks.debug.xcconfig"; path = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks.debug.xcconfig"; sourceTree = "<group>"; };
+		A2346BD8316BC2DC2369F250 /* Pods-MelodyTracksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelodyTracksTests.debug.xcconfig"; path = "Target Support Files/Pods-MelodyTracksTests/Pods-MelodyTracksTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CAB2814FD00315C7EA0362AD /* Pods_MelodyTracks_MelodyTracksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MelodyTracks_MelodyTracksUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF063D4024B3C41A0070F834 /* SelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
+		DF063D4424B42FAC0070F834 /* CustomCurtainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCurtainViewController.swift; sourceTree = "<group>"; };
 		DF47071424AEB7BB00F6E929 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		DF47071624AEB7D800F6E929 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = aubio.framework; path = "MelodyTracks/aubio-0.4.7.iosuniversal_framework/aubio.framework"; sourceTree = "<group>"; };
 		DF73C94F24AEB2EC0031B8FB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DF73C95124AEB2F50031B8FB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		DF73C95324AEB2FD0031B8FB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DF73C95524AEB3320031B8FB /* libSuperpoweredAudioIOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSuperpoweredAudioIOS.a; path = MelodyTracks/Superpower/libSuperpoweredAudioIOS.a; sourceTree = "<group>"; };
+		DF90C93124B8D7A800D7670C /* startButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = startButton.swift; sourceTree = "<group>"; };
+		DF90C93224B8D7A800D7670C /* finishButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = finishButton.swift; sourceTree = "<group>"; };
+		DF90C93524B8FE2200D7670C /* selectSongButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectSongButton.swift; sourceTree = "<group>"; };
 		DFA1779224A918C300FDFD18 /* MelodyTracks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MelodyTracks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFA1779524A918C300FDFD18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DFA1779724A918C300FDFD18 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DFA1779924A918C300FDFD18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DFA1779C24A918C300FDFD18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DFA1779E24A918C400FDFD18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DFA177A124A918C400FDFD18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -83,12 +80,8 @@
 		DFA177B324A918C400FDFD18 /* MelodyTracksUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MelodyTracksUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFA177B724A918C400FDFD18 /* MelodyTracksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodyTracksUITests.swift; sourceTree = "<group>"; };
 		DFA177B924A918C400FDFD18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DFA177C624A9602500FDFD18 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		DFA177CA24A965CE00FDFD18 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		DFA177CE24A9685900FDFD18 /* Jogging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jogging.swift; sourceTree = "<group>"; };
-		DFC4302624AFAAB200FB419E /* CardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardViewController.swift; path = ../../../Downloads/CardViewAnimationStart/CardViewAnimation/CardViewController.swift; sourceTree = "<group>"; };
-		DFC4302724AFAAB300FB419E /* CardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardViewController.xib; sourceTree = "<group>"; };
-		DFE4F19024ABD74500837BFD /* StopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopButton.swift; sourceTree = "<group>"; };
+		F50A7DBE05D1F86AE8B85DCD /* Pods-MelodyTracksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelodyTracksTests.release.xcconfig"; path = "Target Support Files/Pods-MelodyTracksTests/Pods-MelodyTracksTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +95,7 @@
 				DF73C95224AEB2F50031B8FB /* CoreMedia.framework in Frameworks */,
 				DF73C95024AEB2EC0031B8FB /* AudioToolbox.framework in Frameworks */,
 				DF73C95624AEB3320031B8FB /* libSuperpoweredAudioIOS.a in Frameworks */,
+				2B7C01BDEBAB8CAD6DBDEAC8 /* Pods_MelodyTracks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A14A984270017934AA2AFA7A /* Pods_MelodyTracksTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,12 +111,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42EE94BD76E4BD3D3132EC77 /* Pods_MelodyTracks_MelodyTracksUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9DE83DCCDB00C2F0E7318B4F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8269699A8166232F1486BFF2 /* Pods-MelodyTracks.debug.xcconfig */,
+				797DAF989AB7CB357642BF48 /* Pods-MelodyTracks.release.xcconfig */,
+				66568E1A4833C3B71D73FFFD /* Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig */,
+				7A155DE04E4C21ABFB94FB41 /* Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig */,
+				A2346BD8316BC2DC2369F250 /* Pods-MelodyTracksTests.debug.xcconfig */,
+				F50A7DBE05D1F86AE8B85DCD /* Pods-MelodyTracksTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DF73C94E24AEB2EC0031B8FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +140,21 @@
 				DF73C95324AEB2FD0031B8FB /* AVFoundation.framework */,
 				DF73C95124AEB2F50031B8FB /* CoreMedia.framework */,
 				DF73C94F24AEB2EC0031B8FB /* AudioToolbox.framework */,
+				6E4A07D1A8BDF7FF1811CEE3 /* Pods_MelodyTracks.framework */,
+				CAB2814FD00315C7EA0362AD /* Pods_MelodyTracks_MelodyTracksUITests.framework */,
+				500D5147E0274640C57DB32B /* Pods_MelodyTracksTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DF90C93024B8D7A800D7670C /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				DF90C93124B8D7A800D7670C /* startButton.swift */,
+				DF90C93224B8D7A800D7670C /* finishButton.swift */,
+				DF90C93524B8FE2200D7670C /* selectSongButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		DFA1778924A918C300FDFD18 = {
@@ -143,6 +165,7 @@
 				DFA177B624A918C400FDFD18 /* MelodyTracksUITests */,
 				DFA1779324A918C300FDFD18 /* Products */,
 				DF73C94E24AEB2EC0031B8FB /* Frameworks */,
+				9DE83DCCDB00C2F0E7318B4F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,14 +182,11 @@
 		DFA1779424A918C300FDFD18 /* MelodyTracks */ = {
 			isa = PBXGroup;
 			children = (
-				DFC4302624AFAAB200FB419E /* CardViewController.swift */,
-				DFC4302724AFAAB300FB419E /* CardViewController.xib */,
+				DF90C93024B8D7A800D7670C /* Buttons */,
 				DFA177C924A965BC00FDFD18 /* Screens */,
-				DFA177C824A9656E00FDFD18 /* Buttons */,
 				DFA1779524A918C300FDFD18 /* AppDelegate.swift */,
-				DFA177CA24A965CE00FDFD18 /* HomeScreen.swift */,
 				DFA1779724A918C300FDFD18 /* SceneDelegate.swift */,
-				DFA1779924A918C300FDFD18 /* ViewController.swift */,
+				DFA177CA24A965CE00FDFD18 /* HomeScreen.swift */,
 				DFA1779B24A918C300FDFD18 /* Main.storyboard */,
 				DFA1779E24A918C400FDFD18 /* Assets.xcassets */,
 				DFA177A024A918C400FDFD18 /* LaunchScreen.storyboard */,
@@ -193,27 +213,11 @@
 			path = MelodyTracksUITests;
 			sourceTree = "<group>";
 		};
-		DFA177C824A9656E00FDFD18 /* Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				DFA177C624A9602500FDFD18 /* StartButton.swift */,
-				DF1FDD3F24AD44F20029F2DE /* LoopButton.swift */,
-				DF1FDD4124AD44FB0029F2DE /* ShuffleButton.swift */,
-				DFE4F19024ABD74500837BFD /* StopButton.swift */,
-				DF1FDD3924AD2B120029F2DE /* PauseButton.swift */,
-				DF1FDD3524AD220E0029F2DE /* AddSongButton.swift */,
-				DF1FDD3B24AD3B570029F2DE /* FowardButton.swift */,
-				DF1FDD3D24AD3B8A0029F2DE /* BackwardButton.swift */,
-				DF1FDD3724AD29F70029F2DE /* PlayPauseButton.swift */,
-			);
-			path = Buttons;
-			sourceTree = "<group>";
-		};
 		DFA177C924A965BC00FDFD18 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				DFA177CE24A9685900FDFD18 /* Jogging.swift */,
-				DF31FD6924AAE5F50036C7BC /* Pace.swift */,
+				DF063D4024B3C41A0070F834 /* SelectionViewController.swift */,
+				DF063D4424B42FAC0070F834 /* CustomCurtainViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -225,9 +229,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFA177BC24A918C400FDFD18 /* Build configuration list for PBXNativeTarget "MelodyTracks" */;
 			buildPhases = (
+				8CCEB85556E4FBFB8F1CCF10 /* [CP] Check Pods Manifest.lock */,
 				DFA1778E24A918C300FDFD18 /* Sources */,
 				DFA1778F24A918C300FDFD18 /* Frameworks */,
 				DFA1779024A918C300FDFD18 /* Resources */,
+				1E58137C03325A3689468AB5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,6 +248,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFA177BF24A918C400FDFD18 /* Build configuration list for PBXNativeTarget "MelodyTracksTests" */;
 			buildPhases = (
+				2E9D2A57ED9C89C3B6D59FE9 /* [CP] Check Pods Manifest.lock */,
 				DFA177A424A918C400FDFD18 /* Sources */,
 				DFA177A524A918C400FDFD18 /* Frameworks */,
 				DFA177A624A918C400FDFD18 /* Resources */,
@@ -260,9 +267,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DFA177C224A918C400FDFD18 /* Build configuration list for PBXNativeTarget "MelodyTracksUITests" */;
 			buildPhases = (
+				AF3ECC0F3D26C73E03C68616 /* [CP] Check Pods Manifest.lock */,
 				DFA177AF24A918C400FDFD18 /* Sources */,
 				DFA177B024A918C400FDFD18 /* Frameworks */,
 				DFA177B124A918C400FDFD18 /* Resources */,
+				C312C9D3807F94EC82F24C62 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,7 +331,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFC4302924AFAAB300FB419E /* CardViewController.xib in Resources */,
 				DFA177A224A918C400FDFD18 /* LaunchScreen.storyboard in Resources */,
 				DFA1779F24A918C400FDFD18 /* Assets.xcassets in Resources */,
 				DFA1779D24A918C300FDFD18 /* Main.storyboard in Resources */,
@@ -345,27 +353,121 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1E58137C03325A3689468AB5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2E9D2A57ED9C89C3B6D59FE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MelodyTracksTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8CCEB85556E4FBFB8F1CCF10 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MelodyTracks-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF3ECC0F3D26C73E03C68616 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MelodyTracks-MelodyTracksUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C312C9D3807F94EC82F24C62 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DFA1778E24A918C300FDFD18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF1FDD3C24AD3B570029F2DE /* FowardButton.swift in Sources */,
-				DF1FDD3A24AD2B120029F2DE /* PauseButton.swift in Sources */,
-				DFA1779A24A918C300FDFD18 /* ViewController.swift in Sources */,
-				DF1FDD4224AD44FB0029F2DE /* ShuffleButton.swift in Sources */,
-				DF1FDD3624AD220E0029F2DE /* AddSongButton.swift in Sources */,
-				DF31FD6A24AAE5F50036C7BC /* Pace.swift in Sources */,
-				DFA177CF24A9685900FDFD18 /* Jogging.swift in Sources */,
-				DF1FDD3E24AD3B8A0029F2DE /* BackwardButton.swift in Sources */,
-				DFA177CB24A965CE00FDFD18 /* HomeScreen.swift in Sources */,
+				DF90C93424B8D7A800D7670C /* finishButton.swift in Sources */,
+				DF063D4524B42FAC0070F834 /* CustomCurtainViewController.swift in Sources */,
 				DFA1779624A918C300FDFD18 /* AppDelegate.swift in Sources */,
-				DFA177C724A9602500FDFD18 /* StartButton.swift in Sources */,
+				DF90C93624B8FE2200D7670C /* selectSongButton.swift in Sources */,
 				DFA1779824A918C300FDFD18 /* SceneDelegate.swift in Sources */,
-				DFC4302824AFAAB300FB419E /* CardViewController.swift in Sources */,
-				DF1FDD4024AD44F20029F2DE /* LoopButton.swift in Sources */,
-				DF1FDD3824AD29F70029F2DE /* PlayPauseButton.swift in Sources */,
-				DFE4F19124ABD74500837BFD /* StopButton.swift in Sources */,
+				DF90C93324B8D7A800D7670C /* startButton.swift in Sources */,
+				DF063D4124B3C41A0070F834 /* SelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +638,7 @@
 		};
 		DFA177BD24A918C400FDFD18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8269699A8166232F1486BFF2 /* Pods-MelodyTracks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -563,6 +666,7 @@
 		};
 		DFA177BE24A918C400FDFD18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 797DAF989AB7CB357642BF48 /* Pods-MelodyTracks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -590,6 +694,7 @@
 		};
 		DFA177C024A918C400FDFD18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2346BD8316BC2DC2369F250 /* Pods-MelodyTracksTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -611,6 +716,7 @@
 		};
 		DFA177C124A918C400FDFD18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F50A7DBE05D1F86AE8B85DCD /* Pods-MelodyTracksTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -632,6 +738,7 @@
 		};
 		DFA177C324A918C400FDFD18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66568E1A4833C3B71D73FFFD /* Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -651,6 +758,7 @@
 		};
 		DFA177C424A918C400FDFD18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A155DE04E4C21ABFB94FB41 /* Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
