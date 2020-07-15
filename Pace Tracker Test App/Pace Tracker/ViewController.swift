@@ -2,38 +2,78 @@
     CoreMotion tester app
     Built for spike in sprint 1
     Designed to practice measuring pace of user's phone
+    Created 6/30/20
+    Last edited: 7/14/20
  */
 
 import UIKit
 import CoreMotion
+import MapKit
+import CoreLocation
 import Dispatch
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
-    // get live walking data
-    // setup core motion objects
+    /*
+     * initialze the core motion activity manager
+     * object that manages access to the motion data of the phone
+     */
     private let activityManager = CMMotionActivityManager()
+    // initialize the pedometer object for fetching the step counting/pace data
     private let pedometer = CMPedometer()
+    // bool for start/stop button interaction
     private var shouldUpdate: Bool = false
+    // start date variable used by all the event update functions in CM
     private var startDate: Date? = nil
+    // set of binary flags used for indicating the auth status of different motion activities
+    private var stepAval = 0
     private var paceAval = 0
+    private var distanceAval = 0
+    
+    /*
+     * Map access objects
+     * create Core Location manager object to access location data of phone
+     * declare array for holding user location points
+     */
+    private var locationManager:CLLocationManager!
     
     // links for ui storyboard to controller objects
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stepCountLabel: UILabel!
     @IBOutlet weak var currentPaceLabel: UILabel!
     @IBOutlet weak var activityTypeLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    // link to storyboard MKMapView
+    @IBOutlet weak var mapView: MKMapView!
     
-    // first function loaded when application opens (I think)
-    // start with just setting up the start button so when the user presses it the tracking starts
+    
+    // initialize the start button before the loading of view controller
     override func viewDidLoad() {
         super.viewDidLoad()
         startButton.addTarget(self, action: #selector(didTapStartButton), for: .touchUpInside)
+        
+        // set up location manager
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        // complete authorization process for location services
+        let status = CLLocationManager.authorizationStatus()
+        if status == .notDetermined || status == .denied || status == .authorizedWhenInUse {
+               locationManager.requestAlwaysAuthorization()
+               locationManager.requestWhenInUseAuthorization()
+           }
+        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingHeading()
+        
+        // view current location on map
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        mapView.mapType = MKMapType(rawValue: 0)!
+        mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
     }
     
-    // notify view controller that it's about to be added to view hierarchy
-    // start updating the steps label
+    // evertime the view controller updates, update the steps and pace labels
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         guard let startDate = startDate else {
@@ -42,6 +82,7 @@ class ViewController: UIViewController {
         updateStepsLabel(startDate: startDate)
     }
     
+    // function to control the start/stop functionality of the pace tracking
     // if start button is tapped, reverse the bool and start/stop tracking accordingly
     @objc private func didTapStartButton() {
         //reverse the status of the button
@@ -52,7 +93,33 @@ class ViewController: UIViewController {
 
 extension ViewController {
     
-    // steps to start tracking
+    // CLLocationManager delegate
+    // manages the location data points of the user
+    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
+        if let oldLocationNew = oldLocation as CLLocation?{
+            let oldCoordinates = oldLocationNew.coordinate
+            let newCoordinates = newLocation.coordinate
+            var area = [oldCoordinates, newCoordinates]
+            let polyline = MKPolyline(coordinates: &area, count: area.count)
+            mapView.addOverlay(polyline)
+        }
+        
+    }
+    
+    // function to draw the draw the user history line on the map
+    // creates the red trail of the location history
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        if (overlay is MKPolyline) {
+            let pr = MKPolylineRenderer(overlay: overlay)
+            pr.strokeColor = UIColor.red
+            pr.lineWidth = 5
+            return pr
+        }
+        return nil
+    }
+    
+    // start updating the steps label by by changing the text label for the start button
+    // set the date to query data to now, cheeck authorization status, and then start actually tracking data
     private func onStart() {
         startButton.setTitle("Stop", for: .normal)
         startDate = Date()
@@ -60,7 +127,7 @@ extension ViewController {
         startUpdating()
     }
     
-    // steps to stop tracking
+   // reverse start/stop button text and reset the start date to null, then send message to stop updating
     private func onStop() {
         startButton.setTitle("Start", for: .normal)
         startDate = nil
@@ -68,7 +135,7 @@ extension ViewController {
     }
     
     // check what abilities are available on the phone
-    // if activity is available, start updating it
+    // if activity tracking, step counting, or pace tracking is available, start label updating function
     private func startUpdating() {
         if CMMotionActivityManager.isActivityAvailable() {
             startTrackingActivity()
@@ -77,9 +144,9 @@ extension ViewController {
         }
         
         if CMPedometer.isStepCountingAvailable() {
-            startCountingSteps()
+            stepAval = 1
         } else {
-            stepCountLabel.text = "Motion activity not available"
+            stepCountLabel.text = "Step counting not available"
         }
         
         // don't want to make another function for pace tracking
@@ -87,11 +154,17 @@ extension ViewController {
         if CMPedometer.isPaceAvailable() {
             paceAval = 1
         } else {
-            currentPaceLabel.text = "Current pace is not available"
+            currentPaceLabel.text = "Pace tracking is not available"
+        }
+        
+        if CMPedometer.isDistanceAvailable() {
+            distanceAval = 1
+        } else {
+            distanceLabel.text = "Distance tracking is not available"
         }
     }
     
-    // check if the phone is allowed to access motion events as requested in the plist file
+    // checck if the phone is allowed to access motion events as requested in the plist file
     private func checkAuthStatus() {
         switch CMMotionActivityManager.authorizationStatus() {
         case CMAuthorizationStatus.denied:
@@ -115,28 +188,48 @@ extension ViewController {
         // in the future we can set up a popup notifying of the error
     }
     
-    // update the steps label and the current pace label pulling from queue
-    // using live data instead of getting history of motion
+    /*
+     * update the steps label and the current pace label pulling from queue
+     * used everytime the view controller refreshes
+     * using live data instead of getting history of motion
+     */
     private func updateStepsLabel(startDate: Date) {
         pedometer.queryPedometerData(from: startDate, to: Date()) {
             [weak self] pedometerData, error in
             // if there's an error, report the error
-            // else pull from the queue and update the step and pace labels
+            // else get the pedometer data and put it  in the main queue for UI updates of motion of events
+            // using an asynchronous queue so that the main thread isn't blocking
             if let error = error {
                 self?.error(error: error)
             } else if let pedometerData = pedometerData {
                 DispatchQueue.main.async {
-                    self?.stepCountLabel.text = String(describing: pedometerData.numberOfSteps)
+                    if self?.stepAval == 1 {
+                        self?.stepCountLabel.text = String(describing: pedometerData.numberOfSteps)
+                    }
                     if self?.paceAval == 1 {
-                        self?.currentPaceLabel.text = String(describing: pedometerData)
+                        var pace = pedometerData.currentPace?.intValue
+                        // convert seconds per meter to m/s
+                        // because paceAval is 1, pace is guarenteed to be not nil
+                        // we can safely force unwrap
+                        pace = 1/pace!
+                        // turn it into a type Double and convert to mph
+                        let paceMPH = Double(pace!) * 2.237
+                        self?.currentPaceLabel.text = String(paceMPH) + " mph"
+                    }
+                    if self?.distanceAval == 1 {
+                        let distance = pedometerData.distance!.stringValue + " meters"
+                        self?.distanceLabel.text = distance
                     }
                 }
             }
         }
     }
 
-    // start tracking what activity the phone is doing
-    // again just throw the event update to the main queue for UI updates
+    /*
+     * start tracking what activity the phone is doing (ie walking or running)
+     * put the event update on the main UI queue
+     * phone will automatically execute the handler block when it senses the activity changes
+     */
     private func startTrackingActivity() {
         activityManager.startActivityUpdates(to: OperationQueue.main) {
             [weak self] (activity: CMMotionActivity?) in
@@ -155,17 +248,33 @@ extension ViewController {
         }
     }
 
-    // put motion events onto the queue
-    // convert to string values so they can easily update the labels
-    // using an asynchronous queue so that the main thread isn't blocking
+    /*
+     * start updates of the pedometer by calling CM startUpdates()
+     * start reporting data from now [Date()]
+     * will then repeatedly call the handler block as new pedometer data arrives
+     * use the handler block to put motion events onto main UI queue asynchronously
+     */
     private func startCountingSteps() {
         pedometer.startUpdates(from: Date()) {
             [weak self] pedometerData, error in
             guard let pedometerData = pedometerData, error == nil else { return }
             DispatchQueue.main.async {
-                self?.stepCountLabel.text = pedometerData.numberOfSteps.stringValue
+                if self?.stepAval == 1 {
+                    self?.stepCountLabel.text = pedometerData.numberOfSteps.stringValue
+                }
                 if self?.paceAval == 1 {
-                    self?.currentPaceLabel.text = pedometerData.currentPace?.stringValue
+                    var pace = pedometerData.currentPace?.intValue
+                    // convert seconds per meter to m/s
+                    // because paceAval is 1, pace is guarenteed to be not nil
+                    // we can safely force unwrap
+                    pace = 1/pace!
+                    // turn it into a type Double and convert to mph
+                    let paceMPH = Double(pace!) * 2.237
+                    self?.currentPaceLabel.text = String(paceMPH) + " mph"
+                }
+                if self?.distanceAval == 1 {
+                    let distance = pedometerData.distance!.stringValue + " meters"
+                    self?.distanceLabel.text = distance
                 }
             }
         }
