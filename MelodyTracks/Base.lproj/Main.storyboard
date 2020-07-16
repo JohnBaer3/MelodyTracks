@@ -408,22 +408,6 @@
             </objects>
             <point key="canvasLocation" x="-2104.3478260869565" y="1172.5446428571429"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Q56-i5-XSg">
-            <objects>
-                <navigationController storyboardIdentifier="CustomCurtainNavController" id="eHC-62-nSV" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="m3e-Ck-THA">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="KaU-fq-334" kind="relationship" relationship="rootViewController" id="w2M-ca-hfT"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fEw-jg-NAG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1355" y="2508"/>
-        </scene>
         <!--Music-->
         <scene sceneID="5dl-UX-kOt">
             <objects>
@@ -433,7 +417,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="1CU-RS-lTG">
-                                <rect key="frame" x="25" y="163" width="365" height="184"/>
+                                <rect key="frame" x="25" y="67" width="365" height="184"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H9F-vv-ITm">
                                         <rect key="frame" x="0.0" y="0.0" width="365" height="133"/>
@@ -460,7 +444,7 @@
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="backward.fill" catalog="system"/>
                                                         <connections>
-                                                            <action selector="backwardTapped:" destination="KaU-fq-334" eventType="touchUpInside" id="xhi-z8-18b"/>
+                                                            <action selector="prevClicked:" destination="KaU-fq-334" eventType="touchUpInside" id="vcB-eV-gDw"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gzi-Yi-a1J">
@@ -470,7 +454,7 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="playPauseButtonTapped:" destination="KaU-fq-334" eventType="touchUpInside" id="aec-Di-CWu"/>
+                                                            <action selector="playPauseClicked:" destination="KaU-fq-334" eventType="touchUpInside" id="lCc-e3-Na2"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVf-gj-cP8">
@@ -478,7 +462,7 @@
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" image="forward.fill" catalog="system"/>
                                                         <connections>
-                                                            <action selector="fastForwardTapped:" destination="KaU-fq-334" eventType="touchUpInside" id="8vh-l7-aME"/>
+                                                            <action selector="nextClicked:" destination="KaU-fq-334" eventType="touchUpInside" id="mQz-qy-Eam"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

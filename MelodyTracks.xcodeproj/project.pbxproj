@@ -23,6 +23,7 @@
 		DF73C95224AEB2F50031B8FB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95124AEB2F50031B8FB /* CoreMedia.framework */; };
 		DF73C95424AEB2FD0031B8FB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95324AEB2FD0031B8FB /* AVFoundation.framework */; };
 		DF73C95624AEB3320031B8FB /* libSuperpoweredAudioIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95524AEB3320031B8FB /* libSuperpoweredAudioIOS.a */; };
+		DF762E8624BFF83000DB5124 /* Songs in Resources */ = {isa = PBXBuildFile; fileRef = DF762E8524BFF83000DB5124 /* Songs */; };
 		DF90C93324B8D7A800D7670C /* startButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90C93124B8D7A800D7670C /* startButton.swift */; };
 		DF90C93424B8D7A800D7670C /* finishButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90C93224B8D7A800D7670C /* finishButton.swift */; };
 		DF90C93624B8FE2200D7670C /* selectSongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90C93524B8FE2200D7670C /* selectSongButton.swift */; };
@@ -74,6 +75,7 @@
 		DF73C95124AEB2F50031B8FB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		DF73C95324AEB2FD0031B8FB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DF73C95524AEB3320031B8FB /* libSuperpoweredAudioIOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSuperpoweredAudioIOS.a; path = MelodyTracks/Superpower/libSuperpoweredAudioIOS.a; sourceTree = "<group>"; };
+		DF762E8524BFF83000DB5124 /* Songs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Songs; sourceTree = "<group>"; };
 		DF90C93124B8D7A800D7670C /* startButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = startButton.swift; sourceTree = "<group>"; };
 		DF90C93224B8D7A800D7670C /* finishButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = finishButton.swift; sourceTree = "<group>"; };
 		DF90C93524B8FE2200D7670C /* selectSongButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectSongButton.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		DFA1779424A918C300FDFD18 /* MelodyTracks */ = {
 			isa = PBXGroup;
 			children = (
+				DF762E8524BFF83000DB5124 /* Songs */,
 				DF90C93024B8D7A800D7670C /* Buttons */,
 				DFA177C924A965BC00FDFD18 /* Screens */,
 				DFA1779524A918C300FDFD18 /* AppDelegate.swift */,
@@ -349,6 +352,7 @@
 				DFA177A224A918C400FDFD18 /* LaunchScreen.storyboard in Resources */,
 				DFA1779F24A918C400FDFD18 /* Assets.xcassets in Resources */,
 				DFA1779D24A918C300FDFD18 /* Main.storyboard in Resources */,
+				DF762E8624BFF83000DB5124 /* Songs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,8 +8,12 @@
 
 import UIKit
 import FloatingPanel //https://github.com/SCENEE/FloatingPanel
+import AVKit
 
 class MapViewController: UIViewController, FloatingPanelControllerDelegate{
+    //passed from MapViewController
+    var audioPlayer: AVAudioPlayerNode?
+    var SongsArr: [Song]?
     
     var fpc: FloatingPanelController!
     
@@ -36,7 +40,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate{
     /**
      * Method name: showBottomSheet
      * Description: Used to show the bottom sheet
-     * Parameters: <#parameters#>
+     * Parameters: N/A
      */
     func showBottomSheet(){
         // Initialize a `FloatingPanelController` object.
@@ -44,16 +48,17 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate{
         fpc.delegate = self
         // Set a content view controller.
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let contentVC = storyboard.instantiateViewController(withIdentifier: "CustomCurtainNavController") as! UINavigationController
+        let contentVC = storyboard.instantiateViewController(withIdentifier: "CustomCurtainViewController") as! CustomCurtainViewController
         fpc.set(contentViewController: contentVC)
-
+        contentVC.audioPlayer = audioPlayer
+        contentVC.SongsArr = SongsArr
         fpc.surfaceView.cornerRadius = 10
         fpc.addPanel(toParent: self)
     }
     /**
      * Method name: floatingPanel
-     * Description: <#description#>
-     * Parameters: <#parameters#>
+     * Description: used to control height of bottom sheet. does not need to be called.
+     * Parameters: N/A
      */
     func floatingPanel(_ vc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout? {
         return MyFloatingPanelLayout()
@@ -132,8 +137,8 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate{
     }
     /**
      * Method name: viewWillDisappear
-     * Description: <#description#>
-     * Parameters: <#parameters#>
+     * Description: called when the view is removed from the stack. In this case, it is just used to remove observers.
+     * Parameters: a boolean
      */
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: MapViewController.startNotification, object: nil)
