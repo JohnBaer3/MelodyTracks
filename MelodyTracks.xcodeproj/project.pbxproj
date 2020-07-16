@@ -15,6 +15,8 @@
 		DF09EFEA24BE517F00BA6F41 /* customStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF09EFE924BE517F00BA6F41 /* customStepper.swift */; };
 		DF12D2A124BE9A9C00CA15C4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF12D2A024BE9A9C00CA15C4 /* MapViewController.swift */; };
 		DF12D2A324BE9BB100CA15C4 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF12D2A224BE9BB100CA15C4 /* FinishViewController.swift */; };
+		DF12D2B524BF7F3400CA15C4 /* selectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF12D2B424BF7F3400CA15C4 /* selectorButton.swift */; };
+		DF12D2B924BF869E00CA15C4 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF12D2B824BF869E00CA15C4 /* SwipingController.swift */; };
 		DF47071524AEB7BB00F6E929 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF47071424AEB7BB00F6E929 /* Accelerate.framework */; };
 		DF47071724AEB7D800F6E929 /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF47071624AEB7D800F6E929 /* aubio.framework */; };
 		DF73C95024AEB2EC0031B8FB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C94F24AEB2EC0031B8FB /* AudioToolbox.framework */; };
@@ -64,6 +66,8 @@
 		DF09EFE924BE517F00BA6F41 /* customStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customStepper.swift; sourceTree = "<group>"; };
 		DF12D2A024BE9A9C00CA15C4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DF12D2A224BE9BB100CA15C4 /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
+		DF12D2B424BF7F3400CA15C4 /* selectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectorButton.swift; sourceTree = "<group>"; };
+		DF12D2B824BF869E00CA15C4 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		DF47071424AEB7BB00F6E929 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		DF47071624AEB7D800F6E929 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = aubio.framework; path = "MelodyTracks/aubio-0.4.7.iosuniversal_framework/aubio.framework"; sourceTree = "<group>"; };
 		DF73C94F24AEB2EC0031B8FB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -160,6 +164,7 @@
 				DF90C93224B8D7A800D7670C /* finishButton.swift */,
 				DF90C93524B8FE2200D7670C /* selectSongButton.swift */,
 				DF09EFE924BE517F00BA6F41 /* customStepper.swift */,
+				DF12D2B424BF7F3400CA15C4 /* selectorButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				DF063D4424B42FAC0070F834 /* CustomCurtainViewController.swift */,
 				DF12D2A024BE9A9C00CA15C4 /* MapViewController.swift */,
 				DF12D2A224BE9BB100CA15C4 /* FinishViewController.swift */,
+				DF12D2B824BF869E00CA15C4 /* SwipingController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -475,11 +481,13 @@
 				DFA1779624A918C300FDFD18 /* AppDelegate.swift in Sources */,
 				DF09EFEA24BE517F00BA6F41 /* customStepper.swift in Sources */,
 				DF12D2A124BE9A9C00CA15C4 /* MapViewController.swift in Sources */,
+				DF12D2B524BF7F3400CA15C4 /* selectorButton.swift in Sources */,
 				DF12D2A324BE9BB100CA15C4 /* FinishViewController.swift in Sources */,
 				DF90C93624B8FE2200D7670C /* selectSongButton.swift in Sources */,
 				DFA1779824A918C300FDFD18 /* SceneDelegate.swift in Sources */,
 				DF90C93324B8D7A800D7670C /* startButton.swift in Sources */,
 				DF063D4124B3C41A0070F834 /* SelectionViewController.swift in Sources */,
+				DF12D2B924BF869E00CA15C4 /* SwipingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

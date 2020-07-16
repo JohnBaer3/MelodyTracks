@@ -8,18 +8,26 @@
 
 import UIKit
 import MediaPlayer
-import SweetCurtain
 
 class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate {
     @IBOutlet weak var MPH: UILabel!
     @IBOutlet weak var saveButton: selectSongButton!
     @IBOutlet weak var selector: UISegmentedControl!
     @IBOutlet weak var customStepper: UIStackView!
+    @IBOutlet weak var walkButton: UIButton!
+    @IBOutlet weak var jogButton: UIButton!
+    @IBOutlet weak var runButton: UIButton!
+    @IBOutlet weak var fixedButton: selectorButton!
+    @IBOutlet weak var autoButton: selectorButton!
+    @IBOutlet weak var walkJogRunStackView: UIStackView!
+    @IBOutlet weak var mphStackView: customStepper!
+    @IBOutlet weak var descriptionText: UITextField!
     // set notification name
     static let showFinishNotification = Notification.Name("showFinishNotification")
     static let TimerNotification = Notification.Name("TimerNotification")
     
     var audioPlayer = MPMusicPlayerController.systemMusicPlayer
+    var trackList : MPMediaItemCollection?
     var hideFinishButton: Bool!
     
     var higherBoundMPH = 15
@@ -35,7 +43,10 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
                 audioPlayer.pause()
             }
         }
-        
+        fixedAutoSwap(tapped: fixedButton, other: autoButton)
+        walkButton.layer.cornerRadius = 10
+        jogButton.layer.cornerRadius = 10
+        runButton.layer.cornerRadius = 10
         //add observer for Start button from Curtain view
         NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: SelectionViewController.TimerNotification, object: nil)
     }
@@ -70,6 +81,58 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
             }
         }*/
     }
+    @IBAction func fixedTapped(_ sender: selectorButton) {
+        fixedHideorNot(value: false)
+        descriptionText.text = "Choose your pace"
+        fixedAutoSwap(tapped: fixedButton, other: autoButton)
+    }
+    @IBAction func autoTapped(_ sender: selectorButton) {
+        fixedHideorNot(value: true)
+        descriptionText.text = "Let our algorithm decide"
+        fixedAutoSwap(tapped: autoButton, other: fixedButton)
+        
+    }
+    func fixedHideorNot(value: Bool){
+        walkJogRunStackView.isHidden = value
+        mphStackView.isHidden = value
+    }
+    func fixedAutoSwap(tapped: selectorButton, other: selectorButton ){
+        if (tapped.isEnabled == true){
+            tapped.isSelected()
+            other.isUnselected()
+        }else{
+            tapped.isUnselected()
+            other.isSelected()
+        }
+    }
+    /**
+     * Method name: walkTapped
+     * Description: Listener for the walk button. Changes MPH to 4 and saves value.
+     * Parameters: N/A
+     */
+    @IBAction func walkTapped(_ sender: Any) {
+        MPH.text = "4"
+        UserDefaults.standard.set(MPH.text, forKey:"Pace") // save value
+    }
+    /**
+     * Method name: jogTapped
+     * Description:  Listener for the jog button. Changes MPH to 6 and saves value.
+     * Parameters: N/A
+     */
+    @IBAction func jogTapped(_ sender: Any) {
+        MPH.text = "6"
+        UserDefaults.standard.set(MPH.text, forKey:"Pace") // save value
+    }
+    /**
+     * Method name: runTapped
+     * Description:  Listener for the run button. Changes MPH to 48and saves value.
+     * Parameters: N/A
+     */
+    @IBAction func runTapped(_ sender: Any) {
+        MPH.text = "8"
+        UserDefaults.standard.set(MPH.text, forKey:"Pace") // save value
+    }
+    
     /**
      * Method name: incrementMPH
      * Description: Increments the MPH, but MPH to 15
@@ -94,7 +157,12 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
             UserDefaults.standard.set(MPH.text, forKey:"Pace") // save value
         }
     }
-    
+    /**
+     * Method name: unwindToSelectionViewController
+     * Description: <#description#>
+     * Parameters: <#parameters#>
+     */
+    @IBAction func unwindToSelectionViewController(segue:UIStoryboardSegue) { }
     /**
     * Method name: saveButtonTapped
     * Description: Once tapped, this button dismisses the view and returns the previous screen. It also sends data to the previous screen.
@@ -137,6 +205,7 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
             }
         }
         print(mediaItemCollection.items)
+        trackList = mediaItemCollection
         audioPlayer.setQueue(with: mediaItemCollection)
         self.dismiss(animated: false, completion:nil)
     }

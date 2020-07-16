@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FloatingPanel //https://github.com/SCENEE/FloatingPanel?utm_source=mybridge&utm_medium=blog&utm_campaign=read_more#change-the-initial-position-and-height
+import FloatingPanel //https://github.com/SCENEE/FloatingPanel
 
 class MapViewController: UIViewController, FloatingPanelControllerDelegate{
     
@@ -34,7 +34,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate{
         
     }
     /**
-     * Method name: <#name#>
+     * Method name: showBottomSheet
      * Description: Used to show the bottom sheet
      * Parameters: <#parameters#>
      */
@@ -51,7 +51,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate{
         fpc.addPanel(toParent: self)
     }
     /**
-     * Method name: <#name#>
+     * Method name: floatingPanel
      * Description: <#description#>
      * Parameters: <#parameters#>
      */
@@ -71,13 +71,17 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate{
             if (notification.userInfo?["play"])! as! Bool {
                 print("timer started")
                 runTimer()
-                //Has to manually show bottom screen
-                
             }else{
                 pauseTimer()
             }
         }else if notification.name.rawValue == "finishNotification"{
             print("finish button hit")
+            //present finish screen
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "FinishViewController") as! FinishViewController
+            vc.modalPresentationStyle = .currentContext
+            vc.duration = timerNum.text
+            present(vc, animated: true, completion:nil)
         }
     }
     /**
@@ -125,6 +129,15 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate{
     @objc func timerAction() {
         counter += 1
         timerNum.text = timeString(time: TimeInterval(counter))
+    }
+    /**
+     * Method name: viewWillDisappear
+     * Description: <#description#>
+     * Parameters: <#parameters#>
+     */
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: MapViewController.startNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: MapViewController.finishNotification, object: nil)
     }
 
 }

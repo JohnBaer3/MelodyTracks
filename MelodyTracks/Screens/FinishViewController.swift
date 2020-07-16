@@ -9,11 +9,32 @@
 import UIKit
 
 class FinishViewController: UIViewController {
-
+    
+    static let finishScreenDataNotification = Notification.Name("finishScreenDataNotification")
+    
+    var duration: String?
+    
+    @IBOutlet weak var mainVerticalStackView: UIStackView!
+    @IBOutlet weak var durationVal: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        durationVal.text = duration
+        //add observer for data from Custom Curtain view
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: FinishViewController.finishScreenDataNotification, object: nil)
+    }
+    
+    @objc func onNotification(notification:Notification)
+    {
+        //Play song after clicked Start in selection view
+        if notification.name.rawValue == "finishScreenDataNotification"{
+            print("data from Custom Curtain view receieved")
+            //show curtain view
+            //show Music if it has been minimized
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: FinishViewController.finishScreenDataNotification, object: nil)
     }
     
 

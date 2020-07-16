@@ -62,7 +62,8 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     @objc func onNotification(notification:Notification)
     {
         //Play song after clicked Start in selection view
-        if notification.name.rawValue == "selectionViewNotification"{
+        /*if notification.name.rawValue == "selectionViewNotification"{
+            print("data from Selection view receieved")
             audioPlayer = notification.userInfo?["player"] as! MPMusicPlayerController as! MPMusicPlayerController & MPSystemMusicPlayerController
             //send data to selection View to start timer
             NotificationCenter.default.post(name: SelectionViewController.TimerNotification, object: nil, userInfo:["play": true])
@@ -72,7 +73,7 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
         //show Music if it has been minimized
         }else if notification.name.rawValue == "showMPHNotification"{
             print("SHOW NOTIF WORKING")
-        }
+        }*/
     }
     /**
     * Method name: FinishTapped
@@ -81,6 +82,9 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     */
     @IBAction func finishTapped(_ sender: Any) {
         print("finished")
+        //pause song when leaving this screen
+        audioPlayer.pause()
+        NotificationCenter.default.post(name: FinishViewController.finishScreenDataNotification, object: nil, userInfo:["play": false])
         NotificationCenter.default.post(name: MapViewController.finishNotification, object: nil, userInfo:["play": false])
     }
     /**
