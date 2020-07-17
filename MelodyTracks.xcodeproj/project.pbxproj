@@ -16,13 +16,13 @@
 		DF12D2A124BE9A9C00CA15C4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF12D2A024BE9A9C00CA15C4 /* MapViewController.swift */; };
 		DF12D2A324BE9BB100CA15C4 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF12D2A224BE9BB100CA15C4 /* FinishViewController.swift */; };
 		DF12D2B524BF7F3400CA15C4 /* selectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF12D2B424BF7F3400CA15C4 /* selectorButton.swift */; };
-		DF12D2B924BF869E00CA15C4 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF12D2B824BF869E00CA15C4 /* SwipingController.swift */; };
-		DF47071524AEB7BB00F6E929 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF47071424AEB7BB00F6E929 /* Accelerate.framework */; };
-		DF47071724AEB7D800F6E929 /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF47071624AEB7D800F6E929 /* aubio.framework */; };
-		DF73C95024AEB2EC0031B8FB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C94F24AEB2EC0031B8FB /* AudioToolbox.framework */; };
-		DF73C95224AEB2F50031B8FB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95124AEB2F50031B8FB /* CoreMedia.framework */; };
+		DF5B987C24C2288D007DA5E3 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF5B987B24C2288D007DA5E3 /* SongCell.swift */; };
 		DF73C95424AEB2FD0031B8FB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95324AEB2FD0031B8FB /* AVFoundation.framework */; };
-		DF73C95624AEB3320031B8FB /* libSuperpoweredAudioIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95524AEB3320031B8FB /* libSuperpoweredAudioIOS.a */; };
+		DF7FF4B524C139A400EE2655 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C94F24AEB2EC0031B8FB /* AudioToolbox.framework */; };
+		DF7FF4B924C139B600EE2655 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95124AEB2F50031B8FB /* CoreMedia.framework */; };
+		DF7FF4EB24C1471900EE2655 /* Superpowered.mm in Sources */ = {isa = PBXBuildFile; fileRef = DF7FF4E624C1471900EE2655 /* Superpowered.mm */; };
+		DF7FF4EC24C1471900EE2655 /* libSuperpoweredAudioIOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF7FF4E724C1471900EE2655 /* libSuperpoweredAudioIOS.a */; };
+		DF7FF4ED24C1471900EE2655 /* BMPAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF7FF4EA24C1471900EE2655 /* BMPAnalyzer.swift */; };
 		DF90C93324B8D7A800D7670C /* startButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90C93124B8D7A800D7670C /* startButton.swift */; };
 		DF90C93424B8D7A800D7670C /* finishButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90C93224B8D7A800D7670C /* finishButton.swift */; };
 		DF90C93624B8FE2200D7670C /* selectSongButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF90C93524B8FE2200D7670C /* selectSongButton.swift */; };
@@ -33,7 +33,6 @@
 		DFA177A224A918C400FDFD18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFA177A024A918C400FDFD18 /* LaunchScreen.storyboard */; };
 		DFA177AD24A918C400FDFD18 /* MelodyTracksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177AC24A918C400FDFD18 /* MelodyTracksTests.swift */; };
 		DFA177B824A918C400FDFD18 /* MelodyTracksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177B724A918C400FDFD18 /* MelodyTracksUITests.swift */; };
-		DFD927F424C0CD89003FBD93 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD927F324C0CD89003FBD93 /* SongCell.swift */; };
 		DFD927F624C0CF01003FBD93 /* Songs in Resources */ = {isa = PBXBuildFile; fileRef = DFD927F524C0CF01003FBD93 /* Songs */; };
 /* End PBXBuildFile section */
 
@@ -69,13 +68,21 @@
 		DF12D2A024BE9A9C00CA15C4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		DF12D2A224BE9BB100CA15C4 /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 		DF12D2B424BF7F3400CA15C4 /* selectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectorButton.swift; sourceTree = "<group>"; };
-		DF12D2B824BF869E00CA15C4 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		DF47071424AEB7BB00F6E929 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		DF47071624AEB7D800F6E929 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = aubio.framework; path = "MelodyTracks/aubio-0.4.7.iosuniversal_framework/aubio.framework"; sourceTree = "<group>"; };
+		DF5B987B24C2288D007DA5E3 /* SongCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		DF73C94F24AEB2EC0031B8FB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DF73C95124AEB2F50031B8FB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		DF73C95324AEB2FD0031B8FB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		DF73C95524AEB3320031B8FB /* libSuperpoweredAudioIOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSuperpoweredAudioIOS.a; path = MelodyTracks/Superpower/libSuperpoweredAudioIOS.a; sourceTree = "<group>"; };
+		DF7FF4E424C1471900EE2655 /* SuperpoweredDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperpoweredDecoder.h; sourceTree = "<group>"; };
+		DF7FF4E524C1471900EE2655 /* SuperpoweredSimple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperpoweredSimple.h; sourceTree = "<group>"; };
+		DF7FF4E624C1471900EE2655 /* Superpowered.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Superpowered.mm; sourceTree = "<group>"; };
+		DF7FF4E724C1471900EE2655 /* libSuperpoweredAudioIOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSuperpoweredAudioIOS.a; sourceTree = "<group>"; };
+		DF7FF4E824C1471900EE2655 /* BPMAnalyzer-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BPMAnalyzer-Bridging-Header.h"; sourceTree = "<group>"; };
+		DF7FF4E924C1471900EE2655 /* SuperpoweredAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperpoweredAnalyzer.h; sourceTree = "<group>"; };
+		DF7FF4EA24C1471900EE2655 /* BMPAnalyzer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPAnalyzer.swift; sourceTree = SOURCE_ROOT; };
+		DF7FF4F824C14BE300EE2655 /* MelodyTracks-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MelodyTracks-Bridging-Header.h"; sourceTree = "<group>"; };
 		DF90C93124B8D7A800D7670C /* startButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = startButton.swift; sourceTree = "<group>"; };
 		DF90C93224B8D7A800D7670C /* finishButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = finishButton.swift; sourceTree = "<group>"; };
 		DF90C93524B8FE2200D7670C /* selectSongButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectSongButton.swift; sourceTree = "<group>"; };
@@ -93,7 +100,6 @@
 		DFA177B724A918C400FDFD18 /* MelodyTracksUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodyTracksUITests.swift; sourceTree = "<group>"; };
 		DFA177B924A918C400FDFD18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFA177CA24A965CE00FDFD18 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
-		DFD927F324C0CD89003FBD93 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		DFD927F524C0CF01003FBD93 /* Songs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Songs; path = ../../../Desktop/Songs; sourceTree = "<group>"; };
 		F50A7DBE05D1F86AE8B85DCD /* Pods-MelodyTracksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelodyTracksTests.release.xcconfig"; path = "Target Support Files/Pods-MelodyTracksTests/Pods-MelodyTracksTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,12 +109,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF47071724AEB7D800F6E929 /* aubio.framework in Frameworks */,
-				DF47071524AEB7BB00F6E929 /* Accelerate.framework in Frameworks */,
+				DF7FF4EC24C1471900EE2655 /* libSuperpoweredAudioIOS.a in Frameworks */,
+				DF7FF4B524C139A400EE2655 /* AudioToolbox.framework in Frameworks */,
+				DF7FF4B924C139B600EE2655 /* CoreMedia.framework in Frameworks */,
 				DF73C95424AEB2FD0031B8FB /* AVFoundation.framework in Frameworks */,
-				DF73C95224AEB2F50031B8FB /* CoreMedia.framework in Frameworks */,
-				DF73C95024AEB2EC0031B8FB /* AudioToolbox.framework in Frameworks */,
-				DF73C95624AEB3320031B8FB /* libSuperpoweredAudioIOS.a in Frameworks */,
 				2B7C01BDEBAB8CAD6DBDEAC8 /* Pods_MelodyTracks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,6 +149,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DF5B987A24C2288D007DA5E3 /* tableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DF5B987B24C2288D007DA5E3 /* SongCell.swift */,
+			);
+			path = tableViewCell;
+			sourceTree = "<group>";
+		};
 		DF73C94E24AEB2EC0031B8FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +172,19 @@
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		DF7FF4E324C1471900EE2655 /* Superpower */ = {
+			isa = PBXGroup;
+			children = (
+				DF7FF4E424C1471900EE2655 /* SuperpoweredDecoder.h */,
+				DF7FF4E524C1471900EE2655 /* SuperpoweredSimple.h */,
+				DF7FF4E624C1471900EE2655 /* Superpowered.mm */,
+				DF7FF4E724C1471900EE2655 /* libSuperpoweredAudioIOS.a */,
+				DF7FF4E824C1471900EE2655 /* BPMAnalyzer-Bridging-Header.h */,
+				DF7FF4E924C1471900EE2655 /* SuperpoweredAnalyzer.h */,
+			);
+			path = Superpower;
+			sourceTree = SOURCE_ROOT;
 		};
 		DF90C93024B8D7A800D7670C /* Buttons */ = {
 			isa = PBXGroup;
@@ -198,8 +223,11 @@
 		DFA1779424A918C300FDFD18 /* MelodyTracks */ = {
 			isa = PBXGroup;
 			children = (
+				DF5B987A24C2288D007DA5E3 /* tableViewCell */,
+				DF7FF4F824C14BE300EE2655 /* MelodyTracks-Bridging-Header.h */,
+				DF7FF4EA24C1471900EE2655 /* BMPAnalyzer.swift */,
+				DF7FF4E324C1471900EE2655 /* Superpower */,
 				DFD927F524C0CF01003FBD93 /* Songs */,
-				DFD927F224C0CD63003FBD93 /* New Group */,
 				DF90C93024B8D7A800D7670C /* Buttons */,
 				DFA177C924A965BC00FDFD18 /* Screens */,
 				DFA1779524A918C300FDFD18 /* AppDelegate.swift */,
@@ -238,17 +266,8 @@
 				DF063D4424B42FAC0070F834 /* CustomCurtainViewController.swift */,
 				DF12D2A024BE9A9C00CA15C4 /* MapViewController.swift */,
 				DF12D2A224BE9BB100CA15C4 /* FinishViewController.swift */,
-				DF12D2B824BF869E00CA15C4 /* SwipingController.swift */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		DFD927F224C0CD63003FBD93 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				DFD927F324C0CD89003FBD93 /* SongCell.swift */,
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -491,8 +510,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF5B987C24C2288D007DA5E3 /* SongCell.swift in Sources */,
+				DF7FF4EB24C1471900EE2655 /* Superpowered.mm in Sources */,
 				DF90C93424B8D7A800D7670C /* finishButton.swift in Sources */,
-				DFD927F424C0CD89003FBD93 /* SongCell.swift in Sources */,
 				DF063D4524B42FAC0070F834 /* CustomCurtainViewController.swift in Sources */,
 				DFA1779624A918C300FDFD18 /* AppDelegate.swift in Sources */,
 				DF09EFEA24BE517F00BA6F41 /* customStepper.swift in Sources */,
@@ -501,9 +521,9 @@
 				DF12D2A324BE9BB100CA15C4 /* FinishViewController.swift in Sources */,
 				DF90C93624B8FE2200D7670C /* selectSongButton.swift in Sources */,
 				DFA1779824A918C300FDFD18 /* SceneDelegate.swift in Sources */,
+				DF7FF4ED24C1471900EE2655 /* BMPAnalyzer.swift in Sources */,
 				DF90C93324B8D7A800D7670C /* startButton.swift in Sources */,
 				DF063D4124B3C41A0070F834 /* SelectionViewController.swift in Sources */,
-				DF12D2B924BF869E00CA15C4 /* SwipingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,9 +712,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MelodyTracks/Superpower",
+					"$(PROJECT_DIR)/MelodyTracks/src/Superpower",
+					"$(PROJECT_DIR)/Superpower",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CSE115A.MelodyTracks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MelodyTracks/MelodyTracks-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -720,9 +743,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MelodyTracks/Superpower",
+					"$(PROJECT_DIR)/MelodyTracks/src/Superpower",
+					"$(PROJECT_DIR)/Superpower",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.CSE115A.MelodyTracks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MelodyTracks/MelodyTracks-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

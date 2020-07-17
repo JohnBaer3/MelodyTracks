@@ -43,14 +43,14 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
     
     //stuff from AVAudioPlayer port
     //var engine : AVAudioEngine!
-    /*let engine = AVAudioEngine()
+    let engine = AVAudioEngine()
     let speedControl = AVAudioUnitVarispeed()
     let pitchControl = AVAudioUnitTimePitch()
 
     let engineBPM = AVAudioEngine()
     //var engineBPM : AVAudioEngine!
     let speedControlBPM = AVAudioUnitVarispeed()
-    let pitchControlBPM = AVAudioUnitTimePitch()*/
+    let pitchControlBPM = AVAudioUnitTimePitch()
     
     var speedOfBPM:Float = 0.0
     //stuff from AVAudioPlayer port
@@ -82,18 +82,11 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
         if audioPlayer.isPlaying == true {
             audioPlayer.pause()
         }
-        /*if (audioPlayer.nowPlayingItem != nil){
-            if (audioPlayer.playbackState == MPMusicPlaybackState.playing){ //set pause if music is playing
-                audioPlayer.pause()
-            }
-        }*/
         fixedAutoSwap(tapped: fixedButton, other: autoButton)
         walkButton.layer.cornerRadius = 10
         jogButton.layer.cornerRadius = 10
         runButton.layer.cornerRadius = 10
-        
-        //add observer for Start button from Curtain view
-        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: SelectionViewController.TimerNotification, object: nil)
+
     }
     /**
      * Method name: getBPMofSongs()
@@ -105,13 +98,33 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
         let filePath = Bundle.main.path(forAuxiliaryExecutable: "Songs")
         let songs = try! fm.contentsOfDirectory(atPath: filePath!)
         for song in songs{
-            //let filePathSong = Bundle.main.path(forResource: removeSuffix(word: song), ofType: "mp3", inDirectory: "Songs")
-            //let songUrl = URL(string: filePathSong!)
-            //let BPMOfSong = BPMAnalyzer.core.getBpmFrom(songUrl!, completion: nil)
+            let title =  removeSuffix(songName: song)
+            let filePathSong = Bundle.main.path(forResource: title, ofType: "mp3", inDirectory: "Songs")
+            let songUrl = URL(string: filePathSong!)
+            let BPMOfSong = BPMAnalyzer.core.getBpmFrom(songUrl!, completion: nil)
             //Have to parse BPMOfSong to actually get the BPM, then convert it to Float
-            let newSong = Song(title: removeSuffix(songName: song), BPM: 100)
+            
+            let newSong = Song(title: title, BPM: convertBPMToFloat(BPMOfSong))
             SongsArr.append(newSong)
         }
+    }
+    /**
+     * Method name: convertBPMToFloat
+     * Description: converts BPM to Float
+     * Parameters: BPM of the song in its string format
+     * Output: BPM extract from the string in float
+     */
+
+    func convertBPMToFloat(_ bpmString: String) -> Float {
+        // Really dirty way to parse the string return form BPMAnalyzer
+        // Definitely a better way to do this
+        let bpmSplitArray = bpmString.components(separatedBy: " ")
+        let splitBPMSpaces = bpmSplitArray[2]
+        let splitBPMComma = splitBPMSpaces.components(separatedBy: ",")
+        let toBeConvertedFromString = splitBPMComma[0]
+        let bpmFloat = Float(toBeConvertedFromString)
+        
+        return bpmFloat!
     }
     /**
      * Method name: setInitialMPH
@@ -123,26 +136,8 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
         if UserDefaults.standard.object(forKey: "Pace") != nil{
             MPH.text = UserDefaults.standard.object(forKey: "Pace") as? String
         }else{
-            MPH.text = String(90)
+            MPH.text = String(0)
         }
-    }
-    /**
-     * Method name: onNotification
-     * Description: used to receive song data from Selection view
-     * Parameters: notification object
-     */
-    @objc func onNotification(notification:Notification)
-    {
-        //print("NOTIFICATION IS WORKING")
-        /*if notification.name.rawValue == "TimerNotification"{
-            // used to control timer when paused or resumed
-            if (notification.userInfo?["play"])! as! Bool {
-                print("timer started")
-                runTimer()
-            }else{
-                timer.invalidate()
-            }
-        }*/
     }
     /**
      * Method name:fixedTapped
@@ -262,66 +257,23 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
             //self.present(picker, animated:false, completion:nil)
             
         }else if saveButton.title(for: .normal) == "Start Run!"{  //send data to Curtain View because Save has been tapped
-            NotificationCenter.default.post(name: CustomCurtainViewController.selectionViewNotification, object: nil, userInfo:["player": audioPlayer, "MPH": MPH.text!])
             
             //code to show Map View
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-            //NotificationCenter.default.post(name: MapViewController.startNotification, object: nil, userInfo:["start": true])
-            //NotificationCenter.default.post(name: CustomCurtainViewController.showMPHNotification, object: nil, userInfo:["show": true])
+
             vc.audioPlayer = audioPlayer
             vc.SongsArr = SongsArr
-            //audioPlayer.stop()
+
             vc.modalPresentationStyle = .currentContext
             present(vc, animated: true, completion:nil)
-        }else{ //show MPH when bottom screen is minimized
-            NotificationCenter.default.post(name: CustomCurtainViewController.showMPHNotification, object: nil, userInfo:["showMPHTapped": true])
         }
     }
-    /**
-     * Method name: mediaPicker
-     * Description: func to present pick song screen
-     * Parameters: button that is mapped to this func
-     */
-    //OLD MEDIA PICKER. SAVED FOR REFERENCE.
-    /*func mediaPicker(_ mediaPicker: MPMediaPickerController,
-        didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
-        print(mediaItemCollection.count)
-        /*for item in mediaItemCollection.items {
-            if let itemName = item.value(forProperty: MPMediaItemPropertyTitle)
-                as? String {
-                print("Picked item: \(itemName)")
-            }
-        }*/
-        print(mediaItemCollection.items)
-        trackList = mediaItemCollection
-        audioPlayer.setQueue(with: mediaItemCollection)
-        self.dismiss(animated: false, completion:nil)
-    }*/
-    func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems
-        mediaItemCollection: MPMediaItemCollection) {
-        guard let asset = mediaItemCollection.items.first,
-            let url = asset.assetURL else {return}
-        //_ = BPMAnalyzer.core.getBpmFrom(url, completion: {[weak self] (bpm) in
-        //    self?.mediaPicker.dismiss(animated: true, completion: nil)
-        //})
-    }
-    /**
-     * Method name: mediaPickerDidCancel
-     * Description: Called when cancel was clicked in Media Picker view
-     * Parameters: MPMediaPickerController
-     */
-    func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
-        saveButton.setSelectSongIcon() // forces user to select song
-        self.dismiss(animated: false, completion:nil)
-    }
-    
     /**
      * Method name: removeSuffix
      * Description: <#description#>
      * Parameters: <#parameters#>
      */
-    //FiRST PAGE ~
     func removeSuffix(songName: String) -> String{
         var output = ""
         for letter in songName{
@@ -333,7 +285,6 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
         }
         return output
     }
-    //~ FiRST PAGE
     
     deinit{
         //stop listening to notifications

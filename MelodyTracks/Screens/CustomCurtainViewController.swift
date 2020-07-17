@@ -25,9 +25,9 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     //var audioPlayer = MPMusicPlayerController.systemMusicPlayer
     var PlayPauseBool = true
     // set notification name
-    static let selectionViewNotification = Notification.Name("selectionViewNotification")
-    static let homeScreenFinishNotification = Notification.Name("homeScreenFinishNotification")
-    static let showMPHNotification = Notification.Name("showMPHNotification")
+    //static let selectionViewNotification = Notification.Name("selectionViewNotification")
+    //static let homeScreenFinishNotification = Notification.Name("homeScreenFinishNotification")
+    //static let showMPHNotification = Notification.Name("showMPHNotification")
 
     @IBOutlet weak var song: UILabel!
     @IBOutlet weak var artist: UILabel!
@@ -40,12 +40,9 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     let engine = AVAudioEngine()
     let speedControl = AVAudioUnitVarispeed()
     let pitchControl = AVAudioUnitTimePitch()
-
-    let engineBPM = AVAudioEngine()
-    let speedControlBPM = AVAudioUnitVarispeed()
-    let pitchControlBPM = AVAudioUnitTimePitch()
     
     var speedOfBPM:Float = 0.0
+    typealias SongCompletionHandler = (_ success:Bool) -> Void
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,39 +53,50 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
         albumCover.layer.cornerRadius = 10
         finishButton.setInitialDetails()
 
-        //print(SongsArr)
-        //setting up audio player
-        //audioPlayer.beginGeneratingPlaybackNotifications()
+        //Starts music when view loads
         playPauseClickedHelper()
-        
-        //add observer for song change
-        NotificationCenter.default.addObserver(self, selector: #selector(systemSongDidChange(_:)), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: audioPlayer)
-        //add observer for adding songs from Selection view
-        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: CustomCurtainViewController.selectionViewNotification, object: nil)
-        //add observer for adding songs from homeScreen view
-        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: CustomCurtainViewController.homeScreenFinishNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: CustomCurtainViewController.showMPHNotification, object: nil)
+
     }
     /**
-     * Method name: onNotification
-     * Description: used to receive song data from various views
-     * Parameters: notification object
+     * Method name: changeSpeedToFootsteps
+     * Description: changes speed to footsteps
+     * Parameters: current BPM of song and foot step frequency
+     * Output: newBPM of song to be played at
+     * Alters: playback pitch and rate to account for new bpm
      */
-    @objc func onNotification(notification:Notification)
-    {
-        //Play song after clicked Start in selection view
-        /*if notification.name.rawValue == "selectionViewNotification"{
-            print("data from Selection view receieved")
-            audioPlayer = notification.userInfo?["player"] as! MPMusicPlayerController as! MPMusicPlayerController & MPSystemMusicPlayerController
-            //send data to selection View to start timer
-            NotificationCenter.default.post(name: SelectionViewController.TimerNotification, object: nil, userInfo:["play": true])
-            playPlayer()
-            var MPH_string = (notification.userInfo?["MPH"]) as? String
-            //show curtain view
-        //show Music if it has been minimized
-        }else if notification.name.rawValue == "showMPHNotification"{
-            print("SHOW NOTIF WORKING")
-        }*/
+    func changeSpeedToFootsteps(bpm: Float, footStepFreq: Float) -> Float {
+        // ratio between footsteps and bpm
+        let rate = footStepFreq/bpm
+        
+        var newBPM: Float
+        var pitch: Float
+        newBPM = 0
+        pitch = 0
+        
+        // Equation for for finding pitch and rate modification values
+        // uses a logarithmic equation to find new pitch
+        // 1200 constant can be changed if deemed necesarry
+        // this pseudo-timestretching solution does affect audio quality slightly
+        
+        // Increase BPM
+        if (rate > 1) {
+            newBPM = bpm + (footStepFreq - bpm)
+            let bpmRatio = newBPM / bpm
+            pitch = 1200 * (log(bpmRatio) / log(2))
+            pitchControl.pitch -= pitch
+            speedControl.rate += rate - 1
+        }
+            
+        // Decrease BPM
+        else if (rate < 1) {
+            newBPM = bpm - (bpm - footStepFreq)
+            let bpmRatio = newBPM / bpm
+            pitch = 1200 * (log(bpmRatio) / log(2))
+            pitchControl.pitch -= pitch
+            speedControl.rate -= 1 - rate
+        }
+        print("Initial BPM: \(bpm)\nNewBpm: \(newBPM)\nRate: \(rate)\nPitch Change: \(pitch)\n")
+        return newBPM
     }
     /**
     * Method name: FinishTapped
@@ -112,12 +120,13 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     */
     @objc
     func systemSongDidChange(_ notification: Notification) {
-        
-        guard let playerController = notification.object as? MPMusicPlayerController else {
+        print("song did change")
+        //audioPlayer?.scheduleBuffer(<#T##buffer: AVAudioPCMBuffer##AVAudioPCMBuffer#>, completionHandler: <#T##AVAudioNodeCompletionHandler?##AVAudioNodeCompletionHandler?##() -> Void#>)
+        /*guard let playerController = notification.object as? MPMusicPlayerController else {
             return
         }
         let item = playerController.nowPlayingItem
-        setSongDetails(item)
+        setSongDetails(item)*/
     }
     /**
      * Method name: setSongDetails
@@ -155,6 +164,7 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
             do { try play(songUrl!)
             }catch{}
         }
+        //speedControl.rate += 0.5
     }
     /**
     * Method name: backwardTapped
@@ -183,20 +193,6 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     * Description: listener for play/pause button
     * Parameters: button that is mapped to this func
     */
-    /*@IBAction func playPauseButtonTapped(_ sender: UIButton) {
-        if pausePlayButton.currentImage == UIImage(systemName: "pause.fill"){
-            pausePlayer()
-            NotificationCenter.default.post(name: MapViewController.startNotification, object: nil, userInfo:["play": false])
-        }else{
-            playPlayer()
-            NotificationCenter.default.post(name: MapViewController.startNotification, object: nil, userInfo:["play": true])
-        }
-    }*/
-    /**
-     * Method name:playPauseClicked
-     * Description: plays and pauses player
-     * Parameters: a button
-     */
     @IBAction func playPauseClicked(_ sender: Any) {
         playPauseClickedHelper()
     }
@@ -263,6 +259,8 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
         print("runs special play")
         // 1: load the file
         let file = try AVAudioFile(forReading: url)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.systemSongDidChange(_:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: file)
+
 
         // 3: connect the components to our playback engine
         engine.attach(audioPlayer ?? AVAudioPlayerNode())
@@ -291,7 +289,6 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
      * Description: <#description#>
      * Parameters: <#parameters#>
      */
-    //FiRST PAGE ~
     func removeSuffix(songName: String) -> String{
         var output = ""
         for letter in songName{
@@ -303,7 +300,6 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
         }
         return output
     }
-    //~ FiRST PAGE
     /**
     * Method name: deinit
     * Description: called when view is destroyed
@@ -311,13 +307,6 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     */
     deinit {
         print("getting rid of view")
-        
-        //stop listening to notifications
-        NotificationCenter.default.removeObserver(self, name: CustomCurtainViewController.selectionViewNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: CustomCurtainViewController.homeScreenFinishNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: CustomCurtainViewController.showMPHNotification, object: nil)
-        //audioPlayer.endGeneratingPlaybackNotifications()
-        NotificationCenter.default.removeObserver(self)
     }
     
     
