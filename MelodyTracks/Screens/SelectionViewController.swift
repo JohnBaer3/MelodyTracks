@@ -9,34 +9,122 @@
 import UIKit
 import MediaPlayer
 
+//stuff from AVAudioPlayer port
+//var paused = true  //moved to Custom Curtain View
+//var SongsArr: [Song] = [] //moved to Custom Curtain View
+//var currentSong: Song? = nil //declared in Custom Curtain View
+//var currentSongIndex: Int? = nil //declared in Custom Curtain View
+//var previousSongs: [Song] = [] //declared in Custom Curtain View
+//let audioPlayer = AVAudioPlayerNode()
+
+struct Song {
+    var title: String = ""
+    var BPM: Float = 0
+    var played: Bool = false
+}
+
+
 class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate {
-    @IBOutlet weak var BPM: UILabel!
-    @IBOutlet weak var literalBPM: UILabel!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var save: startButton!
+    @IBOutlet weak var MPH: UILabel!
     @IBOutlet weak var saveButton: selectSongButton!
-    @IBOutlet weak var finishButton: finishButton!
-    @IBOutlet weak var timerNum: UILabel!
-    @IBOutlet weak var selector: UISegmentedControl!
+    @IBOutlet weak var customStepper: UIStackView!
+    @IBOutlet weak var walkButton: UIButton!
+    @IBOutlet weak var jogButton: UIButton!
+    @IBOutlet weak var runButton: UIButton!
+    @IBOutlet weak var fixedButton: selectorButton!
+    @IBOutlet weak var autoButton: selectorButton!
+    @IBOutlet weak var walkJogRunStackView: UIStackView!
+    @IBOutlet weak var mphStackView: customStepper!
+    @IBOutlet weak var descriptionText: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     // set notification name
     static let showFinishNotification = Notification.Name("showFinishNotification")
     static let TimerNotification = Notification.Name("TimerNotification")
     
-    var audioPlayer = MPMusicPlayerController.systemMusicPlayer
+    //stuff from AVAudioPlayer port
+    //var engine : AVAudioEngine!
+    /*let engine = AVAudioEngine()
+    let speedControl = AVAudioUnitVarispeed()
+    let pitchControl = AVAudioUnitTimePitch()
+
+    let engineBPM = AVAudioEngine()
+    //var engineBPM : AVAudioEngine!
+    let speedControlBPM = AVAudioUnitVarispeed()
+    let pitchControlBPM = AVAudioUnitTimePitch()*/
+    
+    var speedOfBPM:Float = 0.0
+    //stuff from AVAudioPlayer port
+    
+    //var audioPlayer = MPMusicPlayerController.systemMusicPlayer
+    let audioPlayer = AVAudioPlayerNode()
+    //var audioPlayer : AVAudioPlayerNode!
+    let picker = MPMediaPickerController(mediaTypes:MPMediaType.anyAudio)
+    var trackList : MPMediaItemCollection?
     var hideFinishButton: Bool!
-    var fixedOrAuto: Bool!
-    var timer = Timer()
-    var counter = 0  //holds value of timer
+    var SongsArr: [Song] = []
+    
+    var higherBoundMPH = 15
+    var lowerBoundMPH = 0
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButton.setInitialDetails()
-        setSliderBPM()
-        finishButton.setInitialDetails()
-        finishButton.isHidden = true
-        timerNum.isHidden = true
+        setInitialMPH()
+        getBPMofSongs()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        //check to see if there is current audio playing
+        if audioPlayer.isPlaying == true {
+            audioPlayer.pause()
+        }
+        /*if (audioPlayer.nowPlayingItem != nil){
+            if (audioPlayer.playbackState == MPMusicPlaybackState.playing){ //set pause if music is playing
+                audioPlayer.pause()
+            }
+        }*/
+        fixedAutoSwap(tapped: fixedButton, other: autoButton)
+        walkButton.layer.cornerRadius = 10
+        jogButton.layer.cornerRadius = 10
+        runButton.layer.cornerRadius = 10
+        
         //add observer for Start button from Curtain view
         NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: SelectionViewController.TimerNotification, object: nil)
+    }
+    /**
+     * Method name: getBPMofSongs()
+     * Description: used to get BPM of the songs in the user's library
+     * Parameters: N/A
+     */
+    func getBPMofSongs(){
+        let fm = FileManager.default
+        let filePath = Bundle.main.path(forAuxiliaryExecutable: "Songs")
+        let songs = try! fm.contentsOfDirectory(atPath: filePath!)
+        for song in songs{
+            //let filePathSong = Bundle.main.path(forResource: removeSuffix(word: song), ofType: "mp3", inDirectory: "Songs")
+            //let songUrl = URL(string: filePathSong!)
+            //let BPMOfSong = BPMAnalyzer.core.getBpmFrom(songUrl!, completion: nil)
+            //Have to parse BPMOfSong to actually get the BPM, then convert it to Float
+            let newSong = Song(title: removeSuffix(songName: song), BPM: 100)
+            SongsArr.append(newSong)
+        }
+    }
+    /**
+     * Method name: setInitialMPH
+     * Description: sets MPH to the saved value
+     * Parameters: N/A
+     */
+    @objc
+    func setInitialMPH(){
+        if UserDefaults.standard.object(forKey: "Pace") != nil{
+            MPH.text = UserDefaults.standard.object(forKey: "Pace") as? String
+        }else{
+            MPH.text = String(90)
+        }
     }
     /**
      * Method name: onNotification
@@ -45,8 +133,8 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
      */
     @objc func onNotification(notification:Notification)
     {
-        print("NOTIFICATION IS WORKING")
-        if notification.name.rawValue == "TimerNotification"{
+        //print("NOTIFICATION IS WORKING")
+        /*if notification.name.rawValue == "TimerNotification"{
             // used to control timer when paused or resumed
             if (notification.userInfo?["play"])! as! Bool {
                 print("timer started")
@@ -54,158 +142,169 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
             }else{
                 timer.invalidate()
             }
-        }
+        }*/
     }
     /**
-     * Method name: setSliderBPM
-     * Description: sets the slider and BPM to the saved value
+     * Method name:fixedTapped
+     * Description: transforms the UI when the Fixed Button is tapped
      * Parameters: N/A
      */
-    @objc
-    func setSliderBPM(){
-        if UserDefaults.standard.object(forKey: "Pace") != nil{
-            BPM.text = UserDefaults.standard.object(forKey: "Pace") as? String
+    @IBAction func fixedTapped(_ sender: selectorButton) {
+        fixedHideorNot(value: false)
+        descriptionText.text = "Choose your pace"
+        fixedAutoSwap(tapped: fixedButton, other: autoButton)
+    }
+    /**
+     * Method name: autoTapped
+     * Description: transforms the UI when the Auto Button is tapped
+     * Parameters: N/A
+     */
+    @IBAction func autoTapped(_ sender: selectorButton) {
+        fixedHideorNot(value: true)
+        descriptionText.text = "Let our algorithm decide"
+        fixedAutoSwap(tapped: autoButton, other: fixedButton)
+        
+    }
+    /**
+     * Method name:fixedHideorNot
+     * Description: helper function to hide UI elements
+     * Parameters: N/A
+     */
+    func fixedHideorNot(value: Bool){
+        walkJogRunStackView.isHidden = value
+        mphStackView.isHidden = value
+    }
+    /**
+     * Method name: fixedAutoSwap
+     * Description: used to swap color of Fixed or Auto button when one is tapped
+     * Parameters: a tapped button and the other button
+     */
+    func fixedAutoSwap(tapped: selectorButton, other: selectorButton ){
+        if (tapped.isEnabled == true){
+            tapped.isSelected()
+            other.isUnselected()
         }else{
-            BPM.text = String(90)
-        }
-        slider.value = Float(Int(BPM.text!)!)
-    }
-    /**
-    * Method name: slider
-    * Description: func to set slider value
-    * Parameters: slider element
-    */
-    @IBAction func slider(_ sender: UISlider) {
-        BPM.text = String(Int(sender.value))
-        print(BPM.text!)
-        UserDefaults.standard.set(BPM.text, forKey:"Pace")
-    }
-    /**
-     * Method name: timeString
-     * Description: Formats timer
-     * Parameters: N/A
-     */
-    func timeString(time:TimeInterval) -> String {
-        let hours = Int(time) / 3600
-        let minutes = Int(time) / 60 % 60
-        let seconds = Int(time) % 60
-        return String(format:"%02i:%02i:%02i", hours, minutes, seconds)
-    }
-    /**
-     * Method name: runTimer
-     * Description: Runs timer
-     * Parameters: N/A
-     */
-    @objc func runTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
-    }
-    /**
-     * Method name: timerAction
-     * Description: increments timer and sets label text
-     * Parameters: N/A
-     */
-    @objc func timerAction() {
-        counter += 1
-        timerNum.text = timeString(time: TimeInterval(counter))
-    }
-    /**
-    * Method name: runningUI
-    * Description: Show running UI
-    * Parameters: N/A
-    */
-    @objc func runningUI(){
-        finishButton.isHidden = false
-        timerNum.isHidden = false
-        save.setTitle("Show BPM", for: [])
-        BPM.isHidden = true
-        slider.isHidden = true
-        literalBPM.isHidden = true
-        selector.isHidden = true
-    }
-    /**
-    * Method name: resetUI
-    * Description: Resets UI elements to original positions
-    * Parameters: N/A
-    */
-    @objc func resetUI(){
-        finishButton.isHidden = true
-        timerNum.isHidden = true
-        save.setTitle("Select Song", for: [])
-        BPM.isHidden = false
-        slider.isHidden = false
-        literalBPM.isHidden = false
-        selector.isHidden = false
-        //reset timer
-        timer.invalidate()
-        timerNum.text = "00:00:00"
-        counter = 0
-    }
-    /**
-    * Method name: FinishTapped
-    * Description: Listener for the Stop Button
-    * Parameters: button mapped to this function
-    */
-    @IBAction func finishTapped(_ sender: Any) {
-        NotificationCenter.default.post(name: CustomCurtainViewController.homeScreenFinishNotification, object: nil, userInfo:["finishTapped":true])
-        resetUI()
-    }
-    /**
-     * Method name: fixedAutoSelector
-     * Description: lets user choose between fixed BPM or automatic BPM
-     * Parameters: the UI element mapped to this function
-     */
-    @IBAction func fixedAutoSelector(_ sender: UISegmentedControl) {
-        if (sender.selectedSegmentIndex == 0){
-            print("fixed")
-            BPM.isEnabled = true
-            slider.isEnabled = true
-            literalBPM.isEnabled = true
-            fixedOrAuto = true
-        }else if(sender.selectedSegmentIndex == 1){
-            print("auto")
-            BPM.isEnabled = false
-            slider.isEnabled = false
-            literalBPM.isEnabled = false
-            fixedOrAuto = false
+            tapped.isUnselected()
+            other.isSelected()
         }
     }
+    /**
+     * Method name: walkTapped
+     * Description: Listener for the walk button. Changes MPH to 4 and saves value.
+     * Parameters: N/A
+     */
+    @IBAction func walkTapped(_ sender: Any) {
+        MPH.text = "4"
+        UserDefaults.standard.set(MPH.text, forKey:"Pace") // save value
+    }
+    /**
+     * Method name: jogTapped
+     * Description:  Listener for the jog button. Changes MPH to 6 and saves value.
+     * Parameters: N/A
+     */
+    @IBAction func jogTapped(_ sender: Any) {
+        MPH.text = "6"
+        UserDefaults.standard.set(MPH.text, forKey:"Pace") // save value
+    }
+    /**
+     * Method name: runTapped
+     * Description:  Listener for the run button. Changes MPH to 48and saves value.
+     * Parameters: N/A
+     */
+    @IBAction func runTapped(_ sender: Any) {
+        MPH.text = "8"
+        UserDefaults.standard.set(MPH.text, forKey:"Pace") // save value
+    }
+    
+    /**
+     * Method name: incrementMPH
+     * Description: Increments the MPH, but MPH to 15
+     * Parameters: N/A
+     */
+    @IBAction func incrementMPH(_ sender: Any) {
+        let MPHInt: Int? = Int(MPH.text!)
+        if MPHInt! < higherBoundMPH{
+            MPH.text = String(MPHInt! + 1)
+            UserDefaults.standard.set(MPH.text, forKey:"Pace") // save value
+        }
+    }
+    /**
+     * Method name: decrementMPH
+     * Description: Decrements the MPH, but MPH to 0
+     * Parameters: N/A
+     */
+    @IBAction func decrementMPH(_ sender: Any) {
+        let MPHInt: Int? = Int(MPH.text!)
+        if MPHInt! > lowerBoundMPH{
+            MPH.text = String(MPHInt! - 1)
+            UserDefaults.standard.set(MPH.text, forKey:"Pace") // save value
+        }
+    }
+    /**
+     * Method name: unwindToSelectionViewController
+     * Description: used by the Finish button in the finish view controller to jump back to the selection view screen
+     * Parameters: N/A
+     */
+    @IBAction func unwindToSelectionViewController(segue:UIStoryboardSegue) { }
     /**
     * Method name: saveButtonTapped
     * Description: Once tapped, this button dismisses the view and returns the previous screen. It also sends data to the previous screen.
     * Parameters: the UI element mapped to this function
     */
     @IBAction func saveButtonTapped(_ sender: Any) {
-        if saveButton.title(for: .normal) == "Select Song"{
-            let picker = MPMediaPickerController(mediaTypes:MPMediaType.anyAudio)
-            picker.allowsPickingMultipleItems = true
-            picker.showsCloudItems = true
-            picker.delegate = self
+        if saveButton.title(for: .normal) == "Select Songs"{
+            
+            //let picker = MPMediaPickerController(mediaTypes:MPMediaType.anyAudio)
+            //picker.allowsPickingMultipleItems = true
+            //picker.showsCloudItems = true
+            //picker.delegate = self
             saveButton.setSaveIcon()
-            self.present(picker, animated:false, completion:nil)
-        }else if saveButton.title(for: .normal) == "Save"{  //send data to Curtain View because Save has been tapped
-            NotificationCenter.default.post(name: CustomCurtainViewController.selectionViewNotification, object: nil, userInfo:["player": audioPlayer, "fixedOrAuto": fixedOrAuto ?? true, "BPM": BPM.text!])
-            runningUI()
-        }else{
-            NotificationCenter.default.post(name: CustomCurtainViewController.showBPMNotification, object: nil, userInfo:["showBPMTapped": true])
+            //self.present(picker, animated:false, completion:nil)
+            
+        }else if saveButton.title(for: .normal) == "Start Run!"{  //send data to Curtain View because Save has been tapped
+            NotificationCenter.default.post(name: CustomCurtainViewController.selectionViewNotification, object: nil, userInfo:["player": audioPlayer, "MPH": MPH.text!])
+            
+            //code to show Map View
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+            //NotificationCenter.default.post(name: MapViewController.startNotification, object: nil, userInfo:["start": true])
+            //NotificationCenter.default.post(name: CustomCurtainViewController.showMPHNotification, object: nil, userInfo:["show": true])
+            vc.audioPlayer = audioPlayer
+            vc.SongsArr = SongsArr
+            //audioPlayer.stop()
+            vc.modalPresentationStyle = .currentContext
+            present(vc, animated: true, completion:nil)
+        }else{ //show MPH when bottom screen is minimized
+            NotificationCenter.default.post(name: CustomCurtainViewController.showMPHNotification, object: nil, userInfo:["showMPHTapped": true])
         }
     }
     /**
-     * Method name: PickSongTapped
+     * Method name: mediaPicker
      * Description: func to present pick song screen
      * Parameters: button that is mapped to this func
      */
-    func mediaPicker(_ mediaPicker: MPMediaPickerController,
+    //OLD MEDIA PICKER. SAVED FOR REFERENCE.
+    /*func mediaPicker(_ mediaPicker: MPMediaPickerController,
         didPickMediaItems mediaItemCollection: MPMediaItemCollection) {
         print(mediaItemCollection.count)
-        for item in mediaItemCollection.items {
+        /*for item in mediaItemCollection.items {
             if let itemName = item.value(forProperty: MPMediaItemPropertyTitle)
                 as? String {
                 print("Picked item: \(itemName)")
             }
-        }
+        }*/
         print(mediaItemCollection.items)
+        trackList = mediaItemCollection
         audioPlayer.setQueue(with: mediaItemCollection)
         self.dismiss(animated: false, completion:nil)
+    }*/
+    func mediaPicker(_ mediaPicker: MPMediaPickerController, didPickMediaItems
+        mediaItemCollection: MPMediaItemCollection) {
+        guard let asset = mediaItemCollection.items.first,
+            let url = asset.assetURL else {return}
+        //_ = BPMAnalyzer.core.getBpmFrom(url, completion: {[weak self] (bpm) in
+        //    self?.mediaPicker.dismiss(animated: true, completion: nil)
+        //})
     }
     /**
      * Method name: mediaPickerDidCancel
@@ -213,8 +312,28 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
      * Parameters: MPMediaPickerController
      */
     func mediaPickerDidCancel(_ mediaPicker: MPMediaPickerController) {
+        saveButton.setSelectSongIcon() // forces user to select song
         self.dismiss(animated: false, completion:nil)
     }
+    
+    /**
+     * Method name: removeSuffix
+     * Description: <#description#>
+     * Parameters: <#parameters#>
+     */
+    //FiRST PAGE ~
+    func removeSuffix(songName: String) -> String{
+        var output = ""
+        for letter in songName{
+            if letter != "."{
+                output += String(letter)
+            }else{
+                break
+            }
+        }
+        return output
+    }
+    //~ FiRST PAGE
     
     deinit{
         //stop listening to notifications
@@ -222,3 +341,16 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
     }
 }
 
+extension SelectionViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return SongsArr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let song = SongsArr[indexPath.row]
+        let songCell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
+        songCell.setCell(song: song)
+        return songCell
+    }
+}

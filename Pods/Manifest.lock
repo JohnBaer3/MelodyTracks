@@ -1,16 +1,20 @@
 PODS:
+  - FloatingPanel (1.7.5)
   - SweetCurtain (0.1.3)
 
 DEPENDENCIES:
+  - FloatingPanel
   - SweetCurtain
 
 SPEC REPOS:
   trunk:
+    - FloatingPanel
     - SweetCurtain
 
 SPEC CHECKSUMS:
+  FloatingPanel: bb17fd6fc7ae519f877f7bd30f4f6115a78acf07
   SweetCurtain: 348e8c8429495bb51a016cc4b1dba08abb3aa353
 
-PODFILE CHECKSUM: 4ce11708225692cc04d29a7eb8227302c0e39954
+PODFILE CHECKSUM: 1c7beb0006bb706f6b57ca5b381836a1835dede5
 
 COCOAPODS: 1.9.3
