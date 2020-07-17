@@ -13,12 +13,21 @@ class FinishViewController: UIViewController {
     static let finishScreenDataNotification = Notification.Name("finishScreenDataNotification")
     
     var duration: String?
+    var SongsArr: [Song]?
     
     @IBOutlet weak var mainVerticalStackView: UIStackView!
     @IBOutlet weak var durationVal: UILabel!
+    @IBOutlet weak var finalFinishButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //print(duration)
         durationVal.text = duration
+        finalFinishButton.layer.cornerRadius = 10
+        tableView.layer.cornerRadius = 10
+        tableView.delegate = self
+        tableView.dataSource = self
         //add observer for data from Custom Curtain view
         NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: FinishViewController.finishScreenDataNotification, object: nil)
     }
@@ -37,15 +46,17 @@ class FinishViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: FinishViewController.finishScreenDataNotification, object: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension FinishViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return SongsArr!.count
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let song = SongsArr![indexPath.row]
+        let songCell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
+        songCell.setCell(song: song)
+        return songCell
+    }
 }

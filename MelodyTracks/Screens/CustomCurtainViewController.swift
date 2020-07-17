@@ -56,10 +56,10 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
         albumCover.layer.cornerRadius = 10
         finishButton.setInitialDetails()
 
-        
+        //print(SongsArr)
         //setting up audio player
         //audioPlayer.beginGeneratingPlaybackNotifications()
-        //playPlayer()
+        playPauseClickedHelper()
         
         //add observer for song change
         NotificationCenter.default.addObserver(self, selector: #selector(systemSongDidChange(_:)), name: NSNotification.Name.MPMusicPlayerControllerNowPlayingItemDidChange, object: audioPlayer)
@@ -98,7 +98,10 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     @IBAction func finishTapped(_ sender: Any) {
         print("finished")
         //pause song when leaving this screen
-        audioPlayer?.pause()
+        //DO NOT REMOVE THIS CHECK. REMOVAL WILL RESULT IN CRASHES WHEN ATTEMPTING TO START PLAYER AGAIN FROM SELECTION VIEW.
+        if audioPlayer!.isPlaying{
+            playPauseClickedHelper()
+        }
         NotificationCenter.default.post(name: FinishViewController.finishScreenDataNotification, object: nil, userInfo:["play": false])
         NotificationCenter.default.post(name: MapViewController.finishNotification, object: nil, userInfo:["play": false])
     }
@@ -189,19 +192,35 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
             NotificationCenter.default.post(name: MapViewController.startNotification, object: nil, userInfo:["play": true])
         }
     }*/
+    /**
+     * Method name:playPauseClicked
+     * Description: plays and pauses player
+     * Parameters: a button
+     */
     @IBAction func playPauseClicked(_ sender: Any) {
+        playPauseClickedHelper()
+    }
+    /**
+     * Method name: playPauseClickedHelper
+     * Description: helper function so that playPauseClicked can be called without pressing a button
+     * Parameters: N/A
+     */
+    func playPauseClickedHelper(){
         paused = !paused
-        
+                
         if !paused{
             if currentSong == nil{
                 //find a song to play, currently just the first song in the BPMArr
+                print(SongsArr ?? [])
                 currentSong = SongsArr![0]
+                
                 currentSongIndex = 0
                 SongsArr![0].played = true
                 let filePathSong = Bundle.main.path(forResource: removeSuffix(songName: currentSong!.title), ofType: "mp3", inDirectory: "Songs")
                 let songUrl = URL(string: filePathSong!)
 //                let BPMOfSong = BPMAnalyzer.core.getBpmFrom(songUrl!, completion: nil)
-                do { try play(songUrl!)
+                do {
+                    try play(songUrl!)
                 }catch{}
             }else{
                 playPlayer()
@@ -241,6 +260,7 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
      * Parameters: URL
      */
     func play(_ url: URL) throws {
+        print("runs special play")
         // 1: load the file
         let file = try AVAudioFile(forReading: url)
 
@@ -291,6 +311,7 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     */
     deinit {
         print("getting rid of view")
+        
         //stop listening to notifications
         NotificationCenter.default.removeObserver(self, name: CustomCurtainViewController.selectionViewNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: CustomCurtainViewController.homeScreenFinishNotification, object: nil)

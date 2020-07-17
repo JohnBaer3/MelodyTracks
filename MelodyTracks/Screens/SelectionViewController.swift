@@ -35,25 +35,29 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
     @IBOutlet weak var autoButton: selectorButton!
     @IBOutlet weak var walkJogRunStackView: UIStackView!
     @IBOutlet weak var mphStackView: customStepper!
-    @IBOutlet weak var descriptionText: UITextField!
+    @IBOutlet weak var descriptionText: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     // set notification name
     static let showFinishNotification = Notification.Name("showFinishNotification")
     static let TimerNotification = Notification.Name("TimerNotification")
     
     //stuff from AVAudioPlayer port
-    let engine = AVAudioEngine()
+    //var engine : AVAudioEngine!
+    /*let engine = AVAudioEngine()
     let speedControl = AVAudioUnitVarispeed()
     let pitchControl = AVAudioUnitTimePitch()
 
     let engineBPM = AVAudioEngine()
+    //var engineBPM : AVAudioEngine!
     let speedControlBPM = AVAudioUnitVarispeed()
-    let pitchControlBPM = AVAudioUnitTimePitch()
+    let pitchControlBPM = AVAudioUnitTimePitch()*/
     
     var speedOfBPM:Float = 0.0
     //stuff from AVAudioPlayer port
     
     //var audioPlayer = MPMusicPlayerController.systemMusicPlayer
     let audioPlayer = AVAudioPlayerNode()
+    //var audioPlayer : AVAudioPlayerNode!
     let picker = MPMediaPickerController(mediaTypes:MPMediaType.anyAudio)
     var trackList : MPMediaItemCollection?
     var hideFinishButton: Bool!
@@ -62,10 +66,18 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
     var higherBoundMPH = 15
     var lowerBoundMPH = 0
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         saveButton.setInitialDetails()
         setInitialMPH()
+        getBPMofSongs()
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         //check to see if there is current audio playing
         if audioPlayer.isPlaying == true {
             audioPlayer.pause()
@@ -79,8 +91,6 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
         walkButton.layer.cornerRadius = 10
         jogButton.layer.cornerRadius = 10
         runButton.layer.cornerRadius = 10
-        
-        getBPMofSongs()
         
         //add observer for Start button from Curtain view
         NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: SelectionViewController.TimerNotification, object: nil)
@@ -261,6 +271,7 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
             //NotificationCenter.default.post(name: CustomCurtainViewController.showMPHNotification, object: nil, userInfo:["show": true])
             vc.audioPlayer = audioPlayer
             vc.SongsArr = SongsArr
+            //audioPlayer.stop()
             vc.modalPresentationStyle = .currentContext
             present(vc, animated: true, completion:nil)
         }else{ //show MPH when bottom screen is minimized
@@ -330,3 +341,16 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
     }
 }
 
+extension SelectionViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return SongsArr.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let song = SongsArr[indexPath.row]
+        let songCell = tableView.dequeueReusableCell(withIdentifier: "SongCell") as! SongCell
+        songCell.setCell(song: song)
+        return songCell
+    }
+}

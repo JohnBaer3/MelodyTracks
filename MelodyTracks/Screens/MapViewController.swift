@@ -38,6 +38,19 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate{
         
     }
     /**
+     * Method name: <#name#>
+     * Description: <#description#>
+     * Parameters: <#parameters#>
+     */
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mapToCustom"{
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let controller = segue.destination as! CustomCurtainViewController
+                controller.selectedName = objects[indexPath.row]
+            }
+        }
+    }*/
+    /**
      * Method name: showBottomSheet
      * Description: Used to show the bottom sheet
      * Parameters: N/A
@@ -49,9 +62,11 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate{
         // Set a content view controller.
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let contentVC = storyboard.instantiateViewController(withIdentifier: "CustomCurtainViewController") as! CustomCurtainViewController
-        fpc.set(contentViewController: contentVC)
         contentVC.audioPlayer = audioPlayer
+        //print(SongsArr)
         contentVC.SongsArr = SongsArr
+        fpc.set(contentViewController: contentVC)
+        
         fpc.surfaceView.cornerRadius = 10
         fpc.addPanel(toParent: self)
     }
@@ -84,8 +99,10 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate{
             //present finish screen
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "FinishViewController") as! FinishViewController
+            vc.duration = timerNum.text!
+            vc.SongsArr = SongsArr!
+            print(timerNum.text)
             vc.modalPresentationStyle = .currentContext
-            vc.duration = timerNum.text
             present(vc, animated: true, completion:nil)
         }
     }
