@@ -62,11 +62,9 @@
 	</array>
 	<key>NSMotionUsageDescription</key>
 	<string>Give access to your motion data to track your running pace</string>
-	<key>NSLocationUsageDescription</key>
+	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Give access to your location data for map plotting</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Give access to your location data for map plotting</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Give access to your location data for map plotting</string>
 </dict>
 </plist>
