@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ED181A724C130CC00BECDB2 /* Songs in Resources */ = {isa = PBXBuildFile; fileRef = 1ED181A624C130CC00BECDB2 /* Songs */; };
 		2B7C01BDEBAB8CAD6DBDEAC8 /* Pods_MelodyTracks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E4A07D1A8BDF7FF1811CEE3 /* Pods_MelodyTracks.framework */; };
 		42EE94BD76E4BD3D3132EC77 /* Pods_MelodyTracks_MelodyTracksUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB2814FD00315C7EA0362AD /* Pods_MelodyTracks_MelodyTracksUITests.framework */; };
 		A14A984270017934AA2AFA7A /* Pods_MelodyTracksTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 500D5147E0274640C57DB32B /* Pods_MelodyTracksTests.framework */; };
@@ -18,7 +19,6 @@
 		DF12D2B524BF7F3400CA15C4 /* selectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF12D2B424BF7F3400CA15C4 /* selectorButton.swift */; };
 		DF12D2B924BF869E00CA15C4 /* SwipingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF12D2B824BF869E00CA15C4 /* SwipingController.swift */; };
 		DF47071524AEB7BB00F6E929 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF47071424AEB7BB00F6E929 /* Accelerate.framework */; };
-		DF47071724AEB7D800F6E929 /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF47071624AEB7D800F6E929 /* aubio.framework */; };
 		DF73C95024AEB2EC0031B8FB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C94F24AEB2EC0031B8FB /* AudioToolbox.framework */; };
 		DF73C95224AEB2F50031B8FB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95124AEB2F50031B8FB /* CoreMedia.framework */; };
 		DF73C95424AEB2FD0031B8FB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF73C95324AEB2FD0031B8FB /* AVFoundation.framework */; };
@@ -34,7 +34,6 @@
 		DFA177AD24A918C400FDFD18 /* MelodyTracksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177AC24A918C400FDFD18 /* MelodyTracksTests.swift */; };
 		DFA177B824A918C400FDFD18 /* MelodyTracksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA177B724A918C400FDFD18 /* MelodyTracksUITests.swift */; };
 		DFD927F424C0CD89003FBD93 /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFD927F324C0CD89003FBD93 /* SongCell.swift */; };
-		DFD927F624C0CF01003FBD93 /* Songs in Resources */ = {isa = PBXBuildFile; fileRef = DFD927F524C0CF01003FBD93 /* Songs */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1ED181A624C130CC00BECDB2 /* Songs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Songs; sourceTree = "<group>"; };
 		500D5147E0274640C57DB32B /* Pods_MelodyTracksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MelodyTracksTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66568E1A4833C3B71D73FFFD /* Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig"; path = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6E4A07D1A8BDF7FF1811CEE3 /* Pods_MelodyTracks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MelodyTracks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,7 +71,6 @@
 		DF12D2B424BF7F3400CA15C4 /* selectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectorButton.swift; sourceTree = "<group>"; };
 		DF12D2B824BF869E00CA15C4 /* SwipingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingController.swift; sourceTree = "<group>"; };
 		DF47071424AEB7BB00F6E929 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
-		DF47071624AEB7D800F6E929 /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = aubio.framework; path = "MelodyTracks/aubio-0.4.7.iosuniversal_framework/aubio.framework"; sourceTree = "<group>"; };
 		DF73C94F24AEB2EC0031B8FB /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		DF73C95124AEB2F50031B8FB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		DF73C95324AEB2FD0031B8FB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -94,7 +93,6 @@
 		DFA177B924A918C400FDFD18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DFA177CA24A965CE00FDFD18 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		DFD927F324C0CD89003FBD93 /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
-		DFD927F524C0CF01003FBD93 /* Songs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Songs; path = ../../../Desktop/Songs; sourceTree = "<group>"; };
 		F50A7DBE05D1F86AE8B85DCD /* Pods-MelodyTracksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MelodyTracksTests.release.xcconfig"; path = "Target Support Files/Pods-MelodyTracksTests/Pods-MelodyTracksTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +101,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF47071724AEB7D800F6E929 /* aubio.framework in Frameworks */,
 				DF47071524AEB7BB00F6E929 /* Accelerate.framework in Frameworks */,
 				DF73C95424AEB2FD0031B8FB /* AVFoundation.framework in Frameworks */,
 				DF73C95224AEB2F50031B8FB /* CoreMedia.framework in Frameworks */,
@@ -148,7 +145,6 @@
 		DF73C94E24AEB2EC0031B8FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DF47071624AEB7D800F6E929 /* aubio.framework */,
 				DF47071424AEB7BB00F6E929 /* Accelerate.framework */,
 				DF73C95524AEB3320031B8FB /* libSuperpoweredAudioIOS.a */,
 				DF73C95324AEB2FD0031B8FB /* AVFoundation.framework */,
@@ -198,7 +194,7 @@
 		DFA1779424A918C300FDFD18 /* MelodyTracks */ = {
 			isa = PBXGroup;
 			children = (
-				DFD927F524C0CF01003FBD93 /* Songs */,
+				1ED181A624C130CC00BECDB2 /* Songs */,
 				DFD927F224C0CD63003FBD93 /* New Group */,
 				DF90C93024B8D7A800D7670C /* Buttons */,
 				DFA177C924A965BC00FDFD18 /* Screens */,
@@ -361,9 +357,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFA177A224A918C400FDFD18 /* LaunchScreen.storyboard in Resources */,
+				1ED181A724C130CC00BECDB2 /* Songs in Resources */,
 				DFA1779F24A918C400FDFD18 /* Assets.xcassets in Resources */,
 				DFA1779D24A918C300FDFD18 /* Main.storyboard in Resources */,
-				DFD927F624C0CF01003FBD93 /* Songs in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
