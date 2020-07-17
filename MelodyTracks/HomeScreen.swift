@@ -5,7 +5,7 @@
 //  DEPRECATED: HOMESCREEN IS NOW SelectionViewController.swift
 //
 
-/*import UIKit
+import UIKit
 
 class HomeScreen: UIViewController{
     @IBOutlet weak var finishButton: finishButton!
@@ -50,8 +50,6 @@ class HomeScreen: UIViewController{
             let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "SelectionViewController") as! SelectionViewController
             vc.modalPresentationStyle = .popover
-            //essential for delegate https://www.youtube.com/watch?v=DBWu6TnhLeY
-            //vc.selectionDelegate = self  //Removed bc notifications used to send data
             present(vc, animated: true, completion:nil)
         }else if (startButton.currentTitle == "Show BPM"){
             NotificationCenter.default.post(name: CustomCurtainViewController.showBPMNotification, object: nil, userInfo:["showBPMTapped": true])
@@ -137,4 +135,4 @@ class HomeScreen: UIViewController{
         NotificationCenter.default.removeObserver(self, name: HomeScreen.TimerNotification, object: nil)
     }
     
-}*/
+}

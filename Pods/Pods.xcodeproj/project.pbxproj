@@ -7,42 +7,71 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18299A9A1A25BB6A58AAA05E8FFE3085 /* CurtainDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75DDAB2F976EE11D6D69C690327984A /* CurtainDelegate.swift */; };
-		2124D055F05B1382845C92B47EF432A1 /* CurtainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292390BE13E093CBAA7357CA421B111C /* CurtainController.swift */; };
+		071D52F82B602FB85E35CA8583EEF456 /* FloatingPanelSurfaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 744849F9D29DAB5BF1C11CEDEB080F0F /* FloatingPanelSurfaceView.swift */; };
+		18299A9A1A25BB6A58AAA05E8FFE3085 /* CurtainDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E2EAA26505D2AA01BE770CD3731341 /* CurtainDelegate.swift */; };
+		2124D055F05B1382845C92B47EF432A1 /* CurtainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058AECBFB79CEC0ED7AB33DAE6939EB3 /* CurtainController.swift */; };
+		2C000FFD2D40FD9F728E1F83134FDB1B /* FloatingPanel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F51E6726669710701F0FC3FFB957C4A /* FloatingPanel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2C9900A97A6CA558251A944705FA92AC /* Pods-MelodyTracksTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = ED336A7154FDD5FEFF68EC1560AE5A6C /* Pods-MelodyTracksTests-dummy.m */; };
-		41F5B63B61A6F52EC0F3A2D45E5AD8FF /* SweetCurtain-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE73E9F3F1D72DC39A00B253FD11F31 /* SweetCurtain-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49A84E18CC8CABEF9DC3AA9D88F0BA8A /* Curtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D777899F2A8AFE2B87338F511DC047F /* Curtain.swift */; };
-		4A0D6A5AF7F1976C6C68FD43DDFB57C3 /* CurtainHeightProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D3E851997B011EA22538CD6CF6B224 /* CurtainHeightProvider.swift */; };
+		3D408305B29250792B2CDDC90990ECAC /* FloatingPanelCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0AFED2E37B19231E30247C948DCAF1 /* FloatingPanelCore.swift */; };
+		41F5B63B61A6F52EC0F3A2D45E5AD8FF /* SweetCurtain-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C576FE81303FFC14998B109597DFDAB4 /* SweetCurtain-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		49A84E18CC8CABEF9DC3AA9D88F0BA8A /* Curtain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CB3431F269C0437BF42085963445F6 /* Curtain.swift */; };
+		4A0D6A5AF7F1976C6C68FD43DDFB57C3 /* CurtainHeightProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C36683C6792DD800E372172679193B /* CurtainHeightProvider.swift */; };
 		4C31C73FD48DAF178AB63083A5B63A99 /* Pods-MelodyTracksTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 701620669C7370804840255F07D2ADE5 /* Pods-MelodyTracksTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5671EAA35F3619DBFD395CE10EAE4744 /* UIView+findScrollSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82B9FC2139A8A2B2DC3F0AB235328818 /* UIView+findScrollSubview.swift */; };
-		642A07F73407B43C627A7BF508F38DCB /* CC+AddControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CA3F200EC78A5DF2C594A22E4E894A /* CC+AddControllers.swift */; };
-		771F48EF55BA5AC12A2DD579E3F7AEB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		785682732C3F32469344C0F1EC26CA4C /* Pods-MelodyTracks-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41CE25ADB553A920E614FE18AE86FE25 /* Pods-MelodyTracks-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		81D892DF61986D41FCFAE0EDA33DDEAE /* SweetCurtain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5C9AC4998A85C8D453E3BFCCEE47EC /* SweetCurtain-dummy.m */; };
-		8BD03EE6EBE26507FF410D94F9E140E1 /* SweetCurtain.h in Headers */ = {isa = PBXBuildFile; fileRef = 386E271F4DDA8445DC24994EAA978DB6 /* SweetCurtain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8BFDBE3830681FE911E6D4730AE3D471 /* CurtainUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F13B434C65CE845F06C4739FA76024D /* CurtainUpdateModel.swift */; };
-		9C28E9DC55CFD45B3CDD512D8A0DEEC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		A2CAD51DBFD896B2C5E205FAAF44991C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
-		BB3F75D6A4A8CAFC1A69ECF988E976F1 /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 364F85C196E14A6162C9E4277D4E38EC /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m */; };
-		CE68E54183DDB0AF7680FF256E5A01A1 /* Pods-MelodyTracks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D003963872C6F4ACBBAC68093C81AA /* Pods-MelodyTracks-dummy.m */; };
-		D39E1966B740242F1CB85E790E4FFCFC /* CC+PanGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804EF5E65C3B373C3BE198001A34D9D1 /* CC+PanGestureDelegate.swift */; };
-		D4D834F6B2DBA331E6B6248DFBDE308E /* CurtainConnectionSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051987A7AD040968829550BB88E14E6B /* CurtainConnectionSegue.swift */; };
-		EA4F5B8EB3989513FEEEAF0D70523625 /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3656DD76A2162F0B7A5E0E7351C975BA /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EB7F53D7CE0D3C3DB224F7CFB6328201 /* CGFloatArray+findClosest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C52937E9104B49AE8A173836962BD /* CGFloatArray+findClosest.swift */; };
-		EBE89369412ED3DA74A6E7AEFF9C0CC8 /* CurtainSwipeResistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53929140A6AFCD7862DEA1E9BBBD83F1 /* CurtainSwipeResistance.swift */; };
-		F92CFB54F854D1C46B3E28D453F5986D /* CurtainPushDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB03B60BA96D7DEACD5956EB9123259 /* CurtainPushDirection.swift */; };
-		FBA401D4262AB63CADD62BF75B6342A7 /* CurtainHeightState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6584140A1E66DF57ECFB8EAE5096E2 /* CurtainHeightState.swift */; };
-		FC4F7675B1613442EF60273BBF418684 /* UIViewController+CurtainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB6ADEBE1D9F6C833B887009A101F4B /* UIViewController+CurtainController.swift */; };
-		FD5A62FE8949B0B214B4AACCC6D7EFEA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */; };
+		4E2C49603B1B4B1B44D107C7F60A8A7A /* Pods-MelodyTracks-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D003963872C6F4ACBBAC68093C81AA /* Pods-MelodyTracks-dummy.m */; };
+		52CB22F87EC38D85170E5FD149BCD3D3 /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 364F85C196E14A6162C9E4277D4E38EC /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m */; };
+		5671EAA35F3619DBFD395CE10EAE4744 /* UIView+findScrollSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95B76196084FC8B0E7D4C575E5A9E47 /* UIView+findScrollSubview.swift */; };
+		642A07F73407B43C627A7BF508F38DCB /* CC+AddControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BACB682C63EE33D4291C159AABE288D /* CC+AddControllers.swift */; };
+		6FD88FF1F0A737CF410FAEB308E94129 /* Pods-MelodyTracks-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41CE25ADB553A920E614FE18AE86FE25 /* Pods-MelodyTracks-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7FA96F5D3B8F4CE9C95C35D1CD4D6A91 /* FloatingPanelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7E99E72DC911F88A09726A2AD9D396 /* FloatingPanelController.swift */; };
+		81D892DF61986D41FCFAE0EDA33DDEAE /* SweetCurtain-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DC7B0A544AE91F0F963AA7284CB372C /* SweetCurtain-dummy.m */; };
+		8BD03EE6EBE26507FF410D94F9E140E1 /* SweetCurtain.h in Headers */ = {isa = PBXBuildFile; fileRef = A272E7D61BA560872298277D782553C5 /* SweetCurtain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8BFDBE3830681FE911E6D4730AE3D471 /* CurtainUpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408EEB5DF8C9E02D359DB722118A94CD /* CurtainUpdateModel.swift */; };
+		970E5351EB7A3C92CD346BCDCC6652A3 /* FloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2459C5C7DF4F980192D415C2EBDD0D1 /* FloatingPanelLayout.swift */; };
+		A04D8B3B3650926C5F7D42B22A67DE7D /* FloatingPanelBackdropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9599B11B4A09B95724D6B30ABEAB4E5 /* FloatingPanelBackdropView.swift */; };
+		A23C55038FA1B8A9DA34AC9623929EE7 /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3656DD76A2162F0B7A5E0E7351C975BA /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2CAD51DBFD896B2C5E205FAAF44991C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		A3673FD39025DE753731C568DB5E23B9 /* FloatingPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A539781CC62A60BB12E3AF32D872D19B /* FloatingPanelView.swift */; };
+		A49977EF1D94933CE588A5F237D5DD7C /* GrabberHandleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28D4B1BD10DBB33B9444C393B74EB92 /* GrabberHandleView.swift */; };
+		A696FE118006841FB09A5E76C11B8978 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2461913CD83C4366AED2EDDC6735DBE /* Logger.swift */; };
+		A6DB10D310FD18E8B6C25EA33D81DF4E /* FloatingPanel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4925B3F2154398D68DD20DE672F30BB3 /* FloatingPanel-dummy.m */; };
+		AAE1B9134D32C7B612C5CEAE638F0D9B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		B6AC9E96872D5995FC520BAF2808A973 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		C17DD90FDB535CC886156FEA4A17B02C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 312B988EF117AE4DE76A268D970131FE /* UIKit.framework */; };
+		CF925E8C4C99A77E1C9FE0049826FCE4 /* FloatingPanelBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCAE1EB6BEC213DF98763155C10B5B /* FloatingPanelBehavior.swift */; };
+		D13AC4B3EDF1F6A5973A039FCE488B92 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4076CEDDA1E7B8B2A2A154759546FFB4 /* UIExtensions.swift */; };
+		D39E1966B740242F1CB85E790E4FFCFC /* CC+PanGestureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FB77D962619B35ADDD100FF50E6864 /* CC+PanGestureDelegate.swift */; };
+		D4D834F6B2DBA331E6B6248DFBDE308E /* CurtainConnectionSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BCB8BA36D387EFBC3DE14711F8D842 /* CurtainConnectionSegue.swift */; };
+		E62E543CA9182791942A0DE76D3E6C6C /* FloatingPanelTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1E7530FAC86F380ED8846E365915E2 /* FloatingPanelTransitioning.swift */; };
+		EB7F53D7CE0D3C3DB224F7CFB6328201 /* CGFloatArray+findClosest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA561391E48CA90DA84A99B050CE55CD /* CGFloatArray+findClosest.swift */; };
+		EBE89369412ED3DA74A6E7AEFF9C0CC8 /* CurtainSwipeResistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C330352F6729B4EE9B2B07A3F4CE06B /* CurtainSwipeResistance.swift */; };
+		EDBE73B876DEE9ED3F7A97D450D6B410 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
+		F92CFB54F854D1C46B3E28D453F5986D /* CurtainPushDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BC676A9056B7D498A6554B28BC606E /* CurtainPushDirection.swift */; };
+		FBA401D4262AB63CADD62BF75B6342A7 /* CurtainHeightState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C3F683AD0860A087B5AF13386C165 /* CurtainHeightState.swift */; };
+		FC4F7675B1613442EF60273BBF418684 /* UIViewController+CurtainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67D156845F752EC00F756B4D20C753C /* UIViewController+CurtainController.swift */; };
+		FD5A62FE8949B0B214B4AACCC6D7EFEA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1DF32EF7D9E80AC0F9AF8C02691189BF /* PBXContainerItemProxy */ = {
+		2C979F67A8A615D7B0F62BFA664E811A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = B60BD08D514FF8EA4BFC1002A16DD92C;
 			remoteInfo = SweetCurtain;
+		};
+		2F442E0BC8FBCC0DC3561B96D9C1706A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B60BD08D514FF8EA4BFC1002A16DD92C;
+			remoteInfo = SweetCurtain;
+		};
+		3A9DF712B8F95E64844B4B5D500DB270 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4874E7E655CEB4C01E4572AD903AEA21;
+			remoteInfo = FloatingPanel;
 		};
 		8B5F2F64153D51022DB1F2506D363A7C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -51,70 +80,90 @@
 			remoteGlobalIDString = DC81843D4E4C727569B17EC5A5DB55AD;
 			remoteInfo = "Pods-MelodyTracks";
 		};
-		D9ED0414CFD7A72358D2FE9E198C58D4 /* PBXContainerItemProxy */ = {
+		E8575A0AC213D59703BD496EDC06F961 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B60BD08D514FF8EA4BFC1002A16DD92C;
-			remoteInfo = SweetCurtain;
+			remoteGlobalIDString = 4874E7E655CEB4C01E4572AD903AEA21;
+			remoteInfo = FloatingPanel;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		051987A7AD040968829550BB88E14E6B /* CurtainConnectionSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainConnectionSegue.swift; path = SweetCurtain/Segues/CurtainConnectionSegue.swift; sourceTree = "<group>"; };
+		058AECBFB79CEC0ED7AB33DAE6939EB3 /* CurtainController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainController.swift; path = SweetCurtain/Controllers/CurtainController.swift; sourceTree = "<group>"; };
 		08D003963872C6F4ACBBAC68093C81AA /* Pods-MelodyTracks-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MelodyTracks-dummy.m"; sourceTree = "<group>"; };
 		0CEE9F0DCB07866DF40499D30FC88AEE /* Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig"; sourceTree = "<group>"; };
+		0DC7B0A544AE91F0F963AA7284CB372C /* SweetCurtain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SweetCurtain-dummy.m"; sourceTree = "<group>"; };
+		0E00D26F8F4CDA49CD6A259E7DAB9403 /* FloatingPanel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FloatingPanel-prefix.pch"; sourceTree = "<group>"; };
+		1079C0A17B0506610F2B4F03549962B7 /* FloatingPanel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FloatingPanel.modulemap; sourceTree = "<group>"; };
 		13B61055E0FDF1AF178A98906C24DB96 /* Pods-MelodyTracksTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracksTests-Info.plist"; sourceTree = "<group>"; };
 		155FEE0ACC3EB75A86F9358137A73FC9 /* Pods-MelodyTracks-MelodyTracksUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MelodyTracks-MelodyTracksUITests.modulemap"; sourceTree = "<group>"; };
-		188D541800ACA4BB931C7F9D1962FA79 /* SweetCurtain-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SweetCurtain-Info.plist"; sourceTree = "<group>"; };
-		1D777899F2A8AFE2B87338F511DC047F /* Curtain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Curtain.swift; path = SweetCurtain/Protocols/Curtain.swift; sourceTree = "<group>"; };
-		292390BE13E093CBAA7357CA421B111C /* CurtainController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainController.swift; path = SweetCurtain/Controllers/CurtainController.swift; sourceTree = "<group>"; };
-		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		33441E724C4B0D19A3B80DA7B6FE7AB7 /* SweetCurtain-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweetCurtain-prefix.pch"; sourceTree = "<group>"; };
+		1C330352F6729B4EE9B2B07A3F4CE06B /* CurtainSwipeResistance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainSwipeResistance.swift; path = SweetCurtain/Enums/CurtainSwipeResistance.swift; sourceTree = "<group>"; };
+		1F0AFED2E37B19231E30247C948DCAF1 /* FloatingPanelCore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelCore.swift; path = Framework/Sources/FloatingPanelCore.swift; sourceTree = "<group>"; };
+		312B988EF117AE4DE76A268D970131FE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		364F85C196E14A6162C9E4277D4E38EC /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MelodyTracks-MelodyTracksUITests-dummy.m"; sourceTree = "<group>"; };
 		3656DD76A2162F0B7A5E0E7351C975BA /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MelodyTracks-MelodyTracksUITests-umbrella.h"; sourceTree = "<group>"; };
-		386E271F4DDA8445DC24994EAA978DB6 /* SweetCurtain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SweetCurtain.h; path = SweetCurtain/SweetCurtain.h; sourceTree = "<group>"; };
+		38BCB8BA36D387EFBC3DE14711F8D842 /* CurtainConnectionSegue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainConnectionSegue.swift; path = SweetCurtain/Segues/CurtainConnectionSegue.swift; sourceTree = "<group>"; };
+		4076CEDDA1E7B8B2A2A154759546FFB4 /* UIExtensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIExtensions.swift; path = Framework/Sources/UIExtensions.swift; sourceTree = "<group>"; };
+		408EEB5DF8C9E02D359DB722118A94CD /* CurtainUpdateModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainUpdateModel.swift; path = "SweetCurtain/Value objects/CurtainUpdateModel.swift"; sourceTree = "<group>"; };
 		41CE25ADB553A920E614FE18AE86FE25 /* Pods-MelodyTracks-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MelodyTracks-umbrella.h"; sourceTree = "<group>"; };
 		427A58630B09D091CD1217DCF7433B91 /* Pods-MelodyTracks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracks.release.xcconfig"; sourceTree = "<group>"; };
+		436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		44A2D80C69922EFD95E1C7EB8D4C07EC /* Pods-MelodyTracks-MelodyTracksUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MelodyTracks-MelodyTracksUITests-frameworks.sh"; sourceTree = "<group>"; };
+		46AE02C27B90B80F8C56BCFD3840FDBB /* SweetCurtain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SweetCurtain.release.xcconfig; sourceTree = "<group>"; };
 		48C4AC87EC896F57D896E3A90E70EFD2 /* Pods-MelodyTracks.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MelodyTracks.modulemap"; sourceTree = "<group>"; };
-		4C1C52937E9104B49AE8A173836962BD /* CGFloatArray+findClosest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGFloatArray+findClosest.swift"; path = "SweetCurtain/Extensions/CGFloatArray+findClosest.swift"; sourceTree = "<group>"; };
+		4925B3F2154398D68DD20DE672F30BB3 /* FloatingPanel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FloatingPanel-dummy.m"; sourceTree = "<group>"; };
 		4F4617FF29F8392C81B0081400391615 /* Pods-MelodyTracks-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracks-acknowledgements.plist"; sourceTree = "<group>"; };
-		53929140A6AFCD7862DEA1E9BBBD83F1 /* CurtainSwipeResistance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainSwipeResistance.swift; path = SweetCurtain/Enums/CurtainSwipeResistance.swift; sourceTree = "<group>"; };
+		52797F9C26FCA0B257A15369FF10D4A5 /* FloatingPanel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FloatingPanel-Info.plist"; sourceTree = "<group>"; };
+		5AB97DA86E1DFED2C24940873F22D4DD /* SweetCurtain-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweetCurtain-prefix.pch"; sourceTree = "<group>"; };
+		5B7E99E72DC911F88A09726A2AD9D396 /* FloatingPanelController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelController.swift; path = Framework/Sources/FloatingPanelController.swift; sourceTree = "<group>"; };
 		5C25D8C16797504B285AB8769B061B30 /* Pods-MelodyTracksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracksTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5C63B9718E25F71583320787E0571E43 /* SweetCurtain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SweetCurtain.framework; path = SweetCurtain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		60F693D27C569E7AEC59F446BA2A5D33 /* SweetCurtain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SweetCurtain.modulemap; sourceTree = "<group>"; };
+		63E2EAA26505D2AA01BE770CD3731341 /* CurtainDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainDelegate.swift; path = SweetCurtain/Protocols/CurtainDelegate.swift; sourceTree = "<group>"; };
 		6871693A6C62BE0EABD06CE2E570358D /* Pods-MelodyTracks-MelodyTracksUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MelodyTracks-MelodyTracksUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		68CA3F200EC78A5DF2C594A22E4E894A /* CC+AddControllers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CC+AddControllers.swift"; path = "SweetCurtain/Controllers/Curtain Controller Extensions/CC+AddControllers.swift"; sourceTree = "<group>"; };
 		69AE3BFC2F508FD3C035D1A93C63440F /* Pods-MelodyTracksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracksTests.release.xcconfig"; sourceTree = "<group>"; };
 		6C690976AA57594B50946E07349C0D17 /* Pods-MelodyTracksTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracksTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		6D5C9AC4998A85C8D453E3BFCCEE47EC /* SweetCurtain-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SweetCurtain-dummy.m"; sourceTree = "<group>"; };
 		6D88A025939113404DED1AC8EB00144E /* Pods_MelodyTracks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MelodyTracks.framework; path = "Pods-MelodyTracks.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FAAB7D3DE9B2564509ABD18687E938E /* FloatingPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FloatingPanel.framework; path = FloatingPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		701620669C7370804840255F07D2ADE5 /* Pods-MelodyTracksTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MelodyTracksTests-umbrella.h"; sourceTree = "<group>"; };
+		744849F9D29DAB5BF1C11CEDEB080F0F /* FloatingPanelSurfaceView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelSurfaceView.swift; path = Framework/Sources/FloatingPanelSurfaceView.swift; sourceTree = "<group>"; };
 		74B50C6FCB674FB7CE7D83A11DE9DDF5 /* Pods-MelodyTracks-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MelodyTracks-frameworks.sh"; sourceTree = "<group>"; };
 		7A65B5DD4F84574DA39CEDCFFA56CCDB /* Pods-MelodyTracks-MelodyTracksUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracks-MelodyTracksUITests-Info.plist"; sourceTree = "<group>"; };
-		7C2DEBD72005E8ABCB7E063A1428C925 /* SweetCurtain.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SweetCurtain.modulemap; sourceTree = "<group>"; };
 		7DE127A30D5DF9560DDCB323F0E2DDE5 /* Pods_MelodyTracks_MelodyTracksUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MelodyTracks_MelodyTracksUITests.framework; path = "Pods-MelodyTracks-MelodyTracksUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		804EF5E65C3B373C3BE198001A34D9D1 /* CC+PanGestureDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CC+PanGestureDelegate.swift"; path = "SweetCurtain/Controllers/Curtain Controller Extensions/CC+PanGestureDelegate.swift"; sourceTree = "<group>"; };
 		810E5812002C2A881BBB61FD141B3AB1 /* Pods-MelodyTracks-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MelodyTracks-acknowledgements.markdown"; sourceTree = "<group>"; };
-		82B9FC2139A8A2B2DC3F0AB235328818 /* UIView+findScrollSubview.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+findScrollSubview.swift"; path = "SweetCurtain/Extensions/UIView+findScrollSubview.swift"; sourceTree = "<group>"; };
+		82C36683C6792DD800E372172679193B /* CurtainHeightProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainHeightProvider.swift; path = SweetCurtain/Services/CurtainHeightProvider.swift; sourceTree = "<group>"; };
 		84B3E84421F89DA91AF438B4C295B53A /* Pods-MelodyTracksTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MelodyTracksTests.modulemap"; sourceTree = "<group>"; };
+		88A8CEA06B85EE243C53D840BDA3DED8 /* SweetCurtain-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SweetCurtain-Info.plist"; sourceTree = "<group>"; };
 		88F9D85C5856C4249ADDA806162400CE /* Pods-MelodyTracks-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracks-Info.plist"; sourceTree = "<group>"; };
-		93D3E851997B011EA22538CD6CF6B224 /* CurtainHeightProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainHeightProvider.swift; path = SweetCurtain/Services/CurtainHeightProvider.swift; sourceTree = "<group>"; };
-		9BB03B60BA96D7DEACD5956EB9123259 /* CurtainPushDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainPushDirection.swift; path = SweetCurtain/Enums/CurtainPushDirection.swift; sourceTree = "<group>"; };
+		8BACB682C63EE33D4291C159AABE288D /* CC+AddControllers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CC+AddControllers.swift"; path = "SweetCurtain/Controllers/Curtain Controller Extensions/CC+AddControllers.swift"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9F13B434C65CE845F06C4739FA76024D /* CurtainUpdateModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainUpdateModel.swift; path = "SweetCurtain/Value objects/CurtainUpdateModel.swift"; sourceTree = "<group>"; };
-		AAE73E9F3F1D72DC39A00B253FD11F31 /* SweetCurtain-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweetCurtain-umbrella.h"; sourceTree = "<group>"; };
-		ABB6ADEBE1D9F6C833B887009A101F4B /* UIViewController+CurtainController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+CurtainController.swift"; path = "SweetCurtain/Extensions/UIViewController+CurtainController.swift"; sourceTree = "<group>"; };
+		9F51E6726669710701F0FC3FFB957C4A /* FloatingPanel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FloatingPanel-umbrella.h"; sourceTree = "<group>"; };
+		A1BC676A9056B7D498A6554B28BC606E /* CurtainPushDirection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainPushDirection.swift; path = SweetCurtain/Enums/CurtainPushDirection.swift; sourceTree = "<group>"; };
+		A1FB77D962619B35ADDD100FF50E6864 /* CC+PanGestureDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CC+PanGestureDelegate.swift"; path = "SweetCurtain/Controllers/Curtain Controller Extensions/CC+PanGestureDelegate.swift"; sourceTree = "<group>"; };
+		A272E7D61BA560872298277D782553C5 /* SweetCurtain.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SweetCurtain.h; path = SweetCurtain/SweetCurtain.h; sourceTree = "<group>"; };
+		A421050AA0D3DEB6C0740652B7D01203 /* SweetCurtain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SweetCurtain.debug.xcconfig; sourceTree = "<group>"; };
+		A539781CC62A60BB12E3AF32D872D19B /* FloatingPanelView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelView.swift; path = Framework/Sources/FloatingPanelView.swift; sourceTree = "<group>"; };
+		B2461913CD83C4366AED2EDDC6735DBE /* Logger.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Framework/Sources/Logger.swift; sourceTree = "<group>"; };
+		B29C3F683AD0860A087B5AF13386C165 /* CurtainHeightState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainHeightState.swift; path = SweetCurtain/Enums/CurtainHeightState.swift; sourceTree = "<group>"; };
+		B3CB3431F269C0437BF42085963445F6 /* Curtain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Curtain.swift; path = SweetCurtain/Protocols/Curtain.swift; sourceTree = "<group>"; };
 		B5CB7BB3A1921772EC2D86BCA9B15EA7 /* Pods_MelodyTracksTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MelodyTracksTests.framework; path = "Pods-MelodyTracksTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5DCAE1EB6BEC213DF98763155C10B5B /* FloatingPanelBehavior.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelBehavior.swift; path = Framework/Sources/FloatingPanelBehavior.swift; sourceTree = "<group>"; };
+		BA561391E48CA90DA84A99B050CE55CD /* CGFloatArray+findClosest.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CGFloatArray+findClosest.swift"; path = "SweetCurtain/Extensions/CGFloatArray+findClosest.swift"; sourceTree = "<group>"; };
 		BB1525639F7433BA4F4B2B508EF94655 /* Pods-MelodyTracksTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MelodyTracksTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C1CD5B89D283A0B853289751F4B9B414 /* FloatingPanel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FloatingPanel.debug.xcconfig; sourceTree = "<group>"; };
+		C576FE81303FFC14998B109597DFDAB4 /* SweetCurtain-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SweetCurtain-umbrella.h"; sourceTree = "<group>"; };
 		CBFF8FFDEC0760227CB2A1D17E2F91C5 /* Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		DC273A8B56FAB27827CFDCBFEA089922 /* SweetCurtain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SweetCurtain.debug.xcconfig; sourceTree = "<group>"; };
-		E75DDAB2F976EE11D6D69C690327984A /* CurtainDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainDelegate.swift; path = SweetCurtain/Protocols/CurtainDelegate.swift; sourceTree = "<group>"; };
+		D28D4B1BD10DBB33B9444C393B74EB92 /* GrabberHandleView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = GrabberHandleView.swift; path = Framework/Sources/GrabberHandleView.swift; sourceTree = "<group>"; };
+		D67D156845F752EC00F756B4D20C753C /* UIViewController+CurtainController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewController+CurtainController.swift"; path = "SweetCurtain/Extensions/UIViewController+CurtainController.swift"; sourceTree = "<group>"; };
+		E2459C5C7DF4F980192D415C2EBDD0D1 /* FloatingPanelLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelLayout.swift; path = Framework/Sources/FloatingPanelLayout.swift; sourceTree = "<group>"; };
 		E8D3FDDAFC12E3A93C99E7DD26EFB648 /* Pods-MelodyTracks-MelodyTracksUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MelodyTracks-MelodyTracksUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		E95B76196084FC8B0E7D4C575E5A9E47 /* UIView+findScrollSubview.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+findScrollSubview.swift"; path = "SweetCurtain/Extensions/UIView+findScrollSubview.swift"; sourceTree = "<group>"; };
+		E9B0001D2DD753493EB7B926F32BA6A6 /* FloatingPanel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FloatingPanel.release.xcconfig; sourceTree = "<group>"; };
 		ED336A7154FDD5FEFF68EC1560AE5A6C /* Pods-MelodyTracksTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MelodyTracksTests-dummy.m"; sourceTree = "<group>"; };
 		F47096DD681BA518F7061A46354D39FE /* Pods-MelodyTracks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-MelodyTracks.debug.xcconfig"; sourceTree = "<group>"; };
-		F8749831E41392B06C9A5C0E2D1BE94B /* SweetCurtain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SweetCurtain.release.xcconfig; sourceTree = "<group>"; };
-		FB6584140A1E66DF57ECFB8EAE5096E2 /* CurtainHeightState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CurtainHeightState.swift; path = SweetCurtain/Enums/CurtainHeightState.swift; sourceTree = "<group>"; };
+		F9599B11B4A09B95724D6B30ABEAB4E5 /* FloatingPanelBackdropView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelBackdropView.swift; path = Framework/Sources/FloatingPanelBackdropView.swift; sourceTree = "<group>"; };
+		FC1E7530FAC86F380ED8846E365915E2 /* FloatingPanelTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FloatingPanelTransitioning.swift; path = Framework/Sources/FloatingPanelTransitioning.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,11 +175,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		779DB9239A67BB7D4B52F2B2A13D002B /* Frameworks */ = {
+		0E25907FC421D8E714ADD71C47A8FDC9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				771F48EF55BA5AC12A2DD579E3F7AEB5 /* Foundation.framework in Frameworks */,
+				AAE1B9134D32C7B612C5CEAE638F0D9B /* Foundation.framework in Frameworks */,
+				C17DD90FDB535CC886156FEA4A17B02C /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31D8FB3EE911670EE0182F42025AECB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6AC9E96872D5995FC520BAF2808A973 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C16116044E685EBC860B8AFEF5A3A8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDBE73B876DEE9ED3F7A97D450D6B410 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,26 +208,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FF0D8FBC567DE658F10CB36A14F66269 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9C28E9DC55CFD45B3CDD512D8A0DEEC3 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2D953F9CEB69F6BB9C20CF7D0698785B /* Products */ = {
+		1234CDD26C6BEAD8370C7F449DF5ACC8 /* FloatingPanel */ = {
 			isa = PBXGroup;
 			children = (
-				6D88A025939113404DED1AC8EB00144E /* Pods_MelodyTracks.framework */,
-				7DE127A30D5DF9560DDCB323F0E2DDE5 /* Pods_MelodyTracks_MelodyTracksUITests.framework */,
-				B5CB7BB3A1921772EC2D86BCA9B15EA7 /* Pods_MelodyTracksTests.framework */,
-				5C63B9718E25F71583320787E0571E43 /* SweetCurtain.framework */,
+				F9599B11B4A09B95724D6B30ABEAB4E5 /* FloatingPanelBackdropView.swift */,
+				B5DCAE1EB6BEC213DF98763155C10B5B /* FloatingPanelBehavior.swift */,
+				5B7E99E72DC911F88A09726A2AD9D396 /* FloatingPanelController.swift */,
+				1F0AFED2E37B19231E30247C948DCAF1 /* FloatingPanelCore.swift */,
+				E2459C5C7DF4F980192D415C2EBDD0D1 /* FloatingPanelLayout.swift */,
+				744849F9D29DAB5BF1C11CEDEB080F0F /* FloatingPanelSurfaceView.swift */,
+				FC1E7530FAC86F380ED8846E365915E2 /* FloatingPanelTransitioning.swift */,
+				A539781CC62A60BB12E3AF32D872D19B /* FloatingPanelView.swift */,
+				D28D4B1BD10DBB33B9444C393B74EB92 /* GrabberHandleView.swift */,
+				B2461913CD83C4366AED2EDDC6735DBE /* Logger.swift */,
+				4076CEDDA1E7B8B2A2A154759546FFB4 /* UIExtensions.swift */,
+				E0B04F79F41AD33973CB5F9FFBFA23DC /* Support Files */,
 			);
-			name = Products;
+			name = FloatingPanel;
+			path = FloatingPanel;
+			sourceTree = "<group>";
+		};
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2983683FD097A93297E2F5D4E382B36 /* iOS */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		38487744C25BC6EA0547907E13333045 /* Targets Support Files */ = {
@@ -174,28 +249,13 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		403B450D7D61B15BBAE4C1F3FDAEB0BF /* SweetCurtain */ = {
+		708B9EE3A758D86ED55582C573E6DCB5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				68CA3F200EC78A5DF2C594A22E4E894A /* CC+AddControllers.swift */,
-				804EF5E65C3B373C3BE198001A34D9D1 /* CC+PanGestureDelegate.swift */,
-				4C1C52937E9104B49AE8A173836962BD /* CGFloatArray+findClosest.swift */,
-				1D777899F2A8AFE2B87338F511DC047F /* Curtain.swift */,
-				051987A7AD040968829550BB88E14E6B /* CurtainConnectionSegue.swift */,
-				292390BE13E093CBAA7357CA421B111C /* CurtainController.swift */,
-				E75DDAB2F976EE11D6D69C690327984A /* CurtainDelegate.swift */,
-				93D3E851997B011EA22538CD6CF6B224 /* CurtainHeightProvider.swift */,
-				FB6584140A1E66DF57ECFB8EAE5096E2 /* CurtainHeightState.swift */,
-				9BB03B60BA96D7DEACD5956EB9123259 /* CurtainPushDirection.swift */,
-				53929140A6AFCD7862DEA1E9BBBD83F1 /* CurtainSwipeResistance.swift */,
-				9F13B434C65CE845F06C4739FA76024D /* CurtainUpdateModel.swift */,
-				386E271F4DDA8445DC24994EAA978DB6 /* SweetCurtain.h */,
-				82B9FC2139A8A2B2DC3F0AB235328818 /* UIView+findScrollSubview.swift */,
-				ABB6ADEBE1D9F6C833B887009A101F4B /* UIViewController+CurtainController.swift */,
-				9595411CEDC30B92E0944630962492A8 /* Support Files */,
+				1234CDD26C6BEAD8370C7F449DF5ACC8 /* FloatingPanel */,
+				C2BAA0C10476F443FECF46035D747854 /* SweetCurtain */,
 			);
-			name = SweetCurtain;
-			path = SweetCurtain;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		72993E7254A86A81249C2AB72C4DDFFD /* Pods-MelodyTracks-MelodyTracksUITests */ = {
@@ -231,14 +291,6 @@
 			path = "Target Support Files/Pods-MelodyTracksTests";
 			sourceTree = "<group>";
 		};
-		858EB9A0A8D80814F21DE4F05EBD8CBD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				403B450D7D61B15BBAE4C1F3FDAEB0BF /* SweetCurtain */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		8A8E6747AA73035A6D21E3BB598F289A /* Pods-MelodyTracks */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,46 +308,90 @@
 			path = "Target Support Files/Pods-MelodyTracks";
 			sourceTree = "<group>";
 		};
-		9595411CEDC30B92E0944630962492A8 /* Support Files */ = {
+		A95B550CD11314111AE9EE972399B846 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				7C2DEBD72005E8ABCB7E063A1428C925 /* SweetCurtain.modulemap */,
-				6D5C9AC4998A85C8D453E3BFCCEE47EC /* SweetCurtain-dummy.m */,
-				188D541800ACA4BB931C7F9D1962FA79 /* SweetCurtain-Info.plist */,
-				33441E724C4B0D19A3B80DA7B6FE7AB7 /* SweetCurtain-prefix.pch */,
-				AAE73E9F3F1D72DC39A00B253FD11F31 /* SweetCurtain-umbrella.h */,
-				DC273A8B56FAB27827CFDCBFEA089922 /* SweetCurtain.debug.xcconfig */,
-				F8749831E41392B06C9A5C0E2D1BE94B /* SweetCurtain.release.xcconfig */,
+				60F693D27C569E7AEC59F446BA2A5D33 /* SweetCurtain.modulemap */,
+				0DC7B0A544AE91F0F963AA7284CB372C /* SweetCurtain-dummy.m */,
+				88A8CEA06B85EE243C53D840BDA3DED8 /* SweetCurtain-Info.plist */,
+				5AB97DA86E1DFED2C24940873F22D4DD /* SweetCurtain-prefix.pch */,
+				C576FE81303FFC14998B109597DFDAB4 /* SweetCurtain-umbrella.h */,
+				A421050AA0D3DEB6C0740652B7D01203 /* SweetCurtain.debug.xcconfig */,
+				46AE02C27B90B80F8C56BCFD3840FDBB /* SweetCurtain.release.xcconfig */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/SweetCurtain";
 			sourceTree = "<group>";
 		};
-		C0834CEBB1379A84116EF29F93051C60 /* iOS */ = {
+		C2BAA0C10476F443FECF46035D747854 /* SweetCurtain */ = {
 			isa = PBXGroup;
 			children = (
-				3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */,
+				8BACB682C63EE33D4291C159AABE288D /* CC+AddControllers.swift */,
+				A1FB77D962619B35ADDD100FF50E6864 /* CC+PanGestureDelegate.swift */,
+				BA561391E48CA90DA84A99B050CE55CD /* CGFloatArray+findClosest.swift */,
+				B3CB3431F269C0437BF42085963445F6 /* Curtain.swift */,
+				38BCB8BA36D387EFBC3DE14711F8D842 /* CurtainConnectionSegue.swift */,
+				058AECBFB79CEC0ED7AB33DAE6939EB3 /* CurtainController.swift */,
+				63E2EAA26505D2AA01BE770CD3731341 /* CurtainDelegate.swift */,
+				82C36683C6792DD800E372172679193B /* CurtainHeightProvider.swift */,
+				B29C3F683AD0860A087B5AF13386C165 /* CurtainHeightState.swift */,
+				A1BC676A9056B7D498A6554B28BC606E /* CurtainPushDirection.swift */,
+				1C330352F6729B4EE9B2B07A3F4CE06B /* CurtainSwipeResistance.swift */,
+				408EEB5DF8C9E02D359DB722118A94CD /* CurtainUpdateModel.swift */,
+				A272E7D61BA560872298277D782553C5 /* SweetCurtain.h */,
+				E95B76196084FC8B0E7D4C575E5A9E47 /* UIView+findScrollSubview.swift */,
+				D67D156845F752EC00F756B4D20C753C /* UIViewController+CurtainController.swift */,
+				A95B550CD11314111AE9EE972399B846 /* Support Files */,
 			);
-			name = iOS;
+			name = SweetCurtain;
+			path = SweetCurtain;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
-				858EB9A0A8D80814F21DE4F05EBD8CBD /* Pods */,
-				2D953F9CEB69F6BB9C20CF7D0698785B /* Products */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				708B9EE3A758D86ED55582C573E6DCB5 /* Pods */,
+				DD7F457E8A12851FDC02F0F80D192575 /* Products */,
 				38487744C25BC6EA0547907E13333045 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+		DD7F457E8A12851FDC02F0F80D192575 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C0834CEBB1379A84116EF29F93051C60 /* iOS */,
+				6FAAB7D3DE9B2564509ABD18687E938E /* FloatingPanel.framework */,
+				6D88A025939113404DED1AC8EB00144E /* Pods_MelodyTracks.framework */,
+				7DE127A30D5DF9560DDCB323F0E2DDE5 /* Pods_MelodyTracks_MelodyTracksUITests.framework */,
+				B5CB7BB3A1921772EC2D86BCA9B15EA7 /* Pods_MelodyTracksTests.framework */,
+				5C63B9718E25F71583320787E0571E43 /* SweetCurtain.framework */,
 			);
-			name = Frameworks;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0B04F79F41AD33973CB5F9FFBFA23DC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1079C0A17B0506610F2B4F03549962B7 /* FloatingPanel.modulemap */,
+				4925B3F2154398D68DD20DE672F30BB3 /* FloatingPanel-dummy.m */,
+				52797F9C26FCA0B257A15369FF10D4A5 /* FloatingPanel-Info.plist */,
+				0E00D26F8F4CDA49CD6A259E7DAB9403 /* FloatingPanel-prefix.pch */,
+				9F51E6726669710701F0FC3FFB957C4A /* FloatingPanel-umbrella.h */,
+				C1CD5B89D283A0B853289751F4B9B414 /* FloatingPanel.debug.xcconfig */,
+				E9B0001D2DD753493EB7B926F32BA6A6 /* FloatingPanel.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FloatingPanel";
+			sourceTree = "<group>";
+		};
+		E2983683FD097A93297E2F5D4E382B36 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				436BAA54A31999B53B3CC7115C55FE50 /* Foundation.framework */,
+				312B988EF117AE4DE76A268D970131FE /* UIKit.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,19 +405,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		90FC89A015A52D87C405C8E0E9C8A8A4 /* Headers */ = {
+		50A8ACCF426E1947BF1D465033907D19 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA4F5B8EB3989513FEEEAF0D70523625 /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h in Headers */,
+				A23C55038FA1B8A9DA34AC9623929EE7 /* Pods-MelodyTracks-MelodyTracksUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C0A42DC41B27ADD9E93BB89AAC73A402 /* Headers */ = {
+		762B49C0AF1BD4B956053A6E4C37A52C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				785682732C3F32469344C0F1EC26CA4C /* Pods-MelodyTracks-umbrella.h in Headers */,
+				2C000FFD2D40FD9F728E1F83134FDB1B /* FloatingPanel-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA771D0F70F24D41EE6A64B8139E3474 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FD88FF1F0A737CF410FAEB308E94129 /* Pods-MelodyTracks-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,19 +441,38 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9014458A6CCD67AA9C84D2AA816C7E71 /* Pods-MelodyTracks-MelodyTracksUITests */ = {
+		4874E7E655CEB4C01E4572AD903AEA21 /* FloatingPanel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E3E6E9C63933B739D915055539EB6CE9 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks-MelodyTracksUITests" */;
+			buildConfigurationList = 6044DE3C7C1CBDBFC5A9C046CA3BD8D7 /* Build configuration list for PBXNativeTarget "FloatingPanel" */;
 			buildPhases = (
-				90FC89A015A52D87C405C8E0E9C8A8A4 /* Headers */,
-				F1EC9343BB844BD515B1417DB26BBC6C /* Sources */,
-				779DB9239A67BB7D4B52F2B2A13D002B /* Frameworks */,
-				7AD84003F47BFE3633526E153BC5F512 /* Resources */,
+				762B49C0AF1BD4B956053A6E4C37A52C /* Headers */,
+				AAD82367C4E6F146582EDE6D9A440D57 /* Sources */,
+				0E25907FC421D8E714ADD71C47A8FDC9 /* Frameworks */,
+				5FDD3CD220FC9D412FCF202F7E122871 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EB55E5C560D0936C4B759BA9825A8BD8 /* PBXTargetDependency */,
+			);
+			name = FloatingPanel;
+			productName = FloatingPanel;
+			productReference = 6FAAB7D3DE9B2564509ABD18687E938E /* FloatingPanel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9014458A6CCD67AA9C84D2AA816C7E71 /* Pods-MelodyTracks-MelodyTracksUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E7721AF45E741985EB424EF55417F6 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks-MelodyTracksUITests" */;
+			buildPhases = (
+				50A8ACCF426E1947BF1D465033907D19 /* Headers */,
+				8530648424E965E9EC8DA6282DA4E319 /* Sources */,
+				31D8FB3EE911670EE0182F42025AECB5 /* Frameworks */,
+				F7DEE7494F30AC05242796A86530CB6F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1158D8D59CEA4BEA50D5F33FE065140E /* PBXTargetDependency */,
+				1B6C2DCA1FD9393E9A747F218AB54BF5 /* PBXTargetDependency */,
 			);
 			name = "Pods-MelodyTracks-MelodyTracksUITests";
 			productName = "Pods-MelodyTracks-MelodyTracksUITests";
@@ -376,17 +499,18 @@
 		};
 		DC81843D4E4C727569B17EC5A5DB55AD /* Pods-MelodyTracks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3D65C83CE1709FFC025C4535A9418809 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks" */;
+			buildConfigurationList = BD78D824312845A1CDDA5CAC281F4AFC /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks" */;
 			buildPhases = (
-				C0A42DC41B27ADD9E93BB89AAC73A402 /* Headers */,
-				CF32902BB3C48DA830B2C2E38125F3DA /* Sources */,
-				FF0D8FBC567DE658F10CB36A14F66269 /* Frameworks */,
-				0666735F2EAB3C0023772EA3C90E629B /* Resources */,
+				CA771D0F70F24D41EE6A64B8139E3474 /* Headers */,
+				3401D007A04747EB849BA24F457C7011 /* Sources */,
+				5C16116044E685EBC860B8AFEF5A3A8C /* Frameworks */,
+				8D2E80E759A3C514010FC56CFF6D1166 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E61167CA95B27F94C5A287852061A860 /* PBXTargetDependency */,
+				FC093712605D6E1CCE6F5F4483EA1551 /* PBXTargetDependency */,
+				83F4D19D067F89F40FE7FA014DC560D5 /* PBXTargetDependency */,
 			);
 			name = "Pods-MelodyTracks";
 			productName = "Pods-MelodyTracks";
@@ -430,10 +554,11 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 2D953F9CEB69F6BB9C20CF7D0698785B /* Products */;
+			productRefGroup = DD7F457E8A12851FDC02F0F80D192575 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				4874E7E655CEB4C01E4572AD903AEA21 /* FloatingPanel */,
 				DC81843D4E4C727569B17EC5A5DB55AD /* Pods-MelodyTracks */,
 				9014458A6CCD67AA9C84D2AA816C7E71 /* Pods-MelodyTracks-MelodyTracksUITests */,
 				DE304ED3EA70394B0A8A530ECE8E000B /* Pods-MelodyTracksTests */,
@@ -443,7 +568,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		0666735F2EAB3C0023772EA3C90E629B /* Resources */ = {
+		5FDD3CD220FC9D412FCF202F7E122871 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -464,7 +589,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7AD84003F47BFE3633526E153BC5F512 /* Resources */ = {
+		8D2E80E759A3C514010FC56CFF6D1166 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7DEE7494F30AC05242796A86530CB6F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -474,6 +606,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3401D007A04747EB849BA24F457C7011 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2C49603B1B4B1B44D107C7F60A8A7A /* Pods-MelodyTracks-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8530648424E965E9EC8DA6282DA4E319 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CB22F87EC38D85170E5FD149BCD3D3 /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A13C4ABFC5A64DF9EFF26DE2116CC8EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -496,11 +644,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CF32902BB3C48DA830B2C2E38125F3DA /* Sources */ = {
+		AAD82367C4E6F146582EDE6D9A440D57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE68E54183DDB0AF7680FF256E5A01A1 /* Pods-MelodyTracks-dummy.m in Sources */,
+				A6DB10D310FD18E8B6C25EA33D81DF4E /* FloatingPanel-dummy.m in Sources */,
+				A04D8B3B3650926C5F7D42B22A67DE7D /* FloatingPanelBackdropView.swift in Sources */,
+				CF925E8C4C99A77E1C9FE0049826FCE4 /* FloatingPanelBehavior.swift in Sources */,
+				7FA96F5D3B8F4CE9C95C35D1CD4D6A91 /* FloatingPanelController.swift in Sources */,
+				3D408305B29250792B2CDDC90990ECAC /* FloatingPanelCore.swift in Sources */,
+				970E5351EB7A3C92CD346BCDCC6652A3 /* FloatingPanelLayout.swift in Sources */,
+				071D52F82B602FB85E35CA8583EEF456 /* FloatingPanelSurfaceView.swift in Sources */,
+				E62E543CA9182791942A0DE76D3E6C6C /* FloatingPanelTransitioning.swift in Sources */,
+				A3673FD39025DE753731C568DB5E23B9 /* FloatingPanelView.swift in Sources */,
+				A49977EF1D94933CE588A5F237D5DD7C /* GrabberHandleView.swift in Sources */,
+				A696FE118006841FB09A5E76C11B8978 /* Logger.swift in Sources */,
+				D13AC4B3EDF1F6A5973A039FCE488B92 /* UIExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -512,38 +671,80 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F1EC9343BB844BD515B1417DB26BBC6C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB3F75D6A4A8CAFC1A69ECF988E976F1 /* Pods-MelodyTracks-MelodyTracksUITests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		1158D8D59CEA4BEA50D5F33FE065140E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FloatingPanel;
+			target = 4874E7E655CEB4C01E4572AD903AEA21 /* FloatingPanel */;
+			targetProxy = 3A9DF712B8F95E64844B4B5D500DB270 /* PBXContainerItemProxy */;
+		};
+		1B6C2DCA1FD9393E9A747F218AB54BF5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SweetCurtain;
+			target = B60BD08D514FF8EA4BFC1002A16DD92C /* SweetCurtain */;
+			targetProxy = 2F442E0BC8FBCC0DC3561B96D9C1706A /* PBXContainerItemProxy */;
+		};
+		83F4D19D067F89F40FE7FA014DC560D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SweetCurtain;
+			target = B60BD08D514FF8EA4BFC1002A16DD92C /* SweetCurtain */;
+			targetProxy = 2C979F67A8A615D7B0F62BFA664E811A /* PBXContainerItemProxy */;
+		};
 		AD0C087BABF136F174202C7802C690A4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-MelodyTracks";
 			target = DC81843D4E4C727569B17EC5A5DB55AD /* Pods-MelodyTracks */;
 			targetProxy = 8B5F2F64153D51022DB1F2506D363A7C /* PBXContainerItemProxy */;
 		};
-		E61167CA95B27F94C5A287852061A860 /* PBXTargetDependency */ = {
+		FC093712605D6E1CCE6F5F4483EA1551 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SweetCurtain;
-			target = B60BD08D514FF8EA4BFC1002A16DD92C /* SweetCurtain */;
-			targetProxy = D9ED0414CFD7A72358D2FE9E198C58D4 /* PBXContainerItemProxy */;
-		};
-		EB55E5C560D0936C4B759BA9825A8BD8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SweetCurtain;
-			target = B60BD08D514FF8EA4BFC1002A16DD92C /* SweetCurtain */;
-			targetProxy = 1DF32EF7D9E80AC0F9AF8C02691189BF /* PBXContainerItemProxy */;
+			name = FloatingPanel;
+			target = 4874E7E655CEB4C01E4572AD903AEA21 /* FloatingPanel */;
+			targetProxy = E8575A0AC213D59703BD496EDC06F961 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0B59BA64FE2345A1F36E66F4D831059F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F47096DD681BA518F7061A46354D39FE /* Pods-MelodyTracks.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		13506878240AD9786FA6041010FDA4A9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 69AE3BFC2F508FD3C035D1A93C63440F /* Pods-MelodyTracksTests.release.xcconfig */;
@@ -643,9 +844,48 @@
 			};
 			name = Release;
 		};
+		2D1D87190534BFF181AF6E5091E79AED /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 427A58630B09D091CD1217DCF7433B91 /* Pods-MelodyTracks.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		358E8FAE8F836E22FE3D7333BB504634 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F8749831E41392B06C9A5C0E2D1BE94B /* SweetCurtain.release.xcconfig */;
+			baseConfigurationReference = 46AE02C27B90B80F8C56BCFD3840FDBB /* SweetCurtain.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -678,83 +918,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
-		};
-		39C89847AF59659FFDD04D2C8ADDD87D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0CEE9F0DCB07866DF40499D30FC88AEE /* Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		4931FE378F09DC6EEF1EF023A797D1C7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F47096DD681BA518F7061A46354D39FE /* Pods-MelodyTracks.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
 		};
 		70FD17398AE1FD07FC6C7FBDC093D32F /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -794,9 +957,9 @@
 			};
 			name = Debug;
 		};
-		73B25143461EB143E4F8579788B86AEE /* Release */ = {
+		8A03BAAB856A34DD78449811AAC54197 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 427A58630B09D091CD1217DCF7433B91 /* Pods-MelodyTracks.release.xcconfig */;
+			baseConfigurationReference = 0CEE9F0DCB07866DF40499D30FC88AEE /* Pods-MelodyTracks-MelodyTracksUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -809,7 +972,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -818,7 +981,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracks/Pods-MelodyTracks.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-MelodyTracks-MelodyTracksUITests/Pods-MelodyTracks-MelodyTracksUITests.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -833,9 +996,46 @@
 			};
 			name = Release;
 		};
+		8C99E11C628E1D571F2070B959E5AB79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9B0001D2DD753493EB7B926F32BA6A6 /* FloatingPanel.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FloatingPanel/FloatingPanel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FloatingPanel/FloatingPanel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/FloatingPanel/FloatingPanel.modulemap";
+				PRODUCT_MODULE_NAME = FloatingPanel;
+				PRODUCT_NAME = FloatingPanel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		A0003A9635D5DEDB4E15EB1A5349ECC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC273A8B56FAB27827CFDCBFEA089922 /* SweetCurtain.debug.xcconfig */;
+			baseConfigurationReference = A421050AA0D3DEB6C0740652B7D01203 /* SweetCurtain.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -868,7 +1068,7 @@
 			};
 			name = Debug;
 		};
-		EB8E3BEEF08A10090585436089C86213 /* Debug */ = {
+		D3721AAFA36A2CF9DAA46A1A0A0A64D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CBFF8FFDEC0760227CB2A1D17E2F91C5 /* Pods-MelodyTracks-MelodyTracksUITests.debug.xcconfig */;
 			buildSettings = {
@@ -900,6 +1100,42 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EC041AABABF9CC69FAC10B0017CC53DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1CD5B89D283A0B853289751F4B9B414 /* FloatingPanel.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FloatingPanel/FloatingPanel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FloatingPanel/FloatingPanel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/FloatingPanel/FloatingPanel.modulemap";
+				PRODUCT_MODULE_NAME = FloatingPanel;
+				PRODUCT_NAME = FloatingPanel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -973,15 +1209,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3D65C83CE1709FFC025C4535A9418809 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4931FE378F09DC6EEF1EF023A797D1C7 /* Debug */,
-				73B25143461EB143E4F8579788B86AEE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1000,20 +1227,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		6044DE3C7C1CBDBFC5A9C046CA3BD8D7 /* Build configuration list for PBXNativeTarget "FloatingPanel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC041AABABF9CC69FAC10B0017CC53DF /* Debug */,
+				8C99E11C628E1D571F2070B959E5AB79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BD78D824312845A1CDDA5CAC281F4AFC /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0B59BA64FE2345A1F36E66F4D831059F /* Debug */,
+				2D1D87190534BFF181AF6E5091E79AED /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E7721AF45E741985EB424EF55417F6 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks-MelodyTracksUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3721AAFA36A2CF9DAA46A1A0A0A64D5 /* Debug */,
+				8A03BAAB856A34DD78449811AAC54197 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D106E660209433D8B798B39AC6A650C2 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracksTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				70FD17398AE1FD07FC6C7FBDC093D32F /* Debug */,
 				13506878240AD9786FA6041010FDA4A9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E3E6E9C63933B739D915055539EB6CE9 /* Build configuration list for PBXNativeTarget "Pods-MelodyTracks-MelodyTracksUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EB8E3BEEF08A10090585436089C86213 /* Debug */,
-				39C89847AF59659FFDD04D2C8ADDD87D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
