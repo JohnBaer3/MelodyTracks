@@ -34,9 +34,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     /*
      * Map access objects
      * create Core Location manager object to access location data of phone
-     * declare array for holding user location points
+     * declare variable for holding previous coordinate as map draws poly lines
      */
     private var locationManager:CLLocationManager!
+    private var oldLocation: CLLocation?
+    
     
     // links for ui storyboard to controller objects
     @IBOutlet weak var startButton: UIButton!
@@ -67,7 +69,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         locationManager.startUpdatingHeading()
         
         // view current location on map
-        mapView.delegate = self
+        self.mapView.delegate = self
         mapView.showsUserLocation = true
         mapView.mapType = MKMapType(rawValue: 0)!
         mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
@@ -89,34 +91,57 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         shouldUpdate = !shouldUpdate
         shouldUpdate ? (onStart()) : (onStop())
     }
+    
+    /*
+     * CLLocation delegate
+     * receives updates from the CLLocationManager object
+     * increment the poly line drawn on the map
+     * first get the newest location data point put in the location array
+     * then save the previous location to local temp oldLocation
+     * create line with updated 2d array area
+     */
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // get newest location point
+        guard let newLocation = locations.last else {
+            return
+        }
+
+        // create temp local oldlocation
+        // if previous location is nil, set it equal to current new location
+        guard let oldLocation = self.oldLocation else {
+            // Save old location
+            self.oldLocation = newLocation
+            return
+        }
+        
+        // turn the CLLocation objects into coordinates
+        let oldCoordinates = oldLocation.coordinate
+        let newCoordinates = newLocation.coordinate
+        // create the new area to be plotted
+        var area = [oldCoordinates, newCoordinates]
+        let polyline = MKPolyline(coordinates: &area, count: area.count)
+        mapView.addOverlay(polyline)
+
+        // Save old location
+        self.oldLocation = newLocation
+    }
+    
+    /*
+     * create the overlay renderer used by addOverlay()
+     * want small blue line to show user location history
+     */
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        
+        //make sure the overlay is a polyline, then continue on with the line setup
+        assert(overlay is MKPolyline, "overlay must be a line")
+        let lineRenderer = MKPolylineRenderer(overlay: overlay)
+        lineRenderer.strokeColor = UIColor.blue
+        lineRenderer.lineWidth = 5
+        return lineRenderer
+    }
 }
 
 extension ViewController {
-    
-    // CLLocationManager delegate
-    // manages the location data points of the user
-    func locationManager(manager: CLLocationManager!, didUpdateToLocation newLocation: CLLocation!, fromLocation oldLocation: CLLocation!) {
-        if let oldLocationNew = oldLocation as CLLocation?{
-            let oldCoordinates = oldLocationNew.coordinate
-            let newCoordinates = newLocation.coordinate
-            var area = [oldCoordinates, newCoordinates]
-            let polyline = MKPolyline(coordinates: &area, count: area.count)
-            mapView.addOverlay(polyline)
-        }
-        
-    }
-    
-    // function to draw the draw the user history line on the map
-    // creates the red trail of the location history
-    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
-        if (overlay is MKPolyline) {
-            let pr = MKPolylineRenderer(overlay: overlay)
-            pr.strokeColor = UIColor.red
-            pr.lineWidth = 5
-            return pr
-        }
-        return nil
-    }
     
     // start updating the steps label by by changing the text label for the start button
     // set the date to query data to now, cheeck authorization status, and then start actually tracking data
@@ -162,6 +187,10 @@ extension ViewController {
         } else {
             distanceLabel.text = "Distance tracking is not available"
         }
+        
+        if stepAval == 1 || paceAval == 1 || distanceAval == 1 {
+            startCountingSteps()
+        }
     }
     
     // checck if the phone is allowed to access motion events as requested in the plist file
@@ -202,19 +231,32 @@ extension ViewController {
             if let error = error {
                 self?.error(error: error)
             } else if let pedometerData = pedometerData {
+                var pace: float_t?
+                var paceMPH: double_t?
+                if self?.paceAval == 1 {
+                    pace = pedometerData.currentPace?.floatValue
+                    // convert seconds per meter to m/s
+                    // pace is initially set to nil, so test for that
+                    if pace != nil {
+                        // test for if pace is to avoid div by 0 when converting to m/s
+                        // if it is, multiplying for paceMPH will still be 0 so no problem
+                        if pace != 0 {
+                            pace = 1/pace!
+                        }
+                        // turn pace into a type Double and convert to mph
+                        paceMPH = Double(pace!) * 2.237
+                    }
+                }
                 DispatchQueue.main.async {
                     if self?.stepAval == 1 {
                         self?.stepCountLabel.text = String(describing: pedometerData.numberOfSteps)
                     }
                     if self?.paceAval == 1 {
-                        var pace = pedometerData.currentPace?.intValue
-                        // convert seconds per meter to m/s
-                        // because paceAval is 1, pace is guarenteed to be not nil
-                        // we can safely force unwrap
-                        pace = 1/pace!
-                        // turn it into a type Double and convert to mph
-                        let paceMPH = Double(pace!) * 2.237
-                        self?.currentPaceLabel.text = String(paceMPH) + " mph"
+                        if pace != nil {
+                            self?.currentPaceLabel.text = String(format: "%.2f", paceMPH!) + " mph"
+                        } else {
+                            self?.currentPaceLabel.text = pedometerData.currentPace?.stringValue
+                        }
                     }
                     if self?.distanceAval == 1 {
                         let distance = pedometerData.distance!.stringValue + " meters"
@@ -258,19 +300,32 @@ extension ViewController {
         pedometer.startUpdates(from: Date()) {
             [weak self] pedometerData, error in
             guard let pedometerData = pedometerData, error == nil else { return }
+            var pace: float_t?
+            var paceMPH: double_t?
+            if self?.paceAval == 1 {
+                pace = pedometerData.currentPace?.floatValue
+                // convert seconds per meter to m/s
+                // pace is initially set to nil, so test for that
+                if pace != nil {
+                    // test for if pace is to avoid div by 0 when converting to m/s
+                    // if it is, multiplying for paceMPH will still be 0 so no problem
+                    if pace != 0 {
+                        pace = 1/pace!
+                    }
+                    // turn pace into a type Double and convert to mph
+                    paceMPH = Double(pace!) * 2.237
+                }
+            }
             DispatchQueue.main.async {
                 if self?.stepAval == 1 {
-                    self?.stepCountLabel.text = pedometerData.numberOfSteps.stringValue
+                    self?.stepCountLabel.text = String(describing: pedometerData.numberOfSteps)
                 }
                 if self?.paceAval == 1 {
-                    var pace = pedometerData.currentPace?.intValue
-                    // convert seconds per meter to m/s
-                    // because paceAval is 1, pace is guarenteed to be not nil
-                    // we can safely force unwrap
-                    pace = 1/pace!
-                    // turn it into a type Double and convert to mph
-                    let paceMPH = Double(pace!) * 2.237
-                    self?.currentPaceLabel.text = String(paceMPH) + " mph"
+                    if pace != nil {
+                        self?.currentPaceLabel.text = String(format: "%.2f", paceMPH!) + " mph"
+                    } else {
+                        self?.currentPaceLabel.text = pedometerData.currentPace?.stringValue
+                    }
                 }
                 if self?.distanceAval == 1 {
                     let distance = pedometerData.distance!.stringValue + " meters"
