@@ -96,7 +96,7 @@ class getPedometerData {
                 // if distance returns as nil, just multiple by 0
                 let temp = distance ?? 0 * 0.000621371
                 
-                self!.distance = String(format: "%.2f", temp)
+                self?.distance = String(format: "%.2f", temp)
             }
             
             if self?.stepAval == 1 {
