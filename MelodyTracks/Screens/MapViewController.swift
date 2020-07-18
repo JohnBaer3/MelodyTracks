@@ -24,6 +24,10 @@ class getPedometerData {
     private let pedometer = CMPedometer()
     private var startDate: Date? = nil
     
+    // shared singleton instance of the pedometer
+    // use this to access all pedometer data
+    static let Pedometer = getPedometerData()
+    
     /*
      * set of binary flags for auth status of different pedometer objects
      */
