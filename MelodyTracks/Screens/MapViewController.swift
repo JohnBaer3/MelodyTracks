@@ -3,7 +3,7 @@
 //  MelodyTracks
 //
 //  Created by Daniel Loi on 7/14/20.
-//  Copyright © 2020 Daniel Loi. All rights reserved.
+//  Last edited by John A. on 7/18/20
 //
 
 import UIKit
@@ -22,7 +22,14 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
     var fpc: FloatingPanelController!
     
     @IBOutlet weak var timerNum: UILabel!
+    // link to storyboard map
     @IBOutlet weak var mapView: MKMapView!
+    
+    /*
+     * Instantiate pedometer object to access step data
+     * set the start date to nil initially
+     * start date used for queries to pedometer data cached on phone
+     */
     private let pedometer = CMPedometer()
     private var startDate: Date? = nil
     
@@ -39,12 +46,22 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
     
     var timer = Timer()
     var counter = 0  //holds value of timer
+    
+    /*
+     * set of binary flags for auth status of different pedometer objects
+     */
     private var stepAval = 0
     private var paceAval = 0
     private var distanceAval = 0
-    var paceMPH = "0"
-    var distance = "0"
-    var footsteps = "0"
+    private var firstTimeUpdate = 1
+    
+    /*
+     * Core Motion access variables
+     * use these to access latest pace in mph, distance in miles, and footsteps
+     */
+    var paceMPH: String?
+    var distance: String?
+    var footsteps: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,22 +79,64 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         locationManager.startUpdatingLocation()
         locationManager.startUpdatingHeading()
         
-        
-        
         // view current location on map
         self.mapView.delegate = self
         mapView.showsUserLocation = true
-        mapView.mapType = MKMapType(rawValue: 0)!
-        mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
+        mapView.mapType = MKMapType.standard
+        mapView.userTrackingMode = MKUserTrackingMode.follow
+        
+        checkAuthStatus()
         
         NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: MapViewController.startNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: MapViewController.finishNotification, object: nil)
+        
         //Starts the timer upon screen load
         runTimer()
         //Has to manually show bottom screen
         showBottomSheet()
-        
     }
+    
+    /*
+     * checkAuthStatus
+     * updates binary flags for what's avaialble for use on the phone
+     */
+    func checkAuthStatus() {
+        if CMPedometer.isPaceAvailable() {
+            paceAval = 1
+        }
+        
+        if CMPedometer.isDistanceAvailable() {
+            distanceAval = 1
+        }
+        
+        if CMPedometer.isStepCountingAvailable() {
+            stepAval = 1
+        }
+    }
+    
+    func startUpdating() {
+        // start location tracking
+        if firstTimeUpdate == 0 {
+            locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
+        }
+        
+        // start step tracking
+        startTrackingSteps()
+    }
+    
+    func stopUpdating() {
+        // stop step tracking
+        pedometer.stopUpdates()
+        pedometer.stopEventUpdates()
+        
+        // stop location tracking
+        locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingHeading()
+        firstTimeUpdate = 0
+        oldLocation = nil
+    }
+    
     /**
      * Method name: <#name#>
      * Description: <#description#>
@@ -106,7 +165,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                     self!.paceMPH = String(format: "%.2f", temp)
                 } else {
                     // else we know the current pedometer reading is nil, so set pace to nil ourselves and the getter will handle the return
-                    self?.paceMPH = ""
+                    self?.paceMPH = nil
                 }
             }
             if self?.distanceAval == 1 {
@@ -116,13 +175,11 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                 // if distance returns as nil, just multiple by 0
                 let temp = distance ?? 0 * 0.000621371
                 
-                self!.distance = String(format: "%.2f", temp)
+                self?.distance = String(format: "%.2f", temp)
             }
             
             if self?.stepAval == 1 {
-                let steps = pedometerData.numberOfSteps.stringValue
-                
-                self?.footsteps = steps
+                self?.footsteps = pedometerData.numberOfSteps.stringValue
             }
         }
     }
@@ -253,6 +310,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
      * Parameters: N/A
      */
     @objc func runTimer(){
+        startUpdating()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
     /**
@@ -261,6 +319,8 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
      * Parameters: N/A
      */
     @objc func pauseTimer(){
+        // when timer is being paused, we should pause motion and location tracking
+        stopUpdating()
         timer.invalidate()
     }
     /**
