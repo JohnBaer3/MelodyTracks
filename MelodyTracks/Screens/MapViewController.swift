@@ -11,6 +11,79 @@ import FloatingPanel //https://github.com/SCENEE/FloatingPanel
 import AVKit
 import CoreLocation
 import MapKit
+import CoreMotion
+
+class getPedometerData {
+    /*
+     * Core Motion access variables
+     * use these to access latest pace in mph, distance in miles, and footsteps
+     */
+    var paceMPH: String?
+    var distance: String?
+    var footsteps: String?
+    private let pedometer = CMPedometer()
+    private var startDate: Date? = nil
+    
+    /*
+     * set of binary flags for auth status of different pedometer objects
+     */
+    private var stepAval = 0
+    private var paceAval = 0
+    private var distanceAval = 0
+    
+    func getPace() -> String {
+        if CMPedometer.isPaceAvailable() {
+            return self.paceMPH ?? "0 mph"
+        } else {
+            return "Pace tracking not available"
+        }
+    }
+    
+    func startTrackingSteps() {
+        pedometer.startUpdates(from: Date()) {
+            [weak self] pedometerData, error in guard let pedometerData = pedometerData, error == nil else {
+                return
+            }
+            // handler block
+            if self?.paceAval == 1 {
+                var pace = pedometerData.currentPace?.floatValue
+                // convert seconds per meter to m/s
+                // pace is initially set to nil, so need to test for that we can safely force unwrap during conversion
+                if pace != nil {
+                    // test for if pace is 0 to avoid div by 0 when converting to m/s
+                    // if it is, multiplying for paceMPH will still be 0 so no problem
+                    if pace != 0 {
+                        pace = 1/pace!
+                    }
+                    // turn pace into a type Double and convert to mph
+                    // 1 m/s is 2.237 mph
+                    let temp = Double(pace!) * 2.237
+                    
+                    self!.paceMPH = String(format: "%.2f", temp)
+                } else {
+                    // else we know the current pedometer reading is nil, so set pace to nil ourselves and the getter will handle the return
+                    self?.paceMPH = nil
+                }
+            }
+            if self?.distanceAval == 1 {
+                let distance = pedometerData.distance?.floatValue
+                
+                // multiply distance by 6.24*10^(-4) for miles
+                // if distance returns as nil, just multiple by 0
+                let temp = distance ?? 0 * 0.000621371
+                
+                self!.distance = String(format: "%.2f", temp)
+            }
+            
+            if self?.stepAval == 1 {
+                let steps = pedometerData.numberOfSteps.stringValue
+                
+                self?.footsteps = steps
+            }
+        }
+    }
+}
+    
 
 class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLocationManagerDelegate, MKMapViewDelegate{
     //passed from MapViewController
@@ -132,7 +205,6 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         return lineRenderer
     }
     
-    
     /**
      * Method name: showBottomSheet
      * Description: Used to show the bottom sheet
@@ -246,6 +318,9 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
     }
 
 }
+
+
+
 class MyFloatingPanelLayout: FloatingPanelLayout {
     public var initialPosition: FloatingPanelPosition {
         return .tip
