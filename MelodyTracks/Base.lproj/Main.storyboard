@@ -15,6 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PGw-LL-fMl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9f-qX-7IW">
                                 <rect key="frame" x="20" y="44" width="97" height="26"/>
                                 <constraints>
@@ -29,12 +32,17 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="o9f-qX-7IW" firstAttribute="leading" secondItem="wqv-0A-0y2" secondAttribute="leading" constant="20" id="014-ro-QW6"/>
+                            <constraint firstItem="PGw-LL-fMl" firstAttribute="leading" secondItem="wqv-0A-0y2" secondAttribute="leading" id="DXu-5o-XkY"/>
+                            <constraint firstAttribute="bottom" secondItem="PGw-LL-fMl" secondAttribute="bottom" id="KT5-1x-JIr"/>
+                            <constraint firstItem="PGw-LL-fMl" firstAttribute="top" secondItem="kZk-uq-Cqq" secondAttribute="top" id="RE0-X8-T6M"/>
                             <constraint firstItem="o9f-qX-7IW" firstAttribute="top" secondItem="wqv-0A-0y2" secondAttribute="top" id="UAq-6F-4Uk"/>
+                            <constraint firstItem="wqv-0A-0y2" firstAttribute="trailing" secondItem="PGw-LL-fMl" secondAttribute="trailing" id="f6P-8S-1cx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wqv-0A-0y2"/>
                     </view>
                     <navigationItem key="navigationItem" id="mr3-uq-aeg"/>
                     <connections>
+                        <outlet property="mapView" destination="PGw-LL-fMl" id="m6Z-mW-XTp"/>
                         <outlet property="timerNum" destination="o9f-qX-7IW" id="feO-O0-Rc9"/>
                     </connections>
                 </viewController>
@@ -155,7 +163,7 @@
                                                     <constraint firstAttribute="height" constant="553" id="2Li-DQ-CSx"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="60" id="cm4-Et-H3k" customClass="SongCell" customModule="BPMAnalyser" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="60" id="cm4-Et-H3k" customClass="SongCell" customModule="MelodyTracks" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="370" height="60"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cm4-Et-H3k" id="SgG-H3-L9r">
@@ -273,7 +281,7 @@
                                                     <constraint firstAttribute="height" constant="486" id="CGE-4J-NzJ"/>
                                                 </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="60" id="Owy-JE-WmP" customClass="SongCell" customModule="BPMAnalyser" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SongCell" rowHeight="60" id="Owy-JE-WmP" customClass="SongCell" customModule="MelodyTracks" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="374" height="60"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Owy-JE-WmP" id="xyE-g6-Rog">
