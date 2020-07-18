@@ -3,7 +3,7 @@
     Built for spike in sprint 1
     Designed to practice measuring pace of user's phone
     Created 6/30/20
-    Last edited: 7/14/20
+    Last edited: 7/18/20
  */
 
 import UIKit
