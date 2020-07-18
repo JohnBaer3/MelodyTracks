@@ -35,11 +35,31 @@ class getPedometerData {
     private var paceAval = 0
     private var distanceAval = 0
     
+    /*
+     * Get functions for pedometer data
+     * Use these to access the pedometer data elsewhere in the backend
+     */
     func getPace() -> String {
         if CMPedometer.isPaceAvailable() {
-            return self.paceMPH ?? "0 mph"
+            return self.paceMPH ?? "0"
         } else {
             return "Pace tracking not available"
+        }
+    }
+    
+    func getSteps() -> String {
+        if CMPedometer.isStepCountingAvailable() {
+            return self.footsteps ?? "0"
+        } else {
+            return "Footstep tracking not available"
+        }
+    }
+    
+    func getDistance() -> String {
+        if CMPedometer.isDistanceAvailable() {
+            return self.distance ?? "0"
+        } else {
+            return "Distance tracking not available"
         }
     }
     
