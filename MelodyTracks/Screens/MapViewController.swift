@@ -13,56 +13,76 @@ import CoreLocation
 import MapKit
 import CoreMotion
 
-class getPedometerData {
-    /*
-     * Core Motion access variables
-     * use these to access latest pace in mph, distance in miles, and footsteps
-     */
-    var paceMPH: String?
-    var distance: String?
-    var footsteps: String?
+
+class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLocationManagerDelegate, MKMapViewDelegate{
+    //passed from MapViewController
+    var audioPlayer: AVAudioPlayerNode?
+    var SongsArr: [Song]?
+    
+    var fpc: FloatingPanelController!
+    
+    @IBOutlet weak var timerNum: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
     private let pedometer = CMPedometer()
     private var startDate: Date? = nil
     
-    // shared singleton instance of the pedometer
-    // use this to access all pedometer data
-    static let Pedometer = getPedometerData()
-    
     /*
-     * set of binary flags for auth status of different pedometer objects
+     * Map access objects
+     * create Core Location manager object to access location data of phone
+     * declare variable for holding previous coordinate as map draws poly lines
      */
+    private var locationManager:CLLocationManager!
+    private var oldLocation: CLLocation?
+    
+    static let startNotification = Notification.Name("startNotification")
+    static let finishNotification = Notification.Name("finishNotification")
+    
+    var timer = Timer()
+    var counter = 0  //holds value of timer
     private var stepAval = 0
     private var paceAval = 0
     private var distanceAval = 0
-    
-    /*
-     * Get functions for pedometer data
-     * Use these to access the pedometer data elsewhere in the backend
+    var paceMPH = "0"
+    var distance = "0"
+    var footsteps = "0"
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // set up location manager
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        // complete authorization process for location services
+        let status = CLLocationManager.authorizationStatus()
+        if status == .notDetermined || status == .denied || status == .authorizedWhenInUse {
+               locationManager.requestAlwaysAuthorization()
+               locationManager.requestWhenInUseAuthorization()
+           }
+        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingHeading()
+        
+        
+        
+        // view current location on map
+        self.mapView.delegate = self
+        mapView.showsUserLocation = true
+        mapView.mapType = MKMapType(rawValue: 0)!
+        mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: MapViewController.startNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: MapViewController.finishNotification, object: nil)
+        //Starts the timer upon screen load
+        runTimer()
+        //Has to manually show bottom screen
+        showBottomSheet()
+        
+    }
+    /**
+     * Method name: <#name#>
+     * Description: <#description#>
+     * Parameters: <#parameters#>
      */
-    func getPace() -> String {
-        if CMPedometer.isPaceAvailable() {
-            return self.paceMPH ?? "0"
-        } else {
-            return "Pace tracking not available"
-        }
-    }
-    
-    func getSteps() -> String {
-        if CMPedometer.isStepCountingAvailable() {
-            return self.footsteps ?? "0"
-        } else {
-            return "Footstep tracking not available"
-        }
-    }
-    
-    func getDistance() -> String {
-        if CMPedometer.isDistanceAvailable() {
-            return self.distance ?? "0"
-        } else {
-            return "Distance tracking not available"
-        }
-    }
-    
     func startTrackingSteps() {
         pedometer.startUpdates(from: Date()) {
             [weak self] pedometerData, error in guard let pedometerData = pedometerData, error == nil else {
@@ -86,7 +106,7 @@ class getPedometerData {
                     self!.paceMPH = String(format: "%.2f", temp)
                 } else {
                     // else we know the current pedometer reading is nil, so set pace to nil ourselves and the getter will handle the return
-                    self?.paceMPH = nil
+                    self?.paceMPH = ""
                 }
             }
             if self?.distanceAval == 1 {
@@ -105,62 +125,6 @@ class getPedometerData {
                 self?.footsteps = steps
             }
         }
-    }
-}
-
-class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLocationManagerDelegate, MKMapViewDelegate{
-    //passed from MapViewController
-    var audioPlayer: AVAudioPlayerNode?
-    var SongsArr: [Song]?
-    
-    var fpc: FloatingPanelController!
-    
-    @IBOutlet weak var timerNum: UILabel!
-    @IBOutlet weak var mapView: MKMapView!
-    
-    /*
-     * Map access objects
-     * create Core Location manager object to access location data of phone
-     * declare variable for holding previous coordinate as map draws poly lines
-     */
-    private var locationManager:CLLocationManager!
-    private var oldLocation: CLLocation?
-    
-    static let startNotification = Notification.Name("startNotification")
-    static let finishNotification = Notification.Name("finishNotification")
-    
-    var timer = Timer()
-    var counter = 0  //holds value of timer
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // set up location manager
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        // complete authorization process for location services
-        let status = CLLocationManager.authorizationStatus()
-        if status == .notDetermined || status == .denied || status == .authorizedWhenInUse {
-               locationManager.requestAlwaysAuthorization()
-               locationManager.requestWhenInUseAuthorization()
-           }
-        locationManager.startUpdatingLocation()
-        locationManager.startUpdatingHeading()
-        
-        // view current location on map
-        self.mapView.delegate = self
-        mapView.showsUserLocation = true
-        mapView.mapType = MKMapType(rawValue: 0)!
-        mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: MapViewController.startNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: MapViewController.finishNotification, object: nil)
-        //Starts the timer upon screen load
-        runTimer()
-        //Has to manually show bottom screen
-        showBottomSheet()
-        
     }
     /*
      * Method name: locationManager
@@ -264,6 +228,9 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
             let vc = storyboard.instantiateViewController(withIdentifier: "FinishViewController") as! FinishViewController
             vc.duration = timerNum.text!
             vc.SongsArr = SongsArr!
+            vc.footstep = footsteps
+            vc.distance = distance
+            vc.fpm = paceMPH
             print(timerNum.text)
             vc.modalPresentationStyle = .currentContext
             present(vc, animated: true, completion:nil)

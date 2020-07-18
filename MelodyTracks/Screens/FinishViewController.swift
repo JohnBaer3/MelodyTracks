@@ -14,16 +14,25 @@ class FinishViewController: UIViewController {
     
     var duration: String?
     var SongsArr: [Song]?
+    var footstep: String?
+    var distance: String?
+    var fpm: String?
     
     @IBOutlet weak var mainVerticalStackView: UIStackView!
     @IBOutlet weak var durationVal: UILabel!
     @IBOutlet weak var finalFinishButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var stepsVal: UILabel!
+    @IBOutlet weak var distanceVal: UILabel!
+    @IBOutlet weak var bpmVal: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //print(duration)
         durationVal.text = duration
+        stepsVal.text = footstep
+        distanceVal.text = distance
+        bpmVal.text = fpm
         finalFinishButton.layer.cornerRadius = 10
         tableView.layer.cornerRadius = 10
         tableView.delegate = self

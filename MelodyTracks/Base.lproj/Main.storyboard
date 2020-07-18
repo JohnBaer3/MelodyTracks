@@ -229,8 +229,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="GWd-2o-rp0"/>
                     <connections>
+                        <outlet property="bpmVal" destination="9ty-tl-S07" id="GWo-Pl-26E"/>
+                        <outlet property="distanceVal" destination="RJp-Yd-A2u" id="aVC-cq-pYn"/>
                         <outlet property="durationVal" destination="WkI-OC-pRF" id="zJZ-mB-yaM"/>
                         <outlet property="finalFinishButton" destination="Tnd-oa-W3O" id="M1w-tF-IRL"/>
+                        <outlet property="stepsVal" destination="MkE-dF-6Bm" id="few-1e-wIu"/>
                         <outlet property="tableView" destination="b1a-dH-7c3" id="nak-Pg-o2X"/>
                     </connections>
                 </viewController>
