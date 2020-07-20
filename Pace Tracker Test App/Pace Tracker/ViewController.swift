@@ -3,7 +3,7 @@
     Built for spike in sprint 1
     Designed to practice measuring pace of user's phone
     Created 6/30/20
-    Last edited: 7/14/20
+    Last edited: 7/18/20
  */
 
 import UIKit
@@ -30,6 +30,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private var stepAval = 0
     private var paceAval = 0
     private var distanceAval = 0
+    private var firstTimeUpdate = 1
     
     /*
      * Map access objects
@@ -191,6 +192,11 @@ extension ViewController {
         if stepAval == 1 || paceAval == 1 || distanceAval == 1 {
             startCountingSteps()
         }
+        
+        if firstTimeUpdate == 0 {
+            locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
+        }
     }
     
     // checck if the phone is allowed to access motion events as requested in the plist file
@@ -210,6 +216,10 @@ extension ViewController {
         activityManager.stopActivityUpdates()
         pedometer.stopUpdates()
         pedometer.stopEventUpdates()
+        locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingHeading()
+        firstTimeUpdate = 0
+        oldLocation = nil
     }
     
     private func error(error: Error) {
