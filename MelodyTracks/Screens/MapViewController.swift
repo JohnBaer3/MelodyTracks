@@ -1,3 +1,12 @@
+//
+//  MapViewController.swift
+//  MelodyTracks
+//  viewcontroller file for the map screen user sees while running
+//
+//  Created by Daniel Loi on 7/14/20.
+//  Last Edited by John A. on 7/20/20
+//
+
 import UIKit
 import FloatingPanel //https://github.com/SCENEE/FloatingPanel
 import AVKit
@@ -5,6 +14,58 @@ import CoreLocation
 import MapKit
 import CoreMotion
 
+/*
+ * Shared pedometer data class
+ * Should only be used to get the current data of footstep tracking
+ */
+class PedometerData {
+    /*
+     * shared instance of the PedometerData class
+     * use this to access get functions
+     * calling a get function looks like PedometerData.shared.getPace()
+     */
+    static let shared = PedometerData()
+    
+    
+    /*
+     * shared variables for pedometer data
+     * updated everytime pedometer handler gets new data
+     */
+    var distance: String?
+    var footstepPace: String?
+    var footsteps: String?
+    
+    /*
+     * Get function for footstep pace
+     * Call these to get unwrapped pedometer data
+     * All return strings of their data
+     * Pace is in mph
+     * Distance is in miles
+     */
+    func getPace() -> String {
+        if CMPedometer.isPaceAvailable() {
+            return self.footstepPace ?? "0"
+        } else {
+            return "N/A"
+        }
+    }
+    
+    func getSteps() -> String {
+        if CMPedometer.isStepCountingAvailable() {
+            return self.footsteps ?? "0"
+        } else {
+            return "N/A"
+        }
+    }
+    
+    func getDistance() -> String {
+        if CMPedometer.isDistanceAvailable() {
+            return self.distance ?? "0"
+        } else {
+            return "N/A"
+        }
+    }
+}
 
 class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLocationManagerDelegate, MKMapViewDelegate{
     //passed from MapViewController
@@ -46,7 +107,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
     private var stepAval = 0
     private var paceAval = 0
     private var distanceAval = 0
-    private var firstTimeUpdate = 1
+    private var firstTimeUpdate = true
     
     /*
      * Core Motion access variables
@@ -90,8 +151,9 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
     }
     
     /*
-     * checkAuthStatus
-     * updates binary flags for what's avaialble for use on the phone
+     * method name: checkAuthStatus
+     * description: updates binary flags for what's avaialble for use on the phone
+     * parameters: none
      */
     func checkAuthStatus() {
         if CMPedometer.isPaceAvailable() {
@@ -107,9 +169,15 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         }
     }
     
+    /*
+     * method name: startUpdating()
+     * description: starts tracking footstep data and tests for if it's the first time starting updates
+     * if it's not the first time starting tracking, resume location tracking as the map was paused
+     * parameters: none
+     */
     func startUpdating() {
         // start location tracking
-        if firstTimeUpdate == 0 {
+        if !firstTimeUpdate {
             locationManager.startUpdatingLocation()
             locationManager.startUpdatingHeading()
         }
@@ -118,6 +186,11 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         startTrackingSteps()
     }
     
+    /*
+     * method name: stopUpdating()
+     * description: stops the updating of footstep tracking and location tracking
+     * parameters: none
+     */
     func stopUpdating() {
         // stop step tracking
         pedometer.stopUpdates()
@@ -126,14 +199,14 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         // stop location tracking
         locationManager.stopUpdatingLocation()
         locationManager.stopUpdatingHeading()
-        firstTimeUpdate = 0
+        firstTimeUpdate = false
         oldLocation = nil
     }
     
     /**
-     * Method name: <#name#>
-     * Description: <#description#>
-     * Parameters: <#parameters#>
+     * Method name: startTrackingSteps
+     * Description: Called from startUpdating, starts the collection of pedometer data and updates values
+     * Parameters: None
      */
     func startTrackingSteps() {
         pedometer.startUpdates(from: Date()) {
@@ -156,26 +229,36 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                     let temp = Double(pace!) * 2.237
                     
                     self!.paceMPH = String(format: "%.2f", temp)
+                    PedometerData.shared.footstepPace = self?.paceMPH
                 } else {
                     // else we know the current pedometer reading is nil, so set pace to nil ourselves and the getter will handle the return
                     self?.paceMPH = nil
+                    PedometerData.shared.footstepPace = nil
                 }
             }
             if self?.distanceAval == 1 {
                 let distance = pedometerData.distance?.floatValue
                 
-                // multiply distance by 6.24*10^(-4) for miles
-                // if distance returns as nil, just multiple by 0
-                let temp = distance ?? 0 * 0.000621371
-                
-                self?.distance = String(format: "%.2f", temp)
+                if distance != nil {
+                    // multiply distance by 6.24*10^(-4) for miles
+                    // if distance returns as nil, just multiple by 0
+                    let temp = distance ?? 0 * 0.000621371
+                    
+                    self?.distance = String(format: "%.2f", temp)
+                    PedometerData.shared.distance = self?.distance
+                } else {
+                    self?.distance = nil
+                    PedometerData.shared.distance = nil
+                }
             }
             
             if self?.stepAval == 1 {
                 self?.footsteps = pedometerData.numberOfSteps.stringValue
+                PedometerData.shared.footsteps = self?.footsteps
             }
         }
     }
+    
     /*
      * Method name: locationManager
      * Description: CLLocation delegate
@@ -219,9 +302,8 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
      * Parameters: MKMapView object to be rendered on, MKOverlay which actually renders the line
      */
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        
-        //make sure the overlay is a polyline, then continue on with the line setup
-        assert(overlay is MKPolyline, "overlay must be a line")
+        // make sure the overlay is a line or we don't want to run
+        assert(overlay is MKPolyline)
         let lineRenderer = MKPolylineRenderer(overlay: overlay)
         lineRenderer.strokeColor = UIColor.blue
         lineRenderer.lineWidth = 5
@@ -369,6 +451,9 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: MapViewController.startNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: MapViewController.finishNotification, object: nil)
+        
+        // end tracking as the run is over
+        stopUpdating()
     }
 
 }

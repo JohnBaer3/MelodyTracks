@@ -69,6 +69,6 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Used to display location on map and track run</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>NSLocationWhenInUseUsageDescription</string>
+	<string>Used to display location on map and track run</string>
 </dict>
 </plist>
