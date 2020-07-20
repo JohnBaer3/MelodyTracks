@@ -1,11 +1,3 @@
-//
-//  MapViewController.swift
-//  MelodyTracks
-//
-//  Created by Daniel Loi on 7/14/20.
-//  Copyright © 2020 Daniel Loi. All rights reserved.
-//
-
 import UIKit
 import FloatingPanel //https://github.com/SCENEE/FloatingPanel
 import AVKit
@@ -22,7 +14,14 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
     var fpc: FloatingPanelController!
     
     @IBOutlet weak var timerNum: UILabel!
+    // link to storyboard map
     @IBOutlet weak var mapView: MKMapView!
+    
+    /*
+     * Instantiate pedometer object to access step data
+     * set the start date to nil initially
+     * start date used for queries to pedometer data cached on phone
+     */
     private let pedometer = CMPedometer()
     private var startDate: Date? = nil
     
@@ -38,13 +37,24 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
     static let finishNotification = Notification.Name("finishNotification")
     
     var timer = Timer()
-    var counter = 0  //holds value of timer
+    //holds number of seconds elapsed
+    var secondsElapsed = 0
+    
+    /*
+     * set of binary flags for auth status of different pedometer objects
+     */
     private var stepAval = 0
     private var paceAval = 0
     private var distanceAval = 0
-    var paceMPH = "0"
-    var distance = "0"
-    var footsteps = "0"
+    private var firstTimeUpdate = 1
+    
+    /*
+     * Core Motion access variables
+     * use these to access latest pace in mph, sin miles, and footsteps
+     */
+    var paceMPH: String?
+    var distance: String?
+    var footsteps: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,22 +72,64 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         locationManager.startUpdatingLocation()
         locationManager.startUpdatingHeading()
         
-        
-        
         // view current location on map
         self.mapView.delegate = self
         mapView.showsUserLocation = true
-        mapView.mapType = MKMapType(rawValue: 0)!
-        mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
+        mapView.mapType = MKMapType.standard
+        mapView.userTrackingMode = MKUserTrackingMode.follow
+        
+        checkAuthStatus()
         
         NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: MapViewController.startNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(onNotification(notification:)), name: MapViewController.finishNotification, object: nil)
+        
         //Starts the timer upon screen load
         runTimer()
         //Has to manually show bottom screen
         showBottomSheet()
-        
     }
+    
+    /*
+     * checkAuthStatus
+     * updates binary flags for what's avaialble for use on the phone
+     */
+    func checkAuthStatus() {
+        if CMPedometer.isPaceAvailable() {
+            paceAval = 1
+        }
+        
+        if CMPedometer.isDistanceAvailable() {
+            distanceAval = 1
+        }
+        
+        if CMPedometer.isStepCountingAvailable() {
+            stepAval = 1
+        }
+    }
+    
+    func startUpdating() {
+        // start location tracking
+        if firstTimeUpdate == 0 {
+            locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
+        }
+        
+        // start step tracking
+        startTrackingSteps()
+    }
+    
+    func stopUpdating() {
+        // stop step tracking
+        pedometer.stopUpdates()
+        pedometer.stopEventUpdates()
+        
+        // stop location tracking
+        locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingHeading()
+        firstTimeUpdate = 0
+        oldLocation = nil
+    }
+    
     /**
      * Method name: <#name#>
      * Description: <#description#>
@@ -106,7 +158,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                     self!.paceMPH = String(format: "%.2f", temp)
                 } else {
                     // else we know the current pedometer reading is nil, so set pace to nil ourselves and the getter will handle the return
-                    self?.paceMPH = ""
+                    self?.paceMPH = nil
                 }
             }
             if self?.distanceAval == 1 {
@@ -116,13 +168,11 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                 // if distance returns as nil, just multiple by 0
                 let temp = distance ?? 0 * 0.000621371
                 
-                self!.distance = String(format: "%.2f", temp)
+                self?.distance = String(format: "%.2f", temp)
             }
             
             if self?.stepAval == 1 {
-                let steps = pedometerData.numberOfSteps.stringValue
-                
-                self?.footsteps = steps
+                self?.footsteps = pedometerData.numberOfSteps.stringValue
             }
         }
     }
@@ -228,12 +278,38 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
             let vc = storyboard.instantiateViewController(withIdentifier: "FinishViewController") as! FinishViewController
             vc.duration = timerNum.text!
             vc.SongsArr = SongsArr!
-            vc.footstep = footsteps
-            vc.distance = distance
-            vc.fpm = paceMPH
-            print(timerNum.text)
+            vc.footstep = footsteps ?? "0"
+            //Converts meters to miles
+            vc.distance = meterToMiles(meters: distance ?? "0")
+            vc.fpm = toFpm(steps: footsteps ?? "0", timeInSeconds: secondsElapsed)
+            print(vc.fpm!)
             vc.modalPresentationStyle = .currentContext
             present(vc, animated: true, completion:nil)
+        }
+    }
+    /**
+     * Method name: meterToMiles
+     * Description: takes in the distance in meters as a string and returns the distance in miles as a string
+     * Parameters: value of distance in string
+     */
+    func meterToMiles(meters: String) -> String{
+        let distanceInMeters = Measurement(value: Double(meters)!, unit: UnitLength.meters)
+        let distanceInMiles = distanceInMeters.converted(to: UnitLength.miles)
+        //print(distanceInMiles)
+        return MeasurementFormatter().string(from: distanceInMiles)
+    }
+    /**
+     * Method name: toFpm
+     * Description: takes in steps and time to calculate FPM, or BPM
+     * Parameters: number of steps as a String and the time elapsed in seconds as an Integer
+     * Return: FPM as a String
+     */
+    func toFpm(steps: String, timeInSeconds: Int) -> String{
+        // this prevents division by 0
+        if secondsElapsed / 60 == 0{
+            return steps
+        }else{
+            return String(Int(footsteps ?? "0")! / (secondsElapsed / 60))
         }
     }
     /**
@@ -253,6 +329,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
      * Parameters: N/A
      */
     @objc func runTimer(){
+        startUpdating()
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
     /**
@@ -261,6 +338,8 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
      * Parameters: N/A
      */
     @objc func pauseTimer(){
+        // when timer is being paused, we should pause motion and location tracking
+        stopUpdating()
         timer.invalidate()
     }
     /**
@@ -271,7 +350,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
     @objc func resetTimer(){
         timer.invalidate()
         timerNum.text = "00:00:00"
-        counter = 0
+        secondsElapsed = 0
     }
     /**
      * Method name: timerAction
@@ -279,8 +358,8 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
      * Parameters: N/A
      */
     @objc func timerAction() {
-        counter += 1
-        timerNum.text = timeString(time: TimeInterval(counter))
+        secondsElapsed += 1
+        timerNum.text = timeString(time: TimeInterval(secondsElapsed))
     }
     /**
      * Method name: viewWillDisappear
