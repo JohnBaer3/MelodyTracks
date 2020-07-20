@@ -14,59 +14,6 @@ import CoreLocation
 import MapKit
 import CoreMotion
 
-/*
- * Shared pedometer data class
- * Should only be used to get the current data of footstep tracking
- */
-class PedometerData {
-    /*
-     * shared instance of the PedometerData class
-     * use this to access get functions
-     * calling a get function looks like PedometerData.shared.getPace()
-     */
-    static let shared = PedometerData()
-    
-    
-    /*
-     * shared variables for pedometer data
-     * updated everytime pedometer handler gets new data
-     */
-    var distance: String?
-    var footstepPace: String?
-    var footsteps: String?
-    
-    /*
-     * Get function for footstep pace
-     * Call these to get unwrapped pedometer data
-     * All return strings of their data
-     * Pace is in mph
-     * Distance is in miles
-     */
-    func getPace() -> String {
-        if CMPedometer.isPaceAvailable() {
-            return self.footstepPace ?? "0"
-        } else {
-            return "N/A"
-        }
-    }
-    
-    func getSteps() -> String {
-        if CMPedometer.isStepCountingAvailable() {
-            return self.footsteps ?? "0"
-        } else {
-            return "N/A"
-        }
-    }
-    
-    func getDistance() -> String {
-        if CMPedometer.isDistanceAvailable() {
-            return self.distance ?? "0"
-        } else {
-            return "N/A"
-        }
-    }
-}
-
 class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLocationManagerDelegate, MKMapViewDelegate{
     //passed from MapViewController
     var audioPlayer: AVAudioPlayerNode?
@@ -479,5 +426,65 @@ class MyFloatingPanelLayout: FloatingPanelLayout {
 
     func backdropAlphaFor(position: FloatingPanelPosition) -> CGFloat {
         return 0.0
+    }
+}
+/*
+ * Shared pedometer data class
+ * Should only be used to get the current data of footstep tracking
+ */
+class PedometerData {
+    /*
+     * shared instance of the PedometerData class
+     * use this to access get functions
+     * calling a get function looks like PedometerData.shared.getPace()
+     */
+    static let shared = PedometerData()
+    
+    
+    /*
+     * shared variables for pedometer data
+     * updated everytime pedometer handler gets new data
+     */
+    var distance: String?
+    var footstepPace: String?
+    var footsteps: String?
+    
+    /*
+     * Method name: getPace()
+     * Description: returns unwrapped string for current footstep pace
+     * Parameters: none
+     */
+    func getPace() -> String {
+        if CMPedometer.isPaceAvailable() {
+            return self.footstepPace ?? "0"
+        } else {
+            return "N/A"
+        }
+    }
+    
+    /*
+    * Method name: getPace()
+    * Description: returns unwrapped string for current number of steps
+    * Parameters: none
+    */
+    func getSteps() -> String {
+        if CMPedometer.isStepCountingAvailable() {
+            return self.footsteps ?? "0"
+        } else {
+            return "N/A"
+        }
+    }
+    
+    /*
+    * Method name: getPace()
+    * Description: returns unwrapped string for current distance traveled
+    * Parameters: none
+    */
+    func getDistance() -> String {
+        if CMPedometer.isDistanceAvailable() {
+            return self.distance ?? "0"
+        } else {
+            return "N/A"
+        }
     }
 }
