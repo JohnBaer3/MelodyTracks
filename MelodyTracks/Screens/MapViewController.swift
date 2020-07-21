@@ -53,16 +53,19 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
      */
     private var stepAval = 0
     private var paceAval = 0
+    private var cadenceAval = 0
     private var distanceAval = 0
     private var firstTimeUpdate = true
     
     /*
      * Core Motion access variables
      * use these to access latest pace in mph, sin miles, and footsteps
+     * cadence is specifically a float for audio processing
      */
     var paceMPH: String?
     var distance: String?
     var footsteps: String?
+    var currentCadence: Float?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,6 +118,10 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         if CMPedometer.isStepCountingAvailable() {
             stepAval = 1
         }
+        
+        if CMPedometer.isCadenceAvailable() {
+            cadenceAval = 1
+        }
     }
     
     /*
@@ -162,6 +169,15 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                 return
             }
             // handler block
+            if self?.cadenceAval == 1 {
+                let cadence = pedometerData.currentCadence?.floatValue
+                // cadence comes in at steps per second, want steps per minute
+                // if cadence is nil, temp will just be 0 * 60 = 0 steps/min
+                let temp = cadence ?? 0 * 60
+                
+                self?.currentCadence = temp
+                PedometerData.shared.currentCadence = temp
+            }
             if self?.paceAval == 1 {
                 var pace = pedometerData.currentPace?.floatValue
                 // convert seconds per meter to m/s
@@ -175,9 +191,9 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                     // turn pace into a type Double and convert to mph
                     // 1 m/s is 2.237 mph
                     let temp = Double(pace!) * 2.237
-                    
-                    self!.paceMPH = String(format: "%.2f", temp)
-                    PedometerData.shared.footstepPace = self?.paceMPH
+                    let paceString = String(format: "%.2f", temp)
+                    self!.paceMPH = paceString
+                    PedometerData.shared.footstepPace = paceString
                 } else {
                     // else we know the current pedometer reading is nil, so set pace to nil ourselves and the getter will handle the return
                     self?.paceMPH = nil
@@ -187,22 +203,19 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
             if self?.distanceAval == 1 {
                 let distance = pedometerData.distance?.floatValue
                 
-                if distance != nil {
-                    // multiply distance by 6.24*10^(-4) for miles
-                    // if distance returns as nil, just multiple by 0
-                    let temp = distance ?? 0 * 0.000621371
-                    
-                    self?.distance = String(format: "%.2f", temp)
-                    PedometerData.shared.distance = self?.distance
-                } else {
-                    self?.distance = nil
-                    PedometerData.shared.distance = nil
-                }
+                // multiply distance by 6.24*10^(-4) for miles
+                // if distance returns as nil, just multiple by 0
+                // return value will then just be 0
+                let temp = distance ?? 0 * 0.000621371
+                let distanceString = String(format: "%.2f", temp)
+                self?.distance = distanceString
+                PedometerData.shared.distance = distanceString
             }
-            
             if self?.stepAval == 1 {
+                // numberOfSteps is not an optional, so no need to worry about unwrapping
+                
                 self?.footsteps = pedometerData.numberOfSteps.stringValue
-                PedometerData.shared.footsteps = self?.footsteps
+                PedometerData.shared.footsteps = pedometerData.numberOfSteps.stringValue
             }
         }
     }
@@ -439,10 +452,9 @@ class PedometerData {
     /*
      * shared instance of the PedometerData class
      * use this to access get functions
-     * calling a get function looks like PedometerData.shared.getPace()
+     * calling a get function looks like PedometerData.shared.getCadence()
      */
     static let shared = PedometerData()
-    
     
     /*
      * shared variables for pedometer data
@@ -451,6 +463,7 @@ class PedometerData {
     var distance: String?
     var footstepPace: String?
     var footsteps: String?
+    var currentCadence: Float?
     
     /*
      * Method name: getPace()
@@ -488,6 +501,20 @@ class PedometerData {
             return self.distance ?? "0"
         } else {
             return "N/A"
+        }
+    }
+    
+    /*
+     * Method name: getCadence()
+     * Description: returns unwrapped float for current cadence
+     * Returns 0 if current cadence isn't available or is nil
+     * Parameters: none
+     */
+    func getCadence() -> Float {
+        if CMPedometer.isCadenceAvailable() {
+            return self.currentCadence ?? 0
+        } else {
+            return 0
         }
     }
 }
