@@ -3,7 +3,7 @@
     Built for spike in sprint 1
     Designed to practice measuring pace of user's phone
     Created 6/30/20
-    Last edited: 7/18/20
+    Last edited: 7/20/20
  */
 
 import UIKit
@@ -69,14 +69,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                locationManager.requestAlwaysAuthorization()
                locationManager.requestWhenInUseAuthorization()
            }
-        locationManager.startUpdatingLocation()
-        locationManager.startUpdatingHeading()
+        //locationManager.startUpdatingLocation()
+        //locationManager.startUpdatingHeading()
         
         // view current location on map
         self.mapView.delegate = self
         mapView.showsUserLocation = true
-        mapView.mapType = MKMapType(rawValue: 0)!
-        mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
+        mapView.mapType = MKMapType.standard
+        mapView.userTrackingMode = MKUserTrackingMode.follow
     }
     
     // evertime the view controller updates, update the steps and pace labels
@@ -202,10 +202,14 @@ extension ViewController {
             startCountingSteps()
         }
         
+        /*
         if firstTimeUpdate == 0 {
             locationManager.startUpdatingLocation()
             locationManager.startUpdatingHeading()
         }
+        */
+        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingHeading()
     }
     
     // checck if the phone is allowed to access motion events as requested in the plist file
