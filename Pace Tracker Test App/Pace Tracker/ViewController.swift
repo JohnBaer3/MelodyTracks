@@ -30,6 +30,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private var stepAval = 0
     private var paceAval = 0
     private var distanceAval = 0
+    private var cadenceAval = 0
     private var firstTimeUpdate = 1
     
     /*
@@ -47,6 +48,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var currentPaceLabel: UILabel!
     @IBOutlet weak var activityTypeLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var cadenceLabel: UILabel!
+    
     // link to storyboard MKMapView
     @IBOutlet weak var mapView: MKMapView!
     
@@ -189,7 +192,13 @@ extension ViewController {
             distanceLabel.text = "Distance tracking is not available"
         }
         
-        if stepAval == 1 || paceAval == 1 || distanceAval == 1 {
+        if CMPedometer.isCadenceAvailable() {
+            cadenceAval = 1
+        } else {
+            cadenceLabel.text = "Cadence tracking is not available"
+        }
+        
+        if stepAval == 1 || paceAval == 1 || distanceAval == 1 || cadenceAval == 1 {
             startCountingSteps()
         }
         
@@ -310,8 +319,9 @@ extension ViewController {
         pedometer.startUpdates(from: Date()) {
             [weak self] pedometerData, error in
             guard let pedometerData = pedometerData, error == nil else { return }
-            var pace: float_t?
-            var paceMPH: double_t?
+            var pace: Float?
+            var paceMPH: Double?
+            var tempCadence: Float?
             if self?.paceAval == 1 {
                 pace = pedometerData.currentPace?.floatValue
                 // convert seconds per meter to m/s
@@ -326,7 +336,27 @@ extension ViewController {
                     paceMPH = Double(pace!) * 2.237
                 }
             }
+            if self?.cadenceAval == 1 {
+                let cadence = pedometerData.currentCadence?.floatValue
+                // cadence comes in at steps per second, want steps per minute
+                // if cadence is nil, temp will just be 0 * 60 = 0 steps/min
+                
+                //tempCadence = cadence ?? 0 * 60
+                if cadence != nil {
+                    tempCadence = cadence! * 60
+                } else {
+                    tempCadence = 0
+                }
+            }
+            
             DispatchQueue.main.async {
+                if self?.cadenceAval == 1 {
+                    if tempCadence != nil {
+                        self?.cadenceLabel.text = String(format: "%.2f", tempCadence!) + " steps/min"
+                    } else {
+                        self?.cadenceLabel.text = pedometerData.currentCadence?.stringValue
+                    }
+                }
                 if self?.stepAval == 1 {
                     self?.stepCountLabel.text = String(describing: pedometerData.numberOfSteps)
                 }
