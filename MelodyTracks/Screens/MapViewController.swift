@@ -173,10 +173,13 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                 let cadence = pedometerData.currentCadence?.floatValue
                 // cadence comes in at steps per second, want steps per minute
                 // if cadence is nil, temp will just be 0 * 60 = 0 steps/min
-                let temp = cadence ?? 0 * 60
+                var tempCadence: Float = 0.0
+                if cadence != nil {
+                    tempCadence = cadence! * 60
+                }
                 
-                self?.currentCadence = temp
-                PedometerData.shared.currentCadence = temp
+                self?.currentCadence = tempCadence
+                PedometerData.shared.currentCadence = tempCadence
             }
             if self?.paceAval == true {
                 var pace = pedometerData.currentPace?.floatValue
