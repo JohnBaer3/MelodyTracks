@@ -93,6 +93,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         
         //Starts the timer upon screen load
         runTimer()
+        startUpdating()
         //Has to manually show bottom screen
         showBottomSheet()
     }
@@ -358,7 +359,9 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
      * Parameters: N/A
      */
     @objc func runTimer(){
-        startUpdating()
+        if !firstTimeUpdate {
+            startUpdating()
+        }
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
     /**
