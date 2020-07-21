@@ -13,6 +13,7 @@ import AVKit
 import CoreLocation
 import MapKit
 import CoreMotion
+import Dispatch
 
 class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLocationManagerDelegate, MKMapViewDelegate{
     //passed from MapViewController
@@ -86,8 +87,8 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         // view current location on map
         self.mapView.delegate = self
         mapView.showsUserLocation = true
-        mapView.mapType = MKMapType.standard
-        mapView.userTrackingMode = MKUserTrackingMode.follow
+        mapView.mapType = MKMapType(rawValue: 0)!
+        mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
         
         checkAuthStatus()
         
