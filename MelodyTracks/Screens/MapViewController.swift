@@ -49,12 +49,12 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
     var secondsElapsed = 0
     
     /*
-     * set of binary flags for auth status of different pedometer objects
+     * set of bool flags for auth status of different pedometer objects
      */
-    private var stepAval = 0
-    private var paceAval = 0
-    private var cadenceAval = 0
-    private var distanceAval = 0
+    private var stepAval = false
+    private var paceAval = false
+    private var cadenceAval = false
+    private var distanceAval = false
     private var firstTimeUpdate = true
     
     /*
@@ -108,19 +108,19 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
      */
     func checkAuthStatus() {
         if CMPedometer.isPaceAvailable() {
-            paceAval = 1
+            paceAval = true
         }
         
         if CMPedometer.isDistanceAvailable() {
-            distanceAval = 1
+            distanceAval = true
         }
         
         if CMPedometer.isStepCountingAvailable() {
-            stepAval = 1
+            stepAval = true
         }
         
         if CMPedometer.isCadenceAvailable() {
-            cadenceAval = 1
+            cadenceAval = true
         }
     }
     
@@ -169,7 +169,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                 return
             }
             // handler block
-            if self?.cadenceAval == 1 {
+            if self?.cadenceAval == true {
                 let cadence = pedometerData.currentCadence?.floatValue
                 // cadence comes in at steps per second, want steps per minute
                 // if cadence is nil, temp will just be 0 * 60 = 0 steps/min
@@ -178,7 +178,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                 self?.currentCadence = temp
                 PedometerData.shared.currentCadence = temp
             }
-            if self?.paceAval == 1 {
+            if self?.paceAval == true {
                 var pace = pedometerData.currentPace?.floatValue
                 // convert seconds per meter to m/s
                 // pace is initially set to nil, so need to test for that we can safely force unwrap during conversion
@@ -200,7 +200,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                     PedometerData.shared.footstepPace = nil
                 }
             }
-            if self?.distanceAval == 1 {
+            if self?.distanceAval == true {
                 let distance = pedometerData.distance?.floatValue
                 
                 // multiply distance by 6.24*10^(-4) for miles
@@ -211,7 +211,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                 self?.distance = distanceString
                 PedometerData.shared.distance = distanceString
             }
-            if self?.stepAval == 1 {
+            if self?.stepAval == true {
                 // numberOfSteps is not an optional, so no need to worry about unwrapping
                 
                 self?.footsteps = pedometerData.numberOfSteps.stringValue
