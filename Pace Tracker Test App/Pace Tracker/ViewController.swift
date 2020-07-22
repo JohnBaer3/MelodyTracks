@@ -3,7 +3,7 @@
     Built for spike in sprint 1
     Designed to practice measuring pace of user's phone
     Created 6/30/20
-    Last edited: 7/14/20
+    Last edited: 7/20/20
  */
 
 import UIKit
@@ -30,6 +30,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private var stepAval = 0
     private var paceAval = 0
     private var distanceAval = 0
+    private var cadenceAval = 0
+    private var firstTimeUpdate = 1
     
     /*
      * Map access objects
@@ -46,6 +48,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var currentPaceLabel: UILabel!
     @IBOutlet weak var activityTypeLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var cadenceLabel: UILabel!
+    
     // link to storyboard MKMapView
     @IBOutlet weak var mapView: MKMapView!
     
@@ -65,14 +69,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                locationManager.requestAlwaysAuthorization()
                locationManager.requestWhenInUseAuthorization()
            }
-        locationManager.startUpdatingLocation()
-        locationManager.startUpdatingHeading()
+        //locationManager.startUpdatingLocation()
+        //locationManager.startUpdatingHeading()
         
         // view current location on map
         self.mapView.delegate = self
         mapView.showsUserLocation = true
-        mapView.mapType = MKMapType(rawValue: 0)!
-        mapView.userTrackingMode = MKUserTrackingMode(rawValue: 2)!
+        mapView.mapType = MKMapType.standard
+        mapView.userTrackingMode = MKUserTrackingMode.follow
     }
     
     // evertime the view controller updates, update the steps and pace labels
@@ -188,9 +192,24 @@ extension ViewController {
             distanceLabel.text = "Distance tracking is not available"
         }
         
-        if stepAval == 1 || paceAval == 1 || distanceAval == 1 {
+        if CMPedometer.isCadenceAvailable() {
+            cadenceAval = 1
+        } else {
+            cadenceLabel.text = "Cadence tracking is not available"
+        }
+        
+        if stepAval == 1 || paceAval == 1 || distanceAval == 1 || cadenceAval == 1 {
             startCountingSteps()
         }
+        
+        /*
+        if firstTimeUpdate == 0 {
+            locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
+        }
+        */
+        locationManager.startUpdatingLocation()
+        locationManager.startUpdatingHeading()
     }
     
     // checck if the phone is allowed to access motion events as requested in the plist file
@@ -210,6 +229,10 @@ extension ViewController {
         activityManager.stopActivityUpdates()
         pedometer.stopUpdates()
         pedometer.stopEventUpdates()
+        locationManager.stopUpdatingLocation()
+        locationManager.stopUpdatingHeading()
+        firstTimeUpdate = 0
+        oldLocation = nil
     }
     
     private func error(error: Error) {
@@ -300,8 +323,9 @@ extension ViewController {
         pedometer.startUpdates(from: Date()) {
             [weak self] pedometerData, error in
             guard let pedometerData = pedometerData, error == nil else { return }
-            var pace: float_t?
-            var paceMPH: double_t?
+            var pace: Float?
+            var paceMPH: Double?
+            var tempCadence: Float?
             if self?.paceAval == 1 {
                 pace = pedometerData.currentPace?.floatValue
                 // convert seconds per meter to m/s
@@ -316,7 +340,27 @@ extension ViewController {
                     paceMPH = Double(pace!) * 2.237
                 }
             }
+            if self?.cadenceAval == 1 {
+                let cadence = pedometerData.currentCadence?.floatValue
+                // cadence comes in at steps per second, want steps per minute
+                // if cadence is nil, temp will just be 0 * 60 = 0 steps/min
+                
+                //tempCadence = cadence ?? 0 * 60
+                if cadence != nil {
+                    tempCadence = cadence! * 60
+                } else {
+                    tempCadence = 0
+                }
+            }
+            
             DispatchQueue.main.async {
+                if self?.cadenceAval == 1 {
+                    if tempCadence != nil {
+                        self?.cadenceLabel.text = String(format: "%.2f", tempCadence!) + " steps/min"
+                    } else {
+                        self?.cadenceLabel.text = pedometerData.currentCadence?.stringValue
+                    }
+                }
                 if self?.stepAval == 1 {
                     self?.stepCountLabel.text = String(describing: pedometerData.numberOfSteps)
                 }
