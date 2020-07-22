@@ -352,7 +352,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
             vc.SongsArr = SongsArr!
             vc.footstep = footsteps ?? "0"
             //Converts meters to miles
-            vc.distance = meterToMiles(meters: distance ?? "0")
+            vc.distance = distance ?? "0"
             vc.fpm = toFpm(steps: footsteps ?? "0", timeInSeconds: secondsElapsed)
             print(vc.fpm!)
             vc.modalPresentationStyle = .currentContext
