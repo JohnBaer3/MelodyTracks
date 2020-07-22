@@ -64,5 +64,11 @@
 	</array>
 	<key>NSAppleMusicUsageDescription</key>
 	<string>Play music while running</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Give access to your motion data to track your running pace</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Used to display location on map and track run</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>NSLocationWhenInUseUsageDescription</string>
 </dict>
 </plist>

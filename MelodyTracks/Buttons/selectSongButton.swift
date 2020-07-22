@@ -25,7 +25,7 @@ class selectSongButton: UIButton {
     * Parameters: N/A
     */
     func setSelectSongIcon(){
-        self.setTitle("Select Song", for: [])
+        self.setTitle("Select Songs", for: [])
     }
     /**
     * Method name: setSelectSongIcon
@@ -33,14 +33,14 @@ class selectSongButton: UIButton {
     * Parameters: N/A
     */
     func setSaveIcon(){
-        self.setTitle("Save", for: [])
+        self.setTitle("Start Run!", for: [])
     }
     /**
     * Method name: setBPMIcon
     * Description: sets the start button to show BPM button
     * Parameters: N/A
     */
-    func setBPMIcon(){
-        self.setTitle("Show BPM", for: [])
+    func setMPHIcon(){
+        self.setTitle("Show MPH", for: [])
     }
 }

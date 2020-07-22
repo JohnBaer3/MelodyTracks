@@ -24,6 +24,7 @@ class finishButton: UIButton {
      */
     func setInitialDetails(){
         self.layer.cornerRadius = 10
+        self.frame.size = CGSize(width: 374, height: 44)
         self.setFinish()
     }
     /**
