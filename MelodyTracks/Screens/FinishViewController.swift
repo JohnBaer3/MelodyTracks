@@ -29,10 +29,10 @@ class FinishViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //print(duration)
-        durationVal.text = "00:30:07"
-        stepsVal.text = String(1207) //PedometerData.shared.getSteps()
-        distanceVal.text = "3.62" //PedometerData.shared.getDistance()
-        bpmVal.text = "56" //fpm
+        durationVal.text = duration
+        stepsVal.text = PedometerData.shared.getSteps()
+        distanceVal.text = PedometerData.shared.getDistance()
+        bpmVal.text = fpm
         finalFinishButton.layer.cornerRadius = 10
         tableView.layer.cornerRadius = 10
         tableView.delegate = self
