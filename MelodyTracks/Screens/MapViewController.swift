@@ -98,10 +98,6 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         mapView.showsUserLocation = true
         mapView.mapType = MKMapType.standard
         mapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
-        let location = MKUserLocation()
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
-        self.mapView.setRegion(region, animated: true)
         
         checkAuthStatus()
         
@@ -113,6 +109,14 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         startUpdating()
         //Has to manually show bottom screen
         showBottomSheet()
+    }
+    
+    /*
+     * Method name: mapView()
+     * Description: mapView delegate function to set the tracking mode back to normal if it gets changed
+     */
+    func mapView(_ mapView: MKMapView, didChange mode: MKUserTrackingMode, animated: Bool) {
+        mapView.setUserTrackingMode(.followWithHeading, animated: true)
     }
     
     
@@ -207,9 +211,9 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
                     if pace != 0 {
                         pace = 1/pace!
                     }
-                    // turn pace into a type Double and convert to mph
+                    // convert pace in m/s to mph
                     // 1 m/s is 2.237 mph
-                    let temp = Double(pace!) * 2.237
+                    let temp = pace! * 2.237
                     let paceString = String(format: "%.2f", temp)
                     self!.paceMPH = paceString
                     PedometerData.shared.footstepPace = paceString
@@ -226,9 +230,9 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
             if self?.distanceAval == true {
                 let distance = pedometerData.distance?.floatValue
                 
+                // 1 m is 6.24*10^(-4) miles
                 // multiply distance by 6.24*10^(-4) for miles
                 // if distance returns as nil, the distance will just be 0
-                // return value will then just be 0
                 var tempDistance: Float = 0.0
                 if distance != nil {
                     tempDistance = distance! * 0.000621371
@@ -263,7 +267,7 @@ class MapViewController: UIViewController, FloatingPanelControllerDelegate, CLLo
         guard let newLocation = locations.last else {
             return
         }
-
+        
         // create temp local oldlocation
         // if previous location is nil, set it equal to current new location
         guard let oldLocation = self.oldLocation else {
@@ -501,14 +505,14 @@ class PedometerData {
      */
     func getPace() -> String {
         if CMPedometer.isPaceAvailable() {
-            return self.footstepPace ?? "0"
+            return self.footstepPace ?? "N/A"
         } else {
             return "N/A"
         }
     }
     
     /*
-    * Method name: getPace()
+    * Method name: getSteps()
     * Description: returns unwrapped string for current number of steps
     * Parameters: none
     */
@@ -521,7 +525,7 @@ class PedometerData {
     }
     
     /*
-    * Method name: getPace()
+    * Method name: getDistance()
     * Description: returns unwrapped string for current distance traveled
     * Parameters: none
     */
