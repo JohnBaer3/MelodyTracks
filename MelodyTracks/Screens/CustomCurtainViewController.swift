@@ -3,6 +3,8 @@
 //  MelodyTracks
 //
 //  Created by Daniel Loi on 7/6/20.
+// Lasted edited by John A. 7/23/20
+// Added engine deallocation after finish button
 //
 
 import UIKit
