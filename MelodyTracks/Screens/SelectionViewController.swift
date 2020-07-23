@@ -252,13 +252,15 @@ class SelectionViewController: UIViewController, MPMediaPickerControllerDelegate
             chosenMPH = Int(MPH.text!)!
         }
     }
-    /**
+    
+    /*
      * Method name: unwindToSelectionViewController
      * Description: used by the Finish button in the finish view controller to jump back to the selection view screen
      * Parameters: N/A
      */
-//    @IBAction func unwindToSelectionViewController(segue:UIStoryboardSegue) { }
-    /**
+    @IBAction func unwindToSelectionViewController(segue:UIStoryboardSegue) { }
+    
+    /*
     * Method name: saveButtonTapped
     * Description: Once tapped, this button dismisses the view and returns the previous screen. It also sends data to the previous screen.
     * Parameters: the UI element mapped to this function
