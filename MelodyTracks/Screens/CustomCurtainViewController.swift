@@ -160,6 +160,7 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
         //pause song when leaving this screen
         //DO NOT REMOVE THIS CHECK. REMOVAL WILL RESULT IN CRASHES WHEN ATTEMPTING TO START PLAYER AGAIN FROM SELECTION VIEW.
         if audioPlayer!.isPlaying{
+            engine.stop()
             playPauseClickedHelper()
         }
         NotificationCenter.default.post(name: FinishViewController.finishScreenDataNotification, object: nil, userInfo:["play": false])
