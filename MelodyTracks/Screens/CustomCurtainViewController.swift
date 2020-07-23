@@ -30,9 +30,6 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     //var audioPlayer = MPMusicPlayerController.systemMusicPlayer
     var PlayPauseBool = true
     // set notification name
-    //static let selectionViewNotification = Notification.Name("selectionViewNotification")
-    //static let homeScreenFinishNotification = Notification.Name("homeScreenFinishNotification")
-    //static let showMPHNotification = Notification.Name("showMPHNotification")
 
     @IBOutlet weak var song: UILabel!
     @IBOutlet weak var artist: UILabel!
@@ -42,17 +39,13 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var finishButton: finishButton!
     
-    
     @IBOutlet weak var testBPMLabel: UILabel!
-    
-    
-    
+
     let engine = AVAudioEngine()
     let speedControl = AVAudioUnitVarispeed()
     let pitchControl = AVAudioUnitTimePitch()
     
     var timer = Timer()
-    var time: Int? = nil
     
     var smartBPM: Float = 0
     
@@ -68,7 +61,6 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
         albumCover.layer.cornerRadius = 10
         finishButton.setInitialDetails()
         
-        
         //Starts music when view loads
         playPauseClickedHelper()
         if !manualSmart{
@@ -76,11 +68,30 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
         }else{
             smartBPM = currentSong!.BPM
         }
-        timerStart()
+        scheduledTimer()
     }
     
     
-    
+    func scheduledTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+    }
+    @objc func updateCounting(){
+        DispatchQueue.global(qos: .background).async {
+            print("This is run on the background queue")
+            let cadence=PedometerData.shared.getCadence()
+            
+            if(manualSmart){
+                if cadence > 50{
+                    self.smartBPM = self.changeSpeedToFootsteps(bpm: self.smartBPM, footStepFreq: cadence)
+                }else{
+                    self.smartBPM = self.currentSong!.BPM
+                }
+            }
+            /*DispatchQueue.main.async {
+                print("This is run on the main queue, after the previous code in outer block")
+            }*/
+        }
+    }
     /**
     * Method name: startTimer
     * Description: starts timer
@@ -88,25 +99,14 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     * Output: newBPM of song to be played at
     * Alters: playback pitch and rate to account for new bpm
     */
-    func timerStart(){
+    /*func timerStart(){
         DispatchQueue.global(qos: .background).async {
-            Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
-                let cadence=PedometerData.shared.getCadence()
+            self.timer_test = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
                 
-                if(manualSmart){
-                    if cadence > 50{
-                        self.smartBPM = self.changeSpeedToFootsteps(bpm: self.smartBPM, footStepFreq: cadence)
-                    }else{
-                        self.smartBPM = self.currentSong!.BPM
-                    }
-                }
             }
             RunLoop.current.run()
         }
-    }
-    
-    
-    
+    }*/
     
     /**
      * Method name: changeSpeedToFootsteps
@@ -147,8 +147,6 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
             speedControl.rate -= 1 - rate
         }
         
-        
-        
         print("Initial BPM: \(bpm)\nNewBpm: \(newBPM)\nRate: \(rate)\nPitch Change: \(pitch)\n")
         return newBPM
     }
@@ -161,10 +159,12 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
         print("finished")
         //pause song when leaving this screen
         //DO NOT REMOVE THIS CHECK. REMOVAL WILL RESULT IN CRASHES WHEN ATTEMPTING TO START PLAYER AGAIN FROM SELECTION VIEW.
+        engine.inputNode.removeTap(onBus: 0)
+        engine.stop()
         if audioPlayer!.isPlaying{
-            engine.stop()
             playPauseClickedHelper()
         }
+        timer.invalidate()
         NotificationCenter.default.post(name: FinishViewController.finishScreenDataNotification, object: nil, userInfo:["play": false])
         NotificationCenter.default.post(name: MapViewController.finishNotification, object: nil, userInfo:["play": false])
     }
