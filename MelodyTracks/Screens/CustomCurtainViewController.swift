@@ -73,11 +73,11 @@ class CustomCurtainViewController: UIViewController, MPMediaPickerControllerDele
     
     
     func scheduledTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(self.updateCounting), userInfo: nil, repeats: true)
     }
     @objc func updateCounting(){
         DispatchQueue.global(qos: .background).async {
-            print("This is run on the background queue")
+            //print("This is run on the background queue")
             let cadence=PedometerData.shared.getCadence()
             
             if(manualSmart){
