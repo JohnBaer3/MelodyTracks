@@ -2,7 +2,11 @@
 
 MelodyTracks is an iOS application that syncs a user's foosteps with the BPM of a song. 
 
-This web application is the result of a project from CSE115, UC Santa Cruz, Summer Session 1 2020.
+This mobile application is the result of a project from CSE115, UC Santa Cruz, Summer Session 1 2020.
+
+
+### Video of our app in action:
+https://vimeo.com/440508022
 
 ### Installing
 
